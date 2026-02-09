@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trending Sneakers 2025 | Sneaker-Spotlight</title>
+    <meta name="description" content="Discover the hottest trending sneakers of 2025. Sneaker-Spotlight's curated list of the most popular Puma, Nike, Adidas, and New Balance shoes with direct purchase links.">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .trending-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        .trending-filters {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+        .filter-btn {
+            background: #1a1a1a;
+            border: 2px solid #333;
+            color: #a1a1aa;
+            padding: 10px 20px;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .filter-btn.active,
+        .filter-btn:hover {
+            border-color: #ff3e00;
+            color: #fff;
+            background: #2a1a15;
+        }
+        .trending-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        .trending-card {
+            background: #1a1a1a;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
+        .trending-card:hover {
+            transform: translateY(-5px);
+        }
+        .trending-rank {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: #ff3e00;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 1.2rem;
+            z-index: 2;
+        }
+        .trending-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .trending-content {
+            padding: 1.5rem;
+        }
+        .trending-brand {
+            color: #ff3e00;
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .trending-name {
+            color: #fff;
+            font-size: 1.3rem;
+            margin: 0.5rem 0;
+        }
+        .trending-desc {
+            color: #a1a1aa;
+            font-size: 0.95rem;
+            line-height: 1.5;
+            margin-bottom: 1rem;
+        }
+        .trending-stats {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid #333;
+        }
+        .trending-price {
+            color: #fff;
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <div class="container">
+            <a href="index.html" class="logo">Sneaker-<span>Spotlight</span></a>
+            <nav class="main-nav">
+                <a href="index.html">Home</a>
+                <a href="trending.html" class="active">Trending</a>
+                <a href="brands.html">Brands</a>
+                <a href="comparison.html">Compare</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="page-content">
+        <div class="container">
+            <div class="trending-header">
+                <h1>🔥 Trending Sneakers 2025</h1>
+                <p class="page-intro">Our curated selection of the hottest sneakers right now. Updated weekly based on search trends, social buzz, and market demand.</p>
+            </div>
+
+            <!-- Filters -->
+            <div class="trending-filters">
+                <button class="filter-btn active" data-filter="all">All Trends</button>
+                <button class="filter-btn" data-filter="puma">Puma</button>
+                <button class="filter-btn" data-filter="nike">Nike</button>
+                <button class="filter-btn" data-filter="adidas">Adidas</button>
+                <button class="filter-btn" data-filter="newbalance">New Balance</button>
+            </div>
+
+            <!-- Trending Grid -->
+            <div class="trending-grid">
+                <!-- Item 1 -->
+                <article class="trending-card" data-brand="puma">
+                    <div class="trending-rank">#1</div>
+                    <img src="assets/images/trending1.jpg" alt="Puma Speedcat" class="trending-image">
+                    <div class="trending-content">
+                        <div class="trending-brand">Puma</div>
+                        <h3 class="trending-name">Puma Speedcat</h3>
+                        <p class="trending-desc">The Y2K racing icon dominates 2025 with multiple colorway releases. Perfect blend of retro aesthetics and modern comfort.</p>
+                        <div class="trending-stats">
+                            <span class="trending-price">$89.99</span>
+                            <a href="puma-speedcat.html" class="cta-button small">View Details</a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Item 2 -->
+                <article class="trending-card" data-brand="nike">
+                    <div class="trending-rank">#2</div>
+                    <img src="assets/images/trending2.jpg" alt="Nike Dunk Low" class="trending-image">
+                    <div class="trending-content">
+                        <div class="trending-brand">Nike</div>
+                        <h3 class="trending-name">Nike Dunk Low "Archetype"</h3>
+                        <p class="trending-desc">The latest Dunk iteration features premium materials and clean color blocking. Streetwear essential with timeless appeal.</p>
+                        <div class="trending-stats">
+                            <span class="trending-price">$110.00</span>
+                            <a href="nike-dunk-low.html" class="cta-button small">View Details</a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Item 3 -->
+                <article class="trending-card" data-brand="adidas">
+                    <div class="trending-rank">#3</div>
+                    <img src="assets/images/trending3.jpg" alt="Adidas Samba OG" class="trending-image">
+                    <div class="trending-content">
+                        <div class="trending-brand">Adidas</div>
+                        <h3 class="trending-name">Adidas Samba OG</h3>
+                        <p class="trending-desc">Football heritage meets everyday style. The clean white/green colorway remains the most sought-after version.</p>
+                        <div class="trending-stats">
+                            <span class="trending-price">$100.00</span>
+                            <a href="adidas-samba.html" class="cta-button small">View Details</a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Item 4 -->
+                <article class="trending-card" data-brand="newbalance">
+                    <div class="trending-rank">#4</div>
+                    <img src="assets/images/trending4.jpg" alt="New Balance 550" class="trending-image">
+                    <div class="trending-content">
+                        <div class="trending-brand">New Balance</div>
+                        <h3 class="trending-name">New Balance 550 White/Green</h3>
+                        <p class="trending-desc">Vintage basketball styling with premium leather construction. The cleanest colorway of the popular 550 model.</p>
+                        <div class="trending-stats">
+                            <span class="trending-price">$120.00</span>
+                            <a href="new-balance-550.html" class="cta-button small">View Details</a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Item 5 -->
+                <article class="trending-card" data-brand="puma">
+                    <div class="trending-rank">#5</div>
+                    <img src="assets/images/trending5.jpg" alt="Puma Palermo" class="trending-image">
+                    <div class="trending-content">
+                        <div class="trending-brand">Puma</div>
+                        <h3 class="trending-name">Puma Palermo</h3>
+                        <p class="trending-desc">The 80s tennis classic makes a major comeback. Sleek leather upper with iconic Formstrip branding.</p>
+                        <div class="trending-stats">
+                            <span class="trending-price">$85.00</span>
+                            <a href="puma-palermo.html" class="cta-button small">View Details</a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Item 6 -->
+                <article class="trending-card" data-brand="nike">
+                    <div class="trending-rank">#6</div>
+                    <img src="assets/images/trending6.jpg" alt="Nike Air Max 1" class="trending-image">
+                    <div class="trending-content">
+                        <div class="trending-brand">Nike</div>
+                        <h3 class="trending-name">Nike Air Max 1 '86</h3>
+                        <p class="trending-desc">Original 1986 specifications with premium materials. The definitive Air Max 1 for collectors and enthusiasts.</p>
+                        <div class="trending-stats">
+                            <span class="trending-price">$150.00</span>
+                            <a href="nike-airmax1.html" class="cta-button small">View Details</a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+
+            <!-- Newsletter -->
+            <section class="newsletter" style="margin-top: 4rem; padding: 2rem; background: #1a1a1a; border-radius: 10px; text-align: center;">
+                <h3>📈 Stay Updated on Trends</h3>
+                <p>Get weekly updates on the hottest sneakers directly to your inbox.</p>
+                <form class="newsletter-form" style="max-width: 500px; margin: 1.5rem auto; display: flex; gap: 10px;">
+                    <input type="email" placeholder="Your email address" style="flex-grow: 1; padding: 12px; border-radius: 5px; border: 1px solid #333; background: #0a0a0a; color: white;">
+                    <button type="submit" class="cta-button">Subscribe</button>
+                </form>
+            </section>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Sneaker-Spotlight</h3>
+                    <p>Your guide to the hottest sneaker trends.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Explore</h3>
+                    <a href="index.html">Home</a>
+                    <a href="brands.html">Brands</a>
+                    <a href="comparison.html">Comparisons</a>
+                </div>
+                <div class="footer-section">
+                    <h3>Transparency</h3>
+                    <p class="affiliate-disclaimer">We earn commissions through affiliate links, which support our research.</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Sneaker-Spotlight. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple filter functionality
+        document.querySelectorAll('.filter-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                // Update active button
+                document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+                this.classList.add('active');
+                
+                // Filter cards
+                const filter = this.getAttribute('data-filter');
+                document.querySelectorAll('.trending-card').forEach(card => {
+                    if (filter === 'all' || card.getAttribute('data-brand') === filter) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
