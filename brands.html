@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sneaker Brands | Sneaker-Spotlight</title>
+    <meta name="description" content="Explore all major sneaker brands on Sneaker-Spotlight. Detailed guides to Puma, Nike, Adidas, New Balance and their most popular models with purchase links.">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .brands-hero {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        .brands-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        .brand-card-large {
+            background: #1a1a1a;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
+        .brand-card-large:hover {
+            transform: translateY(-5px);
+        }
+        .brand-header {
+            padding: 2rem;
+            text-align: center;
+            border-bottom: 1px solid #333;
+        }
+        .brand-logo {
+            height: 60px;
+            margin-bottom: 1rem;
+        }
+        .brand-name {
+            color: #fff;
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+        .brand-desc {
+            color: #a1a1aa;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+        .brand-models {
+            padding: 1.5rem;
+        }
+        .brand-models h3 {
+            color: #ff3e00;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+        .model-list {
+            list-style: none;
+        }
+        .model-list li {
+            padding: 0.8rem 0;
+            border-bottom: 1px solid #222;
+        }
+        .model-list li:last-child {
+            border-bottom: none;
+        }
+        .model-link {
+            color: #fff;
+            text-decoration: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .model-link:hover {
+            color: #ff3e00;
+        }
+        .model-price {
+            color: #a1a1aa;
+            font-size: 0.9rem;
+        }
+        .brand-link {
+            display: block;
+            text-align: center;
+            padding: 1rem;
+            background: #252525;
+            color: #ff3e00;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .brand-link:hover {
+            background: #2a1a15;
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <div class="container">
+            <a href="index.html" class="logo">Sneaker-<span>Spotlight</span></a>
+            <nav class="main-nav">
+                <a href="index.html">Home</a>
+                <a href="trending.html">Trending</a>
+                <a href="brands.html" class="active">Brands</a>
+                <a href="comparison.html">Compare</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="page-content">
+        <div class="container">
+            <div class="brands-hero">
+                <h1>👟 Explore Sneaker Brands</h1>
+                <p class="page-intro">Discover the heritage, technology, and signature models from the world's leading sneaker brands. Click any model for detailed reviews and purchase options.</p>
+            </div>
+
+            <!-- Brands Grid -->
+            <div class="brands-grid">
+                <!-- Puma -->
+                <article class="brand-card-large">
+                    <div class="brand-header">
+                        <img src="assets/images/puma-logo.png" alt="Puma Logo" class="brand-logo">
+                        <h2 class="brand-name">Puma</h2>
+                        <p class="brand-desc">German sportswear giant known for motorsport heritage, innovative running technology, and iconic lifestyle silhouettes.</p>
+                    </div>
+                    <div class="brand-models">
+                        <h3>Popular Models</h3>
+                        <ul class="model-list">
+                            <li>
+                                <a href="puma-speedcat.html" class="model-link">
+                                    <span>Speedcat</span>
+                                    <span class="model-price">$89.99</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="puma-palermo.html" class="model-link">
+                                    <span>Palermo</span>
+                                    <span class="model-price">$85.00</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="puma-rs-x.html" class="model-link">
+                                    <span>RS-X</span>
+                                    <span class="model-price">$110.00</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="puma-suede.html" class="model-link">
+                                    <span>Suede Classic</span>
+                                    <span class="model-price">$75.00</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <a href="puma.html" class="brand-link">View All Puma Reviews →</a>
+                </article>
+
+                <!-- Nike -->
+                <article class="brand-card-large">
+                    <div class="brand-header">
+                        <img src="assets/images/nike-logo.png" alt="Nike Logo" class="brand-logo">
+                        <h2 class="brand-name">Nike</h2>
+                        <p class="brand-desc">The world's largest sportswear company, revolutionizing athletic footwear with Air technology and cultural icons.</p>
+                    </div>
+                    <div class="brand-models">
+                        <h3>Popular Models</h3>
+                        <ul class="model-list">
+                            <li>
+                                <a href="nike-dunk-low.html" class="model-link">
+                                    <span>Dunk Low</span>
+                                    <span class="model-price">$110.00</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="nike-airmax1.html" class="model-link">
+                                    <span>Air Max 1</span>
+                                    <span class="model-price">$150.00</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="nike-air-force.html" class="model-link">
+                                    <span>Air Force 1</span>
+                                    <span class="model-price">$100.00</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="nike-pegasus.html" class="model-link">
+                                    <span>Pegasus 41</span>
+                                    <span class="model-price">$130.00</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <a href="nike.html" class="brand-link">View All Nike Reviews →</a>
+                </article>
+
+                <!-- Adidas -->
+                <article class="brand-card-large">
+                    <div class="brand-header">
+                        <img src="assets/images/adidas-logo.png" alt="Adidas Logo" class="brand-logo">
+                        <h2 class="brand-name">Adidas</h2>
+                        <p class="brand-desc">German powerhouse famous for football heritage, Boost cushioning, and collaborations with designers and artists.</p>
+                    </div>
+                    <div class="brand-models">
+                        <h3>Popular Models</h3>
+                        <ul class="model-list">
+                            <li>
+                                <a href="adidas-samba.html" class="model-link">
+                                    <span>Samba OG</span>
+                                    <span class="model-price">$100.00</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="adidas-gazelle.html" class="model-link">
+                                    <span>Gazelle</span>
+                                    <span class="model-price">$95.00</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="adidas-ultraboost.html" class="model-link">
+                                    <span>Ultraboost Light</span>
+                                    <span class="model-price">$190.00</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="adidas-superstar.html" class="model-link">
+                                    <span>Superstar</span>
+                                    <span class="model-price">$90.00</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <a href="adidas.html" class="brand-link">View All Adidas Reviews →</a>
+                </article>
+
+                <!-- New Balance -->
+                <article class="brand-card-large">
+                    <div class="brand-header">
+                        <img src="assets/images/nb-logo.png" alt="New Balance Logo" class="brand-logo">
+                        <h2 class="brand-name">New Balance</h2>
+                        <p class="brand-desc">American brand celebrated for quality craftsmanship, "Made in USA/UK" lines, and premium lifestyle collaborations.</p>
+                    </div>
+                    <div class="brand-models">
+                        <h3>Popular Models</h3>
+                        <ul class="model-list">
+                            <li>
+                                <a href="new-balance-550.html" class="model-link">
+                                    <span>550</span>
+                                    <span class="model-price">$120.00</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="new-balance-990.html" class="model-link">
+                                    <span>990v6</span>
+                                    <span class="model-price">$185.00</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="new-balance-2002r.html" class="model-link">
+                                    <span>2002R</span>
+                                    <span class="model-price">$150.00</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="new-balance-574.html" class="model-link">
+                                    <span>574 Core</span>
+                                    <span class="model-price">$90.00</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <a href="new-balance.html" class="brand-link">View All New Balance Reviews →</a>
+                </article>
+            </div>
+
+            <!-- Brand Comparison -->
+            <section class="brand-comparison" style="margin-top: 4rem; padding: 2.5rem; background: #1a1a1a; border-radius: 10px;">
+                <h3 style="text-align: center; margin-bottom: 1.5rem;">🤔 Which Brand is Right For You?</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem;">
+                    <div style="padding: 1rem; border-left: 3px solid #ff3e00;">
+                        <h4 style="color: #fff; margin-bottom: 0.5rem;">For Performance Runners</h4>
+                        <p style="color: #a1a1aa; font-size: 0.95rem;">Nike and Adidas lead with advanced cushioning technologies like Air and Boost.</p>
+                    </div>
+                    <div style="padding: 1rem; border-left: 3px solid #ff3e00;">
+                        <h4 style="color: #fff; margin-bottom: 0.5rem;">For Retro & Lifestyle</h4>
+                        <p style="color: #a1a1aa; font-size: 0.95rem;">New Balance and Puma offer premium heritage styles with modern comfort.</p>
+                    </div>
+                    <div style="padding: 1rem; border-left: 3px solid #ff3e00;">
+                        <h4 style="color: #fff; margin-bottom: 0.5rem;">For Streetwear Cred</h4>
+                        <p style="color: #a1a1aa; font-size: 0.95rem;">Nike Dunks and Adidas Sambas dominate urban fashion cycles.</p>
+                    </div>
+                </div>
+                <div style="text-align: center; margin-top: 2rem;">
+                    <a href="comparison.html" class="cta-button">Compare Brands In Detail →</a>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Sneaker-Spotlight</h3>
+                    <p>Your comprehensive guide to sneaker brands.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Brand Guides</h3>
+                    <a href="puma.html">Puma</a>
+                    <a href="nike.html">Nike</a>
+                    <a href="adidas.html">Adidas</a>
+                </div>
+                <div class="footer-section">
+                    <h3>Research</h3>
+                    <p class="affiliate-disclaimer">Our brand analysis is independent and supported by affiliate links.</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Sneaker-Spotlight. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
