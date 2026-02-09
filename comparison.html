@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sneaker Comparison Tool | Sneaker-Spotlight</title>
+    <meta name="description" content="Compare sneakers side-by-side on Sneaker-Spotlight. Detailed comparisons of Puma, Nike, Adidas, and New Balance models to help you choose the perfect pair.">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .comparison-hero {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        .comparison-tool {
+            background: #1a1a1a;
+            border-radius: 10px;
+            padding: 2rem;
+            margin-bottom: 3rem;
+        }
+        .tool-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        .shoe-selector {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+        @media (max-width: 768px) {
+            .shoe-selector {
+                grid-template-columns: 1fr;
+            }
+        }
+        .selector-box {
+            background: #252525;
+            padding: 1.5rem;
+            border-radius: 10px;
+        }
+        .selector-box h3 {
+            color: #ff3e00;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+        .shoe-dropdown {
+            width: 100%;
+            padding: 12px;
+            border-radius: 5px;
+            border: 1px solid #333;
+            background: #0a0a0a;
+            color: white;
+            font-size: 1rem;
+            margin-bottom: 1rem;
+        }
+        .selected-shoe {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-top: 1rem;
+            padding: 1rem;
+            background: #1a1a1a;
+            border-radius: 5px;
+            border: 1px solid #333;
+        }
+        .selected-shoe img {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+        .selected-shoe-info h4 {
+            color: #fff;
+            margin-bottom: 5px;
+        }
+        .selected-shoe-info p {
+            color: #a1a1aa;
+            font-size: 0.9rem;
+        }
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 2rem;
+        }
+        .comparison-table th {
+            background: #252525;
+            color: #fff;
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 2px solid #333;
+        }
+        .comparison-table td {
+            padding: 1rem;
+            border-bottom: 1px solid #333;
+            color: #a1a1aa;
+        }
+        .comparison-table tr:hover {
+            background: #222;
+        }
+        .spec-value {
+            color: #fff;
+            font-weight: 600;
+        }
+        .winner-cell {
+            background: #1a2a1a;
+            color: #4CAF50;
+            font-weight: 600;
+        }
+        .comparison-verdict {
+            background: #1a1a1a;
+            border-radius: 10px;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+        .verdict-header {
+            color: #ff3e00;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+        .verdict-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-top: 1.5rem;
+        }
+        @media (max-width: 768px) {
+            .verdict-content {
+                grid-template-columns: 1fr;
+            }
+        }
+        .verdict-box {
+            padding: 1.5rem;
+            border-radius: 5px;
+            border: 1px solid #333;
+        }
+        .verdict-box h4 {
+            color: #fff;
+            margin-bottom: 1rem;
+        }
+        .pros-cons {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        .pros-list, .cons-list {
+            list-style: none;
+        }
+        .pros-list li:before {
+            content: "✓ ";
+            color: #4CAF50;
+            font-weight: bold;
+        }
+        .cons-list li:before {
+            content: "✗ ";
+            color: #f44336;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <div class="container">
+            <a href="index.html" class="logo">Sneaker-<span>Spotlight</span></a>
+            <nav class="main-nav">
+                <a href="index.html">Home</a>
+                <a href="trending.html">Trending</a>
+                <a href="brands.html">Brands</a>
+                <a href="comparison.html" class="active">Compare</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="page-content">
+        <div class="container">
+            <div class="comparison-hero">
+                <h1>⚖️ Sneaker Comparison Tool</h1>
+                <p class="page-intro">Can't decide between two sneakers? Use our comparison tool to see side-by-side specifications, pros/cons, and get personalized recommendations.</p>
+            </div>
+
+            <!-- Comparison Tool -->
+            <section class="comparison-tool">
+                <div class="tool-header">
+                    <h2 style="color: #fff;">Select Two Sneakers to Compare</h2>
+                    <button id="compare-btn" class="cta-button">Compare Now</button>
+                </div>
+
+                <div class="shoe-selector">
+                    <!-- Shoe 1 Selector -->
+                    <div class="selector-box">
+                        <h3>Shoe #1</h3>
+                        <select class="shoe-dropdown" id="shoe1-select">
+                            <option value="">Select a sneaker...</option>
+                            <option value="puma-speedcat">Puma Speedcat</option>
+                            <option value="nike-dunk">Nike Dunk Low</option>
+                            <option value="adidas-samba">Adidas Samba OG</option>
+                            <option value="nb-550">New Balance 550</option>
+                            <option value="puma-palermo">Puma Palermo</option>
+                            <option value="nike-airmax">Nike Air Max 1</option>
+                        </select>
+                        <div id="shoe1-display" class="selected-shoe" style="display: none;">
+                            <!-- Dynamic content will appear here -->
+                        </div>
+                    </div>
+
+                    <!-- Shoe 2 Selector -->
+                    <div class="selector-box">
+                        <h3>Shoe #2</h3>
+                        <select class="shoe-dropdown" id="shoe2-select">
+                            <option value="">Select a sneaker...</option>
+                            <option value="puma-speedcat">Puma Speedcat</option>
+                            <option value="nike-dunk">Nike Dunk Low</option>
+                            <option value="adidas-samba">Adidas Samba OG</option>
+                            <option value="nb-550">New Balance 550</option>
+                            <option value="puma-palermo">Puma Palermo</option>
+                            <option value="nike-airmax">Nike Air Max 1</option>
+                        </select>
+                        <div id="shoe2-display" class="selected-shoe" style="display: none;">
+                            <!-- Dynamic content will appear here -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Comparison Results (Initially Hidden) -->
+                <div id="comparison-results" style="display: none;">
+                    <h3 style="color: #fff; margin-top: 2rem;">📊 Side-by-Side Comparison</h3>
+                    
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th>Specification</th>
+                                <th id="shoe1-name">Shoe 1</th>
+                                <th id="shoe2-name">Shoe 2</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Best For</td>
+                                <td id="shoe1-bestfor" class="spec-value"></td>
+                                <td id="shoe2-bestfor" class="spec-value"></td>
+                            </tr>
+                            <tr>
+                                <td>Price</td>
+                                <td id="shoe1-price" class="spec-value"></td>
+                                <td id="shoe2-price" class="spec-value"></td>
+                            </tr>
+                            <tr>
+                                <td>Weight (Size 9)</td>
+                                <td id="shoe1-weight" class="spec-value"></td>
+                                <td id="shoe2-weight" class="spec-value"></td>
+                            </tr>
+                            <tr>
+                                <td>Materials</td>
+                                <td id="shoe1-materials" class="spec-value"></td>
+                                <td id="shoe2-materials" class="spec-value"></td>
+                            </tr>
+                            <tr>
+                                <td>Release Type</td>
+                                <td id="shoe1-release" class="spec-value"></td>
+                                <td id="shoe2-release" class="spec-value"></td>
+                            </tr>
+                            <tr>
+                                <td>Comfort Rating</td>
+                                <td id="shoe1-comfort" class="spec-value"></td>
+                                <td id="shoe2-comfort" class="spec-value"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <!-- Verdict -->
+                    <div class="comparison-verdict">
+                        <h3 class="verdict-header">🏆 Our Verdict</h3>
+                        <p id="verdict-text" style="color: #a1a1aa;">Select two sneakers above to see our detailed comparison and recommendation.</p>
+                        
+                        <div class="verdict-content">
+                            <div class="verdict-box">
+                                <h4 id="shoe1-verdict-title">Shoe 1</h4>
+                                <div class="pros-cons">
+                                    <div>
+                                        <h5 style="color: #4CAF50;">Pros</h5>
+                                        <ul id="shoe1-pros" class="pros-list"></ul>
+                                    </div>
+                                    <div>
+                                        <h5 style="color: #f44336;">Cons</h5>
+                                        <ul id="shoe1-cons" class="cons-list"></ul>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="verdict-box">
+                                <h4 id="shoe2-verdict-title">Shoe 2</h4>
+                                <div class="pros-cons">
+                                    <div>
+                                        <h5 style="color: #4CAF50;">Pros</h5>
+                                        <ul id="shoe2-pros" class="pros-list"></ul>
+                                    </div>
+                                    <div>
+                                        <h5 style="color: #f44336;">Cons</h5>
+                                        <ul id="shoe2-cons" class="cons-list"></ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div style="text-align: center; margin-top: 2rem;">
+                            <p id="recommendation-text" style="color: #fff; font-size: 1.1rem;"></p>
+                            <div id="purchase-links" style="margin-top: 1rem; display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;"></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Popular Comparisons -->
+            <section class="popular-comparisons" style="margin-top: 4rem;">
+                <h2 style="text-align: center; margin-bottom: 2rem; color: #fff;">Popular Comparisons</h2>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem;">
+                    <div style="background: #1a1a1a; padding: 1.5rem; border-radius: 10px;">
+                        <h4 style="color: #ff3e00; margin-bottom: 1rem;">Puma Speedcat vs. Nike Dunk Low</h4>
+                        <p style="color: #a1a1aa; margin-bottom: 1rem;">Which retro sneaker offers better value and comfort for everyday wear?</p>
+                        <a href="puma-vs-nike-comparison.html" style="color: #ff3e00; text-decoration: none; font-weight: 600;">Read Full Comparison →</a>
+                    </div>
+                    <div style="background: #1a1a1a; padding: 1.5rem; border-radius: 10px;">
+                        <h4 style="color: #ff3e00; margin-bottom: 1rem;">Adidas Samba vs. New Balance 550</h4>
+                        <p style="color: #a1a1aa; margin-bottom: 1rem;">Heritage styles compared: football classic vs. basketball throwback.</p>
+                        <a href="adidas-vs-nb-comparison.html" style="color: #ff3e00; text-decoration: none; font-weight: 600;">Read Full Comparison →</a>
+                    </div>
+                    <div style="background: #1a1a1a; padding: 1.5rem; border-radius: 10px;">
+                        <h4 style="color: #ff3e00; margin-bottom: 1rem;">Best Running Shoes Under $150</h4>
+                        <p style="color: #a1a1aa; margin-bottom: 1rem;">Nike Pegasus vs. Adidas Supernova vs. Puma Velocity Nitro compared.</p>
+                        <a href="running-shoes-comparison.html" style="color: #ff3e00; text-decoration: none; font-weight: 600;">Read Full Comparison →</a>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Sneaker-Spotlight</h3>
+                    <p>Making sneaker choices easier with detailed comparisons.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Tools</h3>
+                    <a href="trending.html">Trending Tool</a>
+                    <a href="brands.html">Brand Guide</a>
+                    <a href="comparison.html">Comparison Tool</a>
+                </div>
+                <div class="footer-section">
+                    <h3>Methodology</h3>
+                    <p class="affiliate-disclaimer">Our comparisons are based on hands-on testing, not brand partnerships.</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Sneaker-Spotlight. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Sneaker database
+        const sneakerDatabase = {
+            "puma-speedcat": {
+                name: "Puma Speedcat",
+                image: "assets/images/puma-speedcat-thumb.jpg",
+                price: "$89.99",
+                bestFor: "Casual Wear, Retro Style",
+                weight: "285g",
+                materials: "Suede, Leather",
+                release: "2024 Revival",
+                comfort: "8.5/10",
+                pros: ["Authentic retro styling", "Great price point", "Lightweight construction"],
+                cons: ["Limited cushioning", "Narrow fit for some", "Suede requires care"]
+            },
+            "nike-dunk": {
+                name: "Nike Dunk Low",
+                image: "assets/images/nike-dunk-thumb.jpg",
+                price: "$110.00",
+                bestFor: "Streetwear, Skate Style",
+                weight: "410g",
+                materials: "Leather, Rubber",
+                release: "2025 Release",
+                comfort: "7.5/10",
+                pros: ["Iconic silhouette", "Durable construction", "Wide colorway selection"],
+                cons: ["Heavier than most", "Stiff out-of-box", "Higher price point"]
+            },
+            "adidas-samba": {
+                name: "Adidas Samba OG",
+                image: "assets/images/adidas-samba-thumb.jpg",
+                price: "$100.00",
+                bestFor: "Minimalist Style, Everyday Wear",
+                weight: "320g",
+                materials: "Leather, Gum Rubber",
+                release: "Classic Reissue",
+                comfort: "8.0/10",
+                pros: ["Timeless design", "Versatile styling", "Comfortable fit"],
+                cons: ["Thin sole", "Limited arch support", "Common sizing issues"]
+            },
+            "nb-550": {
+                name: "New Balance 550",
+                image: "assets/images/nb-550-thumb.jpg",
+                price: "$120.00",
+                bestFor: "Retro Basketball, Lifestyle",
+                weight: "350g",
+                materials: "Premium Leather",
+                release: "2024 Colorway",
+                comfort: "8.0/10",
+                pros: ["Premium materials", "Excellent craftsmanship", "Good arch support"],
+                cons: ["Higher price", "Limited availability", "Runs slightly large"]
+            },
+            "puma-palermo": {
+                name: "Puma Palermo",
+                image: "assets/images/puma-palermo-thumb.jpg",
+                price: "$85.00",
+                bestFor: "Tennis Style, Lightweight Wear",
+                weight: "270g",
+                materials: "Smooth Leather",
+                release: "2024 Revival",
+                comfort: "8.5/10",
+                pros: ["Lightweight design", "Clean aesthetic", "Affordable price"],
+                cons: ["Less support", "Basic cushioning", "Few color options"]
+            },
+            "nike-airmax": {
+                name: "Nike Air Max 1",
+                image: "assets/images/nike-airmax-thumb.jpg",
+                price: "$150.00",
+                bestFor: "Comfort, Fashion Statement",
+                weight: "340g",
+                materials: "Mesh, Leather, Air Unit",
+                release: "'86 Original Specs",
+                comfort: "9.0/10",
+                pros: ["Visible Air cushioning", "Excellent comfort", "Iconic design"],
+                cons: ["Premium price", "Delicate materials", "Not for wide feet"]
+            }
+        };
+
+        // DOM Elements
+        const shoe1Select = document.getElementById('shoe1-select');
+        const shoe2Select = document.getElementById('shoe2-select');
+        const shoe1Display = document.getElementById('shoe1-display');
+        const shoe2Display = document.getElementById('shoe2-display');
+        const compareBtn = document.getElementById('compare-btn');
+        const resultsDiv = document.getElementById('comparison-results');
+
+        // Update selected shoe display
+        function updateShoeDisplay(selectElement, displayElement) {
+            const selectedValue = selectElement.value;
+            if (selectedValue && sneakerDatabase[selectedValue]) {
+                const shoe = sneakerDatabase[selectedValue];
+                displayElement.innerHTML = `
+                    <img src="${shoe.image}" alt="${shoe.name}">
+                    <div class="selected-shoe-info">
+                        <h4>${shoe.name}</h4>
+                        <p>${shoe.price} • ${shoe.bestFor}</p>
+                    </div>
+                `;
+                displayElement.style.display = 'flex';
+            } else {
+                displayElement.style.display = 'none';
+            }
+        }
+
+        // Event listeners for dropdowns
+        shoe1Select.addEventListener('change', () => updateShoeDisplay(shoe1Select, shoe1Display));
+        shoe2Select.addEventListener('change', () => updateShoeDisplay(shoe2Select, shoe2Display));
+
+        // Compare button functionality
+        compareBtn.addEventListener('click', function() {
+            const shoe1Value = shoe1Select.value;
+            const shoe2Value = shoe2Select.value;
+            
+            if (!shoe1Value || !shoe2Value) {
+                alert('Please select two sneakers to compare.');
+                return;
+            }
+            
+            if (shoe1Value === shoe2Value) {
+                alert('Please select two different sneakers to compare.');
+                return;
+            }
+            
+            const shoe1 = sneakerDatabase[shoe1Value];
+            const shoe2 = sneakerDatabase[shoe2Value];
+            
+            // Update comparison table
+            document.getElementById('shoe1-name').textContent = shoe1.name;
+            document.getElementById('shoe2-name').textContent = shoe2.name;
+            
+            document.getElementById('shoe1-bestfor').textContent = shoe1.bestFor;
+            document.getElementById('shoe2-bestfor').textContent = shoe2.bestFor;
+            
+            document.getElementById('shoe1-price').textContent = shoe1.price;
+            document.getElementById('shoe2-price').textContent = shoe2.price;
+            
+            document.getElementById('shoe1-weight').textContent = shoe1.weight;
+            document.getElementById('shoe2-weight').textContent = shoe2.weight;
+            
+            document.getElementById('shoe1-materials').textContent = shoe1.materials;
+            document.getElementById('shoe2-materials').textContent = shoe2.materials;
+            
+            document.getElementById('shoe1-release').textContent = shoe1.release;
+            document.getElementById('shoe2-release').textContent = shoe2.release;
+            
+            document.getElementById('shoe1-comfort').textContent = shoe1.comfort;
+            document.getElementById('shoe2-comfort').textContent = shoe2.comfort;
+            
+            // Update verdict sections
+            document.getElementById('shoe1-verdict-title').textContent = shoe1.name;
+            document.getElementById('shoe2-verdict-title').textContent = shoe2.name;
+            
+            // Update pros/cons lists
+            document.getElementById('shoe1-pros').innerHTML = shoe1.pros.map(pro => `<li>${pro}</li>`).join('');
+            document.getElementById('shoe2-pros').innerHTML = shoe2.pros.map(pro => `<li>${pro}</li>`).join('');
+            
+            document.getElementById('shoe1-cons').innerHTML = shoe1.cons.map(con => `<li>${con}</li>`).join('');
+            document.getElementById('shoe2-cons').innerHTML = shoe2.cons.map(con => `<li>${con}</li>`).join('');
+            
+            // Generate recommendation
+            const price1 = parseFloat(shoe1.price.replace('$', ''));
+            const price2 = parseFloat(shoe2.price.replace('$', ''));
+            const comfort1 = parseFloat(shoe1.comfort);
+            const comfort2 = parseFloat(shoe2.comfort);
+            
+            let recommendation = '';
+            let winner = '';
+            
+            if (price1 < price2 && comfort1 >= comfort2) {
+                recommendation = `For most buyers, we recommend the <strong>${shoe1.name}</strong> as it offers better value for money while maintaining excellent comfort.`;
+                winner = shoe1.name;
+            } else if (price2 < price1 && comfort2 >= comfort1) {
+                recommendation = `For most buyers, we recommend the <strong>${shoe2.name}</strong> as it offers better value for money while maintaining excellent comfort.`;
+                winner = shoe2.name;
+            } else if (comfort1 > comfort2) {
+                recommendation = `If comfort is your priority, the <strong>${shoe1.name}</strong> is the clear winner despite the higher price.`;
+                winner = shoe1.name;
+            } else if (comfort2 > comfort1) {
+                recommendation = `If comfort is your priority, the <strong>${shoe2.name}</strong> is the clear winner despite the higher price.`;
+                winner = shoe2.name;
+            } else {
+                recommendation = `Both sneakers are excellent choices. The <strong>${shoe1.name}</strong> leans more toward ${shoe1.bestFor}, while the <strong>${shoe2.name}</strong> excels at ${shoe2.bestFor}.`;
+                winner = 'Both';
+            }
+            
+            document.getElementById('recommendation-text').innerHTML = recommendation;
+            
+            // Update verdict text
+            document.getElementById('verdict-text').textContent = `After comparing ${shoe1.name} and ${shoe2.name}, here's our detailed analysis:`;
+            
+            // Show purchase links
+            const purchaseLinks = document.getElementById('purchase-links');
+            purchaseLinks.innerHTML = `
+                <a href="${shoe1Value.replace('-', '-')}.html" class="cta-button">Buy ${shoe1.name}</a>
+                <a href="${shoe2Value.replace('-', '-')}.html" class="cta-button">Buy ${shoe2.name}</a>
+            `;
+            
+            // Show results
+            resultsDiv.style.display = 'block';
+            
+            // Scroll to results
+            resultsDiv.scrollIntoView({ behavior: 'smooth' });
+        });
+    </script>
+</body>
+</html>
