@@ -4,9 +4,153 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sneaker-Spotlight | Discover Top Trending Sneakers</title>
-    <meta name="description" content="Sneaker-Spotlight is your premier guide to authentic sneaker analysis. Get honest reviews, expert comparisons, and direct purchase links for the hottest Puma, Nike, and Adidas shoes.">
+    <meta name="description" content="Sneaker-Spotlight: Your guide to trending sneakers. Honest reviews, comparisons, and direct Amazon purchase links.">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Slideshow specific styles */
+        .slideshow-container {
+            position: relative;
+            max-width: 1200px;
+            margin: auto;
+            height: 500px;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+        
+        .mySlides {
+            display: none;
+            height: 100%;
+        }
+        
+        .mySlides.active {
+            display: block;
+        }
+        
+        .slide-link {
+            display: block;
+            height: 100%;
+            position: relative;
+        }
+        
+        .mySlides img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(0.9);
+        }
+        
+        .slide-text {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.9));
+            color: white;
+            padding: 30px;
+            backdrop-filter: blur(3px);
+        }
+        
+        .slide-text h2 {
+            color: #ff3e00;
+            font-size: 18px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+        
+        .slide-text h1 {
+            font-size: 36px;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+        }
+        
+        .slide-text p {
+            font-size: 16px;
+            margin-bottom: 20px;
+            max-width: 600px;
+            color: #f0f0f0;
+        }
+        
+        .slideshow-controls {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+            padding: 0 20px;
+            z-index: 10;
+        }
+        
+        .prev, .next {
+            cursor: pointer;
+            background-color: rgba(0,0,0,0.5);
+            color: white;
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            font-size: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+        }
+        
+        .prev:hover, .next:hover {
+            background-color: rgba(255, 62, 0, 0.8);
+            transform: scale(1.1);
+        }
+        
+        .dots-container {
+            text-align: center;
+            padding: 20px;
+            position: absolute;
+            bottom: 10px;
+            left: 0;
+            right: 0;
+            z-index: 10;
+        }
+        
+        .dot {
+            cursor: pointer;
+            height: 14px;
+            width: 14px;
+            margin: 0 8px;
+            background-color: rgba(255,255,255,0.5);
+            border-radius: 50%;
+            display: inline-block;
+            transition: background-color 0.3s;
+            border: 2px solid transparent;
+        }
+        
+        .dot:hover, .dot.active {
+            background-color: #ff3e00;
+            border-color: white;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background-color: #ff3e00;
+            color: white;
+            padding: 12px 28px;
+            border-radius: 30px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+        }
+        
+        .cta-button:hover {
+            background-color: #ff5c29;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(255, 62, 0, 0.4);
+        }
+    </style>
 </head>
 <body>
     <!-- Navigation -->
@@ -20,19 +164,19 @@
                 <a href="comparison.html">Compare</a>
                 <a href="about.html">About</a>
                 <a href="contact.html">Contact</a>
-                <!-- Privacy Policy Link Added -->
                 <a href="privacy.html">Privacy</a>
             </nav>
         </div>
     </header>
 
     <!-- Hero Slider -->
-    <section class="hero">
+    <section class="hero" style="margin-bottom: 60px;">
         <div class="slideshow-container">
-            <!-- Slide 1 -->
-            <div class="mySlides fade">
-                <a href="puma-speedcat.html" class="slide-link">
-                    <img src="assets/images/puma-speedcat-banner.jpg" alt="Puma Speedcat Sneakers">
+            <!-- Slide 1: Puma Speedcat -->
+            <div class="mySlides fade active">
+                <!-- REPLACE THIS LINK WITH YOUR OWN AMAZON AFFILIATE LINK -->
+                <a href="YOUR_PUMA_SPEEDCAT_LINK_HERE" target="_blank" rel="sponsored nofollow" class="slide-link">
+                    <img src="https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Puma Speedcat Sneakers">
                     <div class="slide-text">
                         <h2>#1 Trending Retro</h2>
                         <h1>Puma Speedcat</h1>
@@ -42,10 +186,11 @@
                 </a>
             </div>
             
-            <!-- Slide 2 -->
+            <!-- Slide 2: Nike Dunk Low -->
             <div class="mySlides fade">
-                <a href="nike-dunk-low.html" class="slide-link">
-                    <img src="assets/images/nike-dunk-banner.jpg" alt="Nike Dunk Low">
+                <!-- REPLACE THIS LINK WITH YOUR OWN AMAZON AFFILIATE LINK -->
+                <a href="YOUR_NIKE_DUNK_LINK_HERE" target="_blank" rel="sponsored nofollow" class="slide-link">
+                    <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Nike Dunk Low">
                     <div class="slide-text">
                         <h2>Streetwear Icon</h2>
                         <h1>Nike Dunk Low</h1>
@@ -55,10 +200,11 @@
                 </a>
             </div>
             
-            <!-- Slide 3 -->
+            <!-- Slide 3: New Balance 550 -->
             <div class="mySlides fade">
-                <a href="new-balance-550.html" class="slide-link">
-                    <img src="assets/images/nb-550-banner.jpg" alt="New Balance 550">
+                <!-- REPLACE THIS LINK WITH YOUR OWN AMAZON AFFILIATE LINK -->
+                <a href="YOUR_NEW_BALANCE_LINK_HERE" target="_blank" rel="sponsored nofollow" class="slide-link">
+                    <img src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="New Balance 550">
                     <div class="slide-text">
                         <h2>Vintage Revival</h2>
                         <h1>New Balance 550</h1>
@@ -69,37 +215,40 @@
             </div>
             
             <!-- Navigation arrows -->
-            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+            <div class="slideshow-controls">
+                <button class="prev">&#10094;</button>
+                <button class="next">&#10095;</button>
+            </div>
         </div>
         
-        <!-- Dots -->
+        <!-- Dots indicator -->
         <div class="dots-container">
-            <span class="dot" onclick="currentSlide(1)"></span>
-            <span class="dot" onclick="currentSlide(2)"></span>
-            <span class="dot" onclick="currentSlide(3)"></span>
+            <span class="dot active" data-slide="0"></span>
+            <span class="dot" data-slide="1"></span>
+            <span class="dot" data-slide="2"></span>
         </div>
     </section>
 
+    <!-- Rest of your page content stays the same -->
     <!-- Featured Brands -->
     <section class="brands">
         <div class="container">
             <h2>Featured Brands</h2>
             <div class="brand-grid">
                 <a href="puma.html" class="brand-card">
-                    <img src="assets/images/puma-logo.png" alt="Puma">
+                    <img src="https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Puma">
                     <h3>Puma</h3>
                 </a>
                 <a href="nike.html" class="brand-card">
-                    <img src="assets/images/nike-logo.png" alt="Nike">
+                    <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Nike">
                     <h3>Nike</h3>
                 </a>
                 <a href="adidas.html" class="brand-card">
-                    <img src="assets/images/adidas-logo.png" alt="Adidas">
+                    <img src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Adidas">
                     <h3>Adidas</h3>
                 </a>
                 <a href="new-balance.html" class="brand-card">
-                    <img src="assets/images/nb-logo.png" alt="New Balance">
+                    <img src="https://images.unsplash.com/photo-1543508282-6319a3e2621f?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="New Balance">
                     <h3>New Balance</h3>
                 </a>
             </div>
@@ -112,7 +261,7 @@
             <h2>Latest Reviews</h2>
             <div class="review-grid">
                 <article class="review-card">
-                    <img src="assets/images/review1.jpg" alt="Puma Palermo">
+                    <img src="https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Puma Palermo">
                     <div class="review-content">
                         <h3>Puma Palermo: The Ultimate Throwback</h3>
                         <p>We test the revived classic that's taking streetwear by storm in 2025...</p>
@@ -120,7 +269,7 @@
                     </div>
                 </article>
                 <article class="review-card">
-                    <img src="assets/images/review2.jpg" alt="Nike Air Max">
+                    <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Nike Air Max">
                     <div class="review-content">
                         <h3>Nike Air Max Pulse: Comfort Revolution</h3>
                         <p>Is this the most comfortable Air Max ever made? Our detailed analysis...</p>
@@ -128,7 +277,7 @@
                     </div>
                 </article>
                 <article class="review-card">
-                    <img src="assets/images/review3.jpg" alt="Adidas Gazelle">
+                    <img src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Adidas Gazelle">
                     <div class="review-content">
                         <h3>Adidas Gazelle: Icon Reinvented</h3>
                         <p>The suede classic gets a modern update. Does it live up to the legacy?</p>
@@ -167,6 +316,110 @@
         </div>
     </footer>
 
+    <!-- Slideshow JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Slideshow elements
+            const slides = document.querySelectorAll('.mySlides');
+            const dots = document.querySelectorAll('.dot');
+            const prevBtn = document.querySelector('.prev');
+            const nextBtn = document.querySelector('.next');
+            let currentSlide = 0;
+            let slideInterval;
+            
+            // Show specific slide
+            function showSlide(index) {
+                // Hide all slides
+                slides.forEach(slide => {
+                    slide.classList.remove('active');
+                    slide.style.display = 'none';
+                });
+                
+                // Remove active class from all dots
+                dots.forEach(dot => dot.classList.remove('active'));
+                
+                // Show the selected slide
+                if (slides[index]) {
+                    slides[index].classList.add('active');
+                    slides[index].style.display = 'block';
+                    
+                    // Activate corresponding dot
+                    if (dots[index]) {
+                        dots[index].classList.add('active');
+                    }
+                    
+                    currentSlide = index;
+                }
+            }
+            
+            // Next slide
+            function nextSlide() {
+                let nextIndex = currentSlide + 1;
+                if (nextIndex >= slides.length) {
+                    nextIndex = 0;
+                }
+                showSlide(nextIndex);
+            }
+            
+            // Previous slide
+            function prevSlide() {
+                let prevIndex = currentSlide - 1;
+                if (prevIndex < 0) {
+                    prevIndex = slides.length - 1;
+                }
+                showSlide(prevIndex);
+            }
+            
+            // Start auto-play
+            function startSlideShow() {
+                slideInterval = setInterval(nextSlide, 5000); // Change every 5 seconds
+            }
+            
+            // Stop auto-play
+            function stopSlideShow() {
+                clearInterval(slideInterval);
+            }
+            
+            // Event listeners
+            if (prevBtn) {
+                prevBtn.addEventListener('click', function() {
+                    prevSlide();
+                    stopSlideShow();
+                    startSlideShow();
+                });
+            }
+            
+            if (nextBtn) {
+                nextBtn.addEventListener('click', function() {
+                    nextSlide();
+                    stopSlideShow();
+                    startSlideShow();
+                });
+            }
+            
+            // Dot click events
+            dots.forEach((dot, index) => {
+                dot.addEventListener('click', function() {
+                    showSlide(index);
+                    stopSlideShow();
+                    startSlideShow();
+                });
+            });
+            
+            // Pause on hover
+            const slideshowContainer = document.querySelector('.slideshow-container');
+            if (slideshowContainer) {
+                slideshowContainer.addEventListener('mouseenter', stopSlideShow);
+                slideshowContainer.addEventListener('mouseleave', startSlideShow);
+            }
+            
+            // Initialize
+            showSlide(0);
+            startSlideShow();
+        });
+    </script>
+    
+    <!-- Your main script.js file -->
     <script src="script.js"></script>
 </body>
 </html>
