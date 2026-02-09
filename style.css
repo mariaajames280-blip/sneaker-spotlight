@@ -1,0 +1,391 @@
+/* Reset & Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #0a0a0a;
+    color: #f5f5f5;
+    line-height: 1.6;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header & Navigation */
+.site-header {
+    background-color: #1a1a1a;
+    padding: 20px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid #333;
+}
+
+.site-header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 28px;
+    font-weight: 800;
+    color: #fff;
+    text-decoration: none;
+}
+
+.logo span {
+    color: #ff3e00;
+}
+
+.main-nav {
+    display: flex;
+    gap: 30px;
+}
+
+.main-nav a {
+    color: #a1a1aa;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+.main-nav a:hover {
+    color: #fff;
+}
+
+/* Hero Slider */
+.hero {
+    position: relative;
+    margin-bottom: 60px;
+}
+
+.slideshow-container {
+    position: relative;
+    max-width: 1200px;
+    margin: auto;
+    height: 600px;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.mySlides {
+    display: none;
+    height: 100%;
+}
+
+.mySlides img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.slide-link {
+    display: block;
+    position: relative;
+    height: 100%;
+    text-decoration: none;
+}
+
+.slide-text {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(0,0,0,0.9));
+    color: white;
+    padding: 40px;
+}
+
+.slide-text h2 {
+    font-size: 18px;
+    color: #ff3e00;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.slide-text h1 {
+    font-size: 48px;
+    margin-bottom: 15px;
+    font-weight: 800;
+}
+
+.slide-text p {
+    font-size: 18px;
+    max-width: 600px;
+    margin-bottom: 20px;
+    color: #ddd;
+}
+
+.cta-button {
+    display: inline-block;
+    background-color: #ff3e00;
+    color: white;
+    padding: 12px 30px;
+    border-radius: 30px;
+    font-weight: 700;
+    transition: all 0.3s;
+}
+
+.cta-button:hover {
+    background-color: #ff5c29;
+    transform: translateY(-2px);
+}
+
+/* Slider Controls */
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    margin-top: -22px;
+    color: white;
+    font-weight: bold;
+    font-size: 24px;
+    transition: 0.3s;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+    background-color: rgba(0,0,0,0.3);
+}
+
+.next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+.prev:hover, .next:hover {
+    background-color: rgba(0,0,0,0.8);
+}
+
+.dots-container {
+    text-align: center;
+    padding: 20px;
+}
+
+.dot {
+    cursor: pointer;
+    height: 12px;
+    width: 12px;
+    margin: 0 5px;
+    background-color: #333;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.3s;
+}
+
+.active, .dot:hover {
+    background-color: #ff3e00;
+}
+
+/* Categories Section */
+.categories {
+    padding: 60px 0;
+}
+
+.categories h2 {
+    font-size: 36px;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.category-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.category-card {
+    display: block;
+    text-decoration: none;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.3s;
+    background-color: #1a1a1a;
+}
+
+.category-card:hover {
+    transform: translateY(-10px);
+}
+
+.category-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.category-card h3 {
+    padding: 20px;
+    text-align: center;
+    color: #fff;
+    font-size: 22px;
+}
+
+/* Reviews Section */
+.reviews {
+    padding: 60px 0;
+    background-color: #111;
+}
+
+.reviews h2 {
+    font-size: 36px;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.review-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.review-card {
+    background-color: #1a1a1a;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.3s;
+}
+
+.review-card:hover {
+    transform: translateY(-5px);
+}
+
+.review-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.review-content {
+    padding: 25px;
+}
+
+.review-content h3 {
+    font-size: 20px;
+    margin-bottom: 15px;
+    color: #fff;
+}
+
+.review-content p {
+    color: #a1a1aa;
+    margin-bottom: 20px;
+}
+
+.review-content a {
+    color: #ff3e00;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.review-content a:hover {
+    text-decoration: underline;
+}
+
+/* Footer */
+.site-footer {
+    background-color: #111;
+    padding: 60px 0 30px;
+    border-top: 1px solid #333;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+.footer-section h3 {
+    font-size: 20px;
+    margin-bottom: 20px;
+    color: #fff;
+}
+
+.footer-section p, .footer-section a {
+    color: #a1a1aa;
+    line-height: 1.8;
+}
+
+.footer-section a {
+    display: block;
+    text-decoration: none;
+    margin-bottom: 10px;
+}
+
+.footer-section a:hover {
+    color: #fff;
+}
+
+.affiliate-disclaimer {
+    font-size: 14px;
+    color: #666;
+    margin-top: 20px;
+    font-style: italic;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 30px;
+    border-top: 1px solid #333;
+    color: #666;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .site-header .container {
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .main-nav {
+        gap: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .slideshow-container {
+        height: 400px;
+    }
+    
+    .slide-text h1 {
+        font-size: 32px;
+    }
+    
+    .slide-text p {
+        font-size: 16px;
+    }
+    
+    .categories h2, .reviews h2 {
+        font-size: 28px;
+    }
+}
+
+@media (max-width: 480px) {
+    .slideshow-container {
+        height: 300px;
+    }
+    
+    .slide-text {
+        padding: 20px;
+    }
+    
+    .slide-text h1 {
+        font-size: 24px;
+    }
+    
+    .slide-text h2 {
+        font-size: 16px;
+    }
+    
+    .category-grid, .review-grid {
+        grid-template-columns: 1fr;
+    }
+}
