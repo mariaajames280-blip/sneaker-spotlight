@@ -1,15 +1,16 @@
-/* Reset & Base Styles */
+/* ========== RESET & BASE STYLES ========== */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: #0a0a0a;
     color: #f5f5f5;
     line-height: 1.6;
+    min-height: 100vh;
 }
 
 .container {
@@ -19,7 +20,28 @@ body {
     padding: 0 20px;
 }
 
-/* Header & Navigation */
+/* ========== TYPOGRAPHY & COLORS ========== */
+/* All text is WHITE or OFF-WHITE for maximum readability */
+h1, h2, h3, h4, h5, h6 {
+    color: #ffffff;
+    font-weight: 700;
+}
+
+p, span, li, td, .brand-desc, .trending-desc, .review-content p {
+    color: #f5f5f5;
+}
+
+a {
+    color: #f5f5f5;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #ff3e00;
+}
+
+/* ========== HEADER & NAVIGATION ========== */
 .site-header {
     background-color: #1a1a1a;
     padding: 20px 0;
@@ -38,8 +60,7 @@ body {
 .logo {
     font-size: 28px;
     font-weight: 800;
-    color: #fff;
-    text-decoration: none;
+    color: #ffffff;
 }
 
 .logo span {
@@ -52,17 +73,26 @@ body {
 }
 
 .main-nav a {
-    color: #a1a1aa;
-    text-decoration: none;
     font-weight: 600;
-    transition: color 0.3s;
+    padding: 5px 0;
+    position: relative;
 }
 
-.main-nav a:hover {
-    color: #fff;
+.main-nav a.active {
+    color: #ff3e00;
 }
 
-/* Hero Slider */
+.main-nav a.active::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #ff3e00;
+}
+
+/* ========== HERO SLIDESHOW ========== */
 .hero {
     position: relative;
     margin-bottom: 60px;
@@ -75,24 +105,29 @@ body {
     height: 600px;
     overflow: hidden;
     border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
 
 .mySlides {
     display: none;
     height: 100%;
+    position: relative;
+}
+
+.mySlides.active {
+    display: block;
 }
 
 .mySlides img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    filter: brightness(0.8);
 }
 
 .slide-link {
     display: block;
-    position: relative;
     height: 100%;
-    text-decoration: none;
 }
 
 .slide-text {
@@ -100,200 +135,210 @@ body {
     bottom: 0;
     left: 0;
     right: 0;
-    background: linear-gradient(transparent, rgba(0,0,0,0.9));
-    color: white;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.95));
+    color: #ffffff;
     padding: 40px;
+    backdrop-filter: blur(2px);
 }
 
 .slide-text h2 {
-    font-size: 18px;
     color: #ff3e00;
+    font-size: 18px;
     margin-bottom: 10px;
     font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
 .slide-text h1 {
     font-size: 48px;
     margin-bottom: 15px;
     font-weight: 800;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .slide-text p {
     font-size: 18px;
     max-width: 600px;
-    margin-bottom: 20px;
-    color: #ddd;
+    margin-bottom: 25px;
+    color: #f0f0f0;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
 
-.cta-button {
-    display: inline-block;
-    background-color: #ff3e00;
-    color: white;
-    padding: 12px 30px;
-    border-radius: 30px;
-    font-weight: 700;
-    transition: all 0.3s;
-}
-
-.cta-button:hover {
-    background-color: #ff5c29;
-    transform: translateY(-2px);
-}
-
-/* Slider Controls */
-.prev, .next {
-    cursor: pointer;
+/* ========== SLIDESHOW CONTROLS ========== */
+.slideshow-controls {
     position: absolute;
     top: 50%;
-    width: auto;
-    padding: 16px;
-    margin-top: -22px;
-    color: white;
-    font-weight: bold;
-    font-size: 24px;
-    transition: 0.3s;
-    border-radius: 0 3px 3px 0;
-    user-select: none;
-    background-color: rgba(0,0,0,0.3);
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+    padding: 0 20px;
+    z-index: 10;
 }
 
-.next {
-    right: 0;
-    border-radius: 3px 0 0 3px;
+.prev, .next {
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
 }
 
 .prev:hover, .next:hover {
-    background-color: rgba(0,0,0,0.8);
+    background-color: rgba(255, 62, 0, 0.8);
+    transform: scale(1.1);
 }
 
 .dots-container {
     text-align: center;
     padding: 20px;
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    right: 0;
+    z-index: 10;
 }
 
 .dot {
     cursor: pointer;
-    height: 12px;
-    width: 12px;
-    margin: 0 5px;
-    background-color: #333;
+    height: 14px;
+    width: 14px;
+    margin: 0 8px;
+    background-color: rgba(255, 255, 255, 0.5);
     border-radius: 50%;
     display: inline-block;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    border: 2px solid transparent;
 }
 
-.active, .dot:hover {
+.dot:hover {
+    background-color: rgba(255, 255, 255, 0.8);
+    transform: scale(1.2);
+}
+
+.dot.active {
     background-color: #ff3e00;
+    border-color: white;
+    transform: scale(1.2);
 }
 
-/* Categories Section */
-.categories {
-    padding: 60px 0;
-}
-
-.categories h2 {
-    font-size: 36px;
-    margin-bottom: 40px;
+/* ========== BUTTONS ========== */
+.cta-button {
+    display: inline-block;
+    background-color: #ff3e00;
+    color: white;
+    padding: 14px 32px;
+    border-radius: 30px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
     text-align: center;
+    box-shadow: 0 4px 15px rgba(255, 62, 0, 0.3);
 }
 
-.category-grid {
+.cta-button:hover {
+    background-color: #ff5c29;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(255, 62, 0, 0.4);
+    color: white;
+}
+
+.cta-button.small {
+    padding: 10px 20px;
+    font-size: 14px;
+}
+
+.cta-button.large-button {
+    padding: 18px 40px;
+    font-size: 18px;
+    width: 100%;
+}
+
+/* ========== CARDS & GRIDS ========== */
+.category-grid, .review-grid, .trending-grid, .brands-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 30px;
+    margin-top: 30px;
 }
 
-.category-card {
-    display: block;
-    text-decoration: none;
+.category-card, .review-card, .trending-card, .brand-card-large {
+    background: #1a1a1a;
     border-radius: 10px;
     overflow: hidden;
-    transition: transform 0.3s;
-    background-color: #1a1a1a;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #333;
 }
 
-.category-card:hover {
+.category-card:hover, .review-card:hover, .trending-card:hover, .brand-card-large:hover {
     transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+    border-color: #444;
 }
 
-.category-card img {
+.category-card img, .review-card img, .trending-card img, .brand-card-large .brand-header {
     width: 100%;
     height: 200px;
     object-fit: cover;
 }
 
-.category-card h3 {
+.category-card h3, .brand-card-large .brand-name, .trending-card .trending-name {
     padding: 20px;
     text-align: center;
-    color: #fff;
+    color: #ffffff;
     font-size: 22px;
+    margin: 0;
 }
 
-/* Reviews Section */
-.reviews {
+/* ========== SECTIONS ========== */
+.categories, .reviews, .brands {
     padding: 60px 0;
+}
+
+.categories h2, .reviews h2, .brands h2 {
+    font-size: 36px;
+    margin-bottom: 40px;
+    text-align: center;
+    color: #ffffff;
+}
+
+.reviews {
     background-color: #111;
 }
 
-.reviews h2 {
-    font-size: 36px;
-    margin-bottom: 40px;
-    text-align: center;
-}
-
-.review-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-}
-
-.review-card {
-    background-color: #1a1a1a;
-    border-radius: 10px;
-    overflow: hidden;
-    transition: transform 0.3s;
-}
-
-.review-card:hover {
-    transform: translateY(-5px);
-}
-
-.review-card img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-}
-
-.review-content {
+.review-content, .brand-models, .trending-content {
     padding: 25px;
 }
 
-.review-content h3 {
+.review-content h3, .brand-models h3, .trending-content .trending-brand {
+    color: #ff3e00;
     font-size: 20px;
     margin-bottom: 15px;
-    color: #fff;
 }
 
-.review-content p {
-    color: #a1a1aa;
+.review-content p, .brand-desc, .trending-desc {
+    color: #d1d1d1;
     margin-bottom: 20px;
+    line-height: 1.6;
 }
 
-.review-content a {
-    color: #ff3e00;
-    text-decoration: none;
-    font-weight: 600;
-}
-
-.review-content a:hover {
-    text-decoration: underline;
-}
-
-/* Footer */
+/* ========== FOOTER ========== */
 .site-footer {
     background-color: #111;
     padding: 60px 0 30px;
     border-top: 1px solid #333;
+    margin-top: 60px;
 }
 
 .footer-content {
@@ -306,29 +351,26 @@ body {
 .footer-section h3 {
     font-size: 20px;
     margin-bottom: 20px;
-    color: #fff;
+    color: #ffffff;
 }
 
 .footer-section p, .footer-section a {
-    color: #a1a1aa;
+    color: #d1d1d1;
     line-height: 1.8;
-}
-
-.footer-section a {
-    display: block;
-    text-decoration: none;
     margin-bottom: 10px;
+    display: block;
 }
 
 .footer-section a:hover {
-    color: #fff;
+    color: #ff3e00;
 }
 
 .affiliate-disclaimer {
     font-size: 14px;
-    color: #666;
+    color: #888;
     margin-top: 20px;
     font-style: italic;
+    line-height: 1.5;
 }
 
 .footer-bottom {
@@ -338,7 +380,40 @@ body {
     color: #666;
 }
 
-/* Responsive Design */
+/* ========== PAGE CONTENT ========== */
+.page-content {
+    padding: 40px 0;
+}
+
+.page-content h1 {
+    font-size: 42px;
+    margin-bottom: 20px;
+    color: #ffffff;
+}
+
+.page-intro {
+    font-size: 18px;
+    color: #d1d1d1;
+    margin-bottom: 40px;
+    max-width: 800px;
+    line-height: 1.6;
+}
+
+/* ========== RESPONSIVE DESIGN ========== */
+@media (max-width: 992px) {
+    .slideshow-container {
+        height: 500px;
+    }
+    
+    .slide-text h1 {
+        font-size: 36px;
+    }
+    
+    .slide-text p {
+        font-size: 16px;
+    }
+}
+
 @media (max-width: 768px) {
     .site-header .container {
         flex-direction: column;
@@ -355,16 +430,25 @@ body {
         height: 400px;
     }
     
-    .slide-text h1 {
-        font-size: 32px;
+    .slide-text {
+        padding: 25px;
     }
     
-    .slide-text p {
+    .slide-text h1 {
+        font-size: 28px;
+    }
+    
+    .slide-text h2 {
         font-size: 16px;
     }
     
-    .categories h2, .reviews h2 {
+    .categories h2, .reviews h2, .brands h2 {
         font-size: 28px;
+    }
+    
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 30px;
     }
 }
 
@@ -378,14 +462,20 @@ body {
     }
     
     .slide-text h1 {
-        font-size: 24px;
+        font-size: 22px;
     }
     
-    .slide-text h2 {
-        font-size: 16px;
+    .slide-text p {
+        font-size: 14px;
+        margin-bottom: 15px;
     }
     
-    .category-grid, .review-grid {
+    .cta-button {
+        padding: 12px 25px;
+        font-size: 14px;
+    }
+    
+    .category-grid, .review-grid, .trending-grid, .brands-grid {
         grid-template-columns: 1fr;
     }
 }
