@@ -4,144 +4,500 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sneaker-Spotlight | Discover Top Trending Sneakers</title>
+    <meta name="description" content="Sneaker-Spotlight: Your guide to trending sneakers. Honest reviews, comparisons, and direct Amazon purchase links.">
     <style>
-        /* SIMPLE RESET & BASE */
+        /* ========== RESET & BASE ========== */
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: Arial, sans-serif; background: #0a0a0a; color: white; }
+        body { 
+            font-family: 'Arial', sans-serif; 
+            background: #0a0a0a; 
+            color: #f5f5f5; 
+            line-height: 1.6;
+        }
         
-        /* SIMPLE SLIDESHOW */
-        .slideshow-container {
-            max-width: 1000px;
-            height: 400px;
-            margin: 20px auto;
+        /* ========== CONTAINER ========== */
+        .container { 
+            max-width: 1200px; 
+            margin: 0 auto; 
+            padding: 0 20px; 
+        }
+        
+        /* ========== HEADER & NAV ========== */
+        .site-header { 
+            background: #1a1a1a; 
+            padding: 20px 0; 
+            position: sticky; 
+            top: 0; 
+            z-index: 1000; 
+            border-bottom: 1px solid #333;
+        }
+        
+        .site-header .container { 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+        }
+        
+        .logo { 
+            font-size: 28px; 
+            font-weight: 800; 
+            color: white; 
+            text-decoration: none; 
+        }
+        
+        .logo span { 
+            color: #ff3e00; 
+        }
+        
+        .main-nav { 
+            display: flex; 
+            gap: 25px; 
+        }
+        
+        .main-nav a { 
+            color: #d1d1d1; 
+            text-decoration: none; 
+            font-weight: 600; 
+            transition: color 0.3s; 
+        }
+        
+        .main-nav a:hover { 
+            color: #ff3e00; 
+        }
+        
+        /* ========== WORKING SLIDESHOW ========== */
+        .hero { 
+            margin: 30px 0 60px; 
             position: relative;
-            overflow: hidden;
+        }
+        
+        .slideshow-container { 
+            max-width: 1200px; 
+            margin: auto; 
+            height: 500px; 
+            position: relative; 
+            overflow: hidden; 
             border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
-        .mySlides {
-            display: none;
-            height: 100%;
-        }
-        .mySlides.active {
-            display: block;
-        }
-        .mySlides img {
+        
+        .mySlides { 
+            display: none; 
+            height: 100%; 
             width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        .slide-text {
             position: absolute;
-            bottom: 0;
+            top: 0;
+            left: 0;
+        }
+        
+        .mySlides.active { 
+            display: block; 
+        }
+        
+        .slide-link { 
+            display: block; 
+            height: 100%; 
+            position: relative;
+        }
+        
+        .mySlides img { 
+            width: 100%; 
+            height: 100%; 
+            object-fit: cover; 
+            filter: brightness(0.8);
+        }
+        
+        .slide-text { 
+            position: absolute; 
+            bottom: 0; 
+            left: 0; 
+            right: 0; 
+            background: linear-gradient(transparent, rgba(0,0,0,0.9)); 
+            color: white; 
+            padding: 40px; 
+        }
+        
+        .slide-text h2 { 
+            color: #ff3e00; 
+            font-size: 18px; 
+            margin-bottom: 10px; 
+            text-transform: uppercase;
+        }
+        
+        .slide-text h1 { 
+            font-size: 42px; 
+            margin-bottom: 15px; 
+            font-weight: 800;
+        }
+        
+        .slide-text p { 
+            font-size: 18px; 
+            margin-bottom: 25px; 
+            max-width: 600px; 
+            color: #f0f0f0;
+        }
+        
+        /* Slideshow Controls */
+        .prev, .next { 
+            cursor: pointer; 
+            position: absolute; 
+            top: 50%; 
+            width: 50px; 
+            height: 50px; 
+            margin-top: -25px; 
+            color: white; 
+            font-size: 24px; 
+            background: rgba(0,0,0,0.5); 
+            border-radius: 50%; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            border: none; 
+            text-decoration: none;
+            z-index: 10;
+        }
+        
+        .prev:hover, .next:hover { 
+            background: rgba(255,62,0,0.8); 
+        }
+        
+        .next { 
+            right: 20px; 
+        }
+        
+        .prev { 
+            left: 20px; 
+        }
+        
+        .dots-container { 
+            text-align: center; 
+            padding: 20px; 
+            position: absolute;
+            bottom: 10px;
             left: 0;
             right: 0;
-            background: rgba(0,0,0,0.7);
-            padding: 20px;
-            color: white;
+            z-index: 10;
         }
         
-        /* SIMPLE CONTROLS */
-        .prev, .next {
-            cursor: pointer;
-            position: absolute;
-            top: 50%;
-            width: 50px;
-            height: 50px;
-            margin-top: -25px;
-            color: white;
-            font-size: 24px;
-            background: rgba(0,0,0,0.5);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: none;
+        .dot { 
+            cursor: pointer; 
+            height: 14px; 
+            width: 14px; 
+            margin: 0 8px; 
+            background: rgba(255,255,255,0.5); 
+            border-radius: 50%; 
+            display: inline-block; 
+            transition: background 0.3s; 
+            border: 2px solid transparent; 
         }
-        .prev:hover, .next:hover { background: rgba(255,62,0,0.8); }
-        .next { right: 20px; }
-        .prev { left: 20px; }
         
-        .dots-container {
+        .dot:hover, .dot.active { 
+            background: #ff3e00; 
+            border-color: white; 
+        }
+        
+        /* ========== BUTTONS ========== */
+        .cta-button { 
+            display: inline-block; 
+            background: #ff3e00; 
+            color: white; 
+            padding: 14px 30px; 
+            border-radius: 30px; 
+            font-weight: 700; 
+            text-transform: uppercase; 
+            letter-spacing: 0.5px;
+            border: none; 
+            cursor: pointer; 
+            transition: all 0.3s; 
+            text-decoration: none; 
             text-align: center;
-            padding: 15px;
+            box-shadow: 0 4px 15px rgba(255,62,0,0.3);
         }
-        .dot {
-            cursor: pointer;
-            height: 12px;
-            width: 12px;
-            margin: 0 5px;
-            background: rgba(255,255,255,0.5);
-            border-radius: 50%;
-            display: inline-block;
-        }
-        .dot.active { background: #ff3e00; }
         
-        .cta-button {
-            display: inline-block;
-            background: #ff3e00;
+        .cta-button:hover { 
+            background: #ff5c29; 
+            transform: translateY(-3px); 
+            box-shadow: 0 6px 20px rgba(255,62,0,0.4);
+        }
+        
+        /* ========== SITE SECTIONS ========== */
+        .brands, .reviews { 
+            padding: 60px 0; 
+        }
+        
+        .brands h2, .reviews h2 { 
+            font-size: 36px; 
+            text-align: center; 
+            margin-bottom: 40px; 
             color: white;
-            padding: 10px 20px;
-            border-radius: 5px;
-            text-decoration: none;
-            margin-top: 10px;
+        }
+        
+        .brand-grid, .review-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+            gap: 30px; 
+            margin-top: 30px; 
+        }
+        
+        .brand-card, .review-card { 
+            background: #1a1a1a; 
+            border-radius: 10px; 
+            overflow: hidden; 
+            transition: transform 0.3s; 
+            border: 1px solid #333;
+        }
+        
+        .brand-card:hover, .review-card:hover { 
+            transform: translateY(-10px); 
+            border-color: #444;
+        }
+        
+        .brand-card img, .review-card img { 
+            width: 100%; 
+            height: 200px; 
+            object-fit: cover; 
+        }
+        
+        .brand-card h3, .review-card h3 { 
+            padding: 20px 20px 10px; 
+            color: #fff; 
+            font-size: 22px; 
+        }
+        
+        .brand-card p, .review-card p { 
+            padding: 0 20px 20px; 
+            color: #d1d1d1; 
+        }
+        
+        .review-content { 
+            padding: 20px; 
+        }
+        
+        .reviews { 
+            background: #111; 
+        }
+        
+        /* ========== FOOTER ========== */
+        .site-footer { 
+            background: #111; 
+            padding: 60px 0 30px; 
+            border-top: 1px solid #333;
+            margin-top: 60px; 
+        }
+        
+        .footer-content { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+            gap: 40px; 
+            margin-bottom: 40px; 
+        }
+        
+        .footer-section h3 { 
+            font-size: 20px; 
+            margin-bottom: 20px; 
+            color: #fff;
+        }
+        
+        .footer-section p, .footer-section a { 
+            color: #d1d1d1; 
+            line-height: 1.8; 
+            margin-bottom: 10px; 
+            display: block; 
+        }
+        
+        .footer-section a:hover { 
+            color: #ff3e00; 
+        }
+        
+        .affiliate-disclaimer { 
+            font-size: 14px; 
+            color: #888; 
+            margin-top: 20px; 
+            font-style: italic; 
+            line-height: 1.5;
+        }
+        
+        .footer-bottom { 
+            text-align: center; 
+            padding-top: 30px; 
+            border-top: 1px solid #333; 
+            color: #666; 
         }
     </style>
 </head>
 <body>
-    <!-- SIMPLE HEADER -->
-    <div style="background: #1a1a1a; padding: 15px; text-align: center;">
-        <h1 style="color: #ff3e00;">Sneaker-Spotlight</h1>
-        <p>Testing the slideshow - minimal version</p>
-    </div>
-    
-    <!-- SIMPLE SLIDESHOW -->
-    <div class="slideshow-container">
-        <!-- Slide 1 -->
-        <div class="mySlides active">
-            <img src="https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=1000&h=400&fit=crop" alt="Puma Sneakers">
-            <div class="slide-text">
-                <h2>#1 Trending</h2>
-                <h3>Puma Speedcat</h3>
-                <p>Classic racing style meets modern comfort.</p>
-                <a href="https://www.amazon.com/dp/https://amzn.to/3Ml9gA2/?tag=YOUR_AFFILIATE_ID" target="_blank" rel="sponsored nofollow" class="slide-link">
+    <!-- ========== HEADER ========== -->
+    <header class="site-header">
+        <div class="container">
+            <a href="index.html" class="logo">Sneaker-<span>Spotlight</span></a>
+            <nav class="main-nav">
+                <a href="index.html">Home</a>
+                <a href="trending.html">Trending</a>
+                <a href="brands.html">Brands</a>
+                <a href="comparison.html">Compare</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+                <a href="privacy.html">Privacy</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ========== HERO SLIDESHOW ========== -->
+    <section class="hero">
+        <div class="slideshow-container">
+            <!-- Slide 1 -->
+            <div class="mySlides active">
+                <!-- REPLACE THIS WITH YOUR AMAZON LINK -->
+                <a href="YOUR_PUMA_SPEEDCAT_AMAZON_LINK" target="_blank" rel="sponsored nofollow" class="slide-link">
+                    <img src="https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=600&q=80" alt="Puma Speedcat Sneakers">
+                    <div class="slide-text">
+                        <h2>#1 Trending Retro</h2>
+                        <h1>Puma Speedcat</h1>
+                        <p>Classic racing style meets modern comfort. The ultimate Y2K revival sneaker.</p>
+                        <span class="cta-button">Shop Now on Amazon</span>
+                    </div>
+                </a>
             </div>
+            
+            <!-- Slide 2 -->
+            <div class="mySlides">
+                <!-- REPLACE THIS WITH YOUR AMAZON LINK -->
+                <a href="YOUR_NIKE_DUNK_AMAZON_LINK" target="_blank" rel="sponsored nofollow" class="slide-link">
+                    <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=600&q=80" alt="Nike Dunk Low">
+                    <div class="slide-text">
+                        <h2>Streetwear Icon</h2>
+                        <h1>Nike Dunk Low</h1>
+                        <p>The silhouette that defined skate and street culture worldwide.</p>
+                        <span class="cta-button">Shop Now on Amazon</span>
+                    </div>
+                </a>
+            </div>
+            
+            <!-- Slide 3 -->
+            <div class="mySlides">
+                <!-- REPLACE THIS WITH YOUR AMAZON LINK -->
+                <a href="YOUR_NEW_BALANCE_AMAZON_LINK" target="_blank" rel="sponsored nofollow" class="slide-link">
+                    <img src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=600&q=80" alt="New Balance 550">
+                    <div class="slide-text">
+                        <h2>Vintage Revival</h2>
+                        <h1>New Balance 550</h1>
+                        <p>Court-born design meets everyday luxury. The essential throwback sneaker.</p>
+                        <span class="cta-button">Shop Now on Amazon</span>
+                    </div>
+                </a>
+            </div>
+            
+            <!-- Controls -->
+            <a class="prev">❮</a>
+            <a class="next">❯</a>
         </div>
         
-        <!-- Slide 2 -->
-        <div class="mySlides">
-            <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?w=1000&h=400&fit=crop" alt="Nike Sneakers">
-            <div class="slide-text">
-                <h2>Streetwear Icon</h2>
-                <h3>Nike Dunk Low</h3>
-                <p>The silhouette that defined street culture.</p>
-                <a href="#" class="cta-button">Shop on Amazon</a>
+        <!-- Dots -->
+        <div class="dots-container">
+            <span class="dot active" data-index="0"></span>
+            <span class="dot" data-index="1"></span>
+            <span class="dot" data-index="2"></span>
+        </div>
+    </section>
+
+    <!-- ========== FEATURED BRANDS ========== -->
+    <section class="brands">
+        <div class="container">
+            <h2>Featured Brands</h2>
+            <div class="brand-grid">
+                <div class="brand-card">
+                    <img src="https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300&q=80" alt="Puma">
+                    <h3>Puma</h3>
+                    <p>Explore Puma's latest releases and classic revivals.</p>
+                    <a href="brands.html#puma" class="cta-button small">View Puma</a>
+                </div>
+                <div class="brand-card">
+                    <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300&q=80" alt="Nike">
+                    <h3>Nike</h3>
+                    <p>Discover Nike's innovative technology and iconic styles.</p>
+                    <a href="brands.html#nike" class="cta-button small">View Nike</a>
+                </div>
+                <div class="brand-card">
+                    <img src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300&q=80" alt="Adidas">
+                    <h3>Adidas</h3>
+                    <p>Shop Adidas' heritage designs and performance gear.</p>
+                    <a href="brands.html#adidas" class="cta-button small">View Adidas</a>
+                </div>
+                <div class="brand-card">
+                    <img src="https://images.unsplash.com/photo-1543508282-6319a3e2621f?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300&q=80" alt="New Balance">
+                    <h3>New Balance</h3>
+                    <p>Experience New Balance's premium craftsmanship.</p>
+                    <a href="brands.html#newbalance" class="cta-button small">View New Balance</a>
+                </div>
             </div>
         </div>
-        
-        <!-- Slide 3 -->
-        <div class="mySlides">
-            <img src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?w=1000&h=400&fit=crop" alt="New Balance">
-            <div class="slide-text">
-                <h2>Vintage Revival</h2>
-                <h3>New Balance 550</h3>
-                <p>Court-born design meets everyday luxury.</p>
-                <a href="#" class="cta-button">Shop on Amazon</a>
+    </section>
+
+    <!-- ========== LATEST REVIEWS ========== -->
+    <section class="reviews">
+        <div class="container">
+            <h2>Latest Reviews</h2>
+            <div class="review-grid">
+                <article class="review-card">
+                    <img src="https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300&q=80" alt="Puma Palermo">
+                    <div class="review-content">
+                        <h3>Puma Palermo: The Ultimate Throwback</h3>
+                        <p>We test the revived classic that's taking streetwear by storm in 2025. Perfect blend of retro aesthetics and modern comfort.</p>
+                        <!-- REPLACE THIS WITH YOUR AMAZON LINK -->
+                        <a href="YOUR_PUMA_PALERMO_AMAZON_LINK" target="_blank" rel="sponsored nofollow" class="cta-button small">Shop on Amazon</a>
+                    </div>
+                </article>
+                <article class="review-card">
+                    <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300&q=80" alt="Nike Air Max">
+                    <div class="review-content">
+                        <h3>Nike Air Max Pulse: Comfort Revolution</h3>
+                        <p>Is this the most comfortable Air Max ever made? Our detailed analysis reveals the truth about Nike's latest innovation.</p>
+                        <!-- REPLACE THIS WITH YOUR AMAZON LINK -->
+                        <a href="YOUR_NIKE_AIRMAX_AMAZON_LINK" target="_blank" rel="sponsored nofollow" class="cta-button small">Shop on Amazon</a>
+                    </div>
+                </article>
+                <article class="review-card">
+                    <img src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300&q=80" alt="Adidas Gazelle">
+                    <div class="review-content">
+                        <h3>Adidas Gazelle: Icon Reinvented</h3>
+                        <p>The suede classic gets a modern update. Does it live up to the legacy? We put it to the test in our comprehensive review.</p>
+                        <!-- REPLACE THIS WITH YOUR AMAZON LINK -->
+                        <a href="YOUR_ADIDAS_GAZELLE_AMAZON_LINK" target="_blank" rel="sponsored nofollow" class="cta-button small">Shop on Amazon</a>
+                    </div>
+                </article>
             </div>
         </div>
-        
-        <!-- Controls -->
-        <button class="prev">❮</button>
-        <button class="next">❯</button>
-    </div>
-    
-    <!-- Dots -->
-    <div class="dots-container">
-        <span class="dot active" data-index="0"></span>
-        <span class="dot" data-index="1"></span>
-        <span class="dot" data-index="2"></span>
-    </div>
-    
-    <!-- SIMPLE JAVASCRIPT (INLINE - GUARANTEED TO LOAD) -->
+    </section>
+
+    <!-- ========== FOOTER ========== -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Sneaker-Spotlight</h3>
+                    <p>Your premier guide to authentic sneaker analysis, honest reviews, and direct purchase links.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <a href="trending.html">Trending Now</a>
+                    <a href="brands.html">All Brands</a>
+                    <a href="comparison.html">Comparisons</a>
+                    <a href="about.html">About Us</a>
+                </div>
+                <div class="footer-section">
+                    <h3>Legal</h3>
+                    <a href="privacy.html">Privacy Policy</a>
+                    <a href="terms.html">Terms of Service</a>
+                    <p class="affiliate-disclaimer"><strong>Disclosure:</strong> As an Amazon Associate, I earn from qualifying purchases. Product prices and availability are accurate as of the date/time indicated and are subject to change.</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Sneaker-Spotlight. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ========== JAVASCRIPT (INLINE - GUARANTEED TO WORK) ========== -->
     <script>
         // WAIT FOR PAGE TO LOAD
         document.addEventListener('DOMContentLoaded', function() {
@@ -152,12 +508,20 @@
             const dots = document.querySelectorAll('.dot');
             const prevBtn = document.querySelector('.prev');
             const nextBtn = document.querySelector('.next');
+            
+            if (slides.length === 0) {
+                console.log('❌ No slides found!');
+                return;
+            }
+            
+            console.log(`✅ Found ${slides.length} slides`);
+            
             let currentSlide = 0;
-            let timer;
+            let slideTimer;
             
             // SHOW SPECIFIC SLIDE
             function showSlide(index) {
-                console.log('Showing slide:', index);
+                console.log(`🔄 Showing slide ${index + 1}`);
                 
                 // HIDE ALL SLIDES
                 slides.forEach(slide => {
@@ -165,7 +529,7 @@
                     slide.classList.remove('active');
                 });
                 
-                // REMOVE ACTIVE FROM DOTS
+                // REMOVE ACTIVE FROM ALL DOTS
                 dots.forEach(dot => dot.classList.remove('active'));
                 
                 // HANDLE WRAP-AROUND
@@ -176,20 +540,22 @@
                 slides[index].style.display = 'block';
                 slides[index].classList.add('active');
                 
-                // ACTIVATE DOT
-                if (dots[index]) dots[index].classList.add('active');
+                // ACTIVATE CORRESPONDING DOT
+                if (dots[index]) {
+                    dots[index].classList.add('active');
+                }
                 
-                // UPDATE INDEX
+                // UPDATE CURRENT SLIDE INDEX
                 currentSlide = index;
             }
             
-            // NEXT SLIDE
+            // NEXT SLIDE FUNCTION
             function nextSlide() {
                 showSlide(currentSlide + 1);
                 resetTimer();
             }
             
-            // PREVIOUS SLIDE
+            // PREVIOUS SLIDE FUNCTION
             function prevSlide() {
                 showSlide(currentSlide - 1);
                 resetTimer();
@@ -197,11 +563,16 @@
             
             // AUTO-PLAY FUNCTIONS
             function startTimer() {
-                timer = setInterval(nextSlide, 3000); // 3 seconds
+                stopTimer(); // Clear any existing timer first
+                slideTimer = setInterval(nextSlide, 5000); // Change slide every 5 seconds
+                console.log('⏰ Auto-play started');
             }
             
             function stopTimer() {
-                clearInterval(timer);
+                if (slideTimer) {
+                    clearInterval(slideTimer);
+                    console.log('⏸️ Auto-play paused');
+                }
             }
             
             function resetTimer() {
@@ -209,46 +580,46 @@
                 startTimer();
             }
             
-            // EVENT LISTENERS FOR DOTS
+            // SET UP CLICK EVENTS FOR DOTS
             dots.forEach((dot, index) => {
                 dot.addEventListener('click', function() {
+                    console.log(`• Dot ${index + 1} clicked`);
                     showSlide(index);
                     resetTimer();
                 });
             });
             
-            // EVENT LISTENERS FOR ARROWS
+            // SET UP CLICK EVENTS FOR NAVIGATION ARROWS
             if (prevBtn) {
-                prevBtn.addEventListener('click', function() {
+                prevBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    console.log('◀️ Previous button clicked');
                     prevSlide();
                 });
             }
             
             if (nextBtn) {
-                nextBtn.addEventListener('click', function() {
+                nextBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    console.log('▶️ Next button clicked');
                     nextSlide();
                 });
             }
             
-            // PAUSE ON HOVER
-            const container = document.querySelector('.slideshow-container');
-            if (container) {
-                container.addEventListener('mouseenter', stopTimer);
-                container.addEventListener('mouseleave', startTimer);
+            // PAUSE SLIDESHOW ON HOVER
+            const slideshowContainer = document.querySelector('.slideshow-container');
+            if (slideshowContainer) {
+                slideshowContainer.addEventListener('mouseenter', stopTimer);
+                slideshowContainer.addEventListener('mouseleave', startTimer);
+                console.log('🖱️ Hover pause/resume enabled');
             }
             
-            // START EVERYTHING
+            // START THE SLIDESHOW
             showSlide(0);
             startTimer();
             
-            console.log('✅ Slideshow ready! Found', slides.length, 'slides');
+            console.log('✅ Slideshow fully initialized and running!');
         });
     </script>
-    
-    <!-- SIMPLE FOOTER -->
-    <div style="background: #111; padding: 20px; text-align: center; margin-top: 30px;">
-        <p>© 2025 Sneaker-Spotlight Test</p>
-        <p>As an Amazon Associate I earn from qualifying purchases.</p>
-    </div>
 </body>
 </html>
