@@ -6,427 +6,87 @@
     <title>Sneaker-Spotlight | Discover Top Trending Sneakers</title>
     <meta name="description" content="Sneaker-Spotlight: Your guide to trending sneakers. Honest reviews, comparisons, and direct Amazon purchase links.">
     <meta name="google-site-verification" content="xEaZuP2vM8HpHzNrhaQP4GmhPZPEy21CJMSysJynShY" />
-    <style>
-        /* ========== RESET & BASE ========== */
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { 
-            font-family: 'Arial', sans-serif; 
-            background: #0a0a0a; 
-            color: #f5f5f5; 
-            line-height: 1.6;
-        }
-        
-        /* ========== SMOOTH SCROLLING ========== */
-        html {
-            scroll-behavior: smooth;
-        }
-        
-        /* ========== CONTAINER ========== */
-        .container { 
-            max-width: 1200px; 
-            margin: 0 auto; 
-            padding: 0 20px; 
-        }
-        
-        /* ========== HEADER & NAV ========== */
-        .site-header { 
-            background: #1a1a1a; 
-            padding: 20px 0; 
-            position: sticky; 
-            top: 0; 
-            z-index: 1000; 
-            border-bottom: 1px solid #333;
-        }
-        
-        .site-header .container { 
-            display: flex; 
-            justify-content: space-between; 
-            align-items: center; 
-        }
-        
-        .logo { 
-            font-size: 28px; 
-            font-weight: 800; 
-            color: white; 
-            text-decoration: none; 
-        }
-        
-        .logo span { 
-            color: #ff3e00; 
-        }
-        
-        .main-nav { 
-            display: flex; 
-            gap: 25px; 
-        }
-        
-        .main-nav a { 
-            color: #d1d1d1; 
-            text-decoration: none; 
-            font-weight: 600; 
-            transition: color 0.3s; 
-        }
-        
-        .main-nav a:hover { 
-            color: #ff3e00; 
-        }
-        
-        /* ========== WORKING SLIDESHOW ========== */
-        .hero { 
-            margin: 30px 0 60px; 
-            position: relative;
-        }
-        
-        .slideshow-container { 
-            max-width: 1200px; 
-            margin: auto; 
-            height: 500px; 
-            position: relative; 
-            overflow: hidden; 
-            border-radius: 10px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-        }
-        
-        .mySlides { 
-            display: none; 
-            height: 100%; 
-            width: 100%;
-            position: absolute;
-            top: 0;
-            left: 0;
-            opacity: 0;
-            transition: opacity 0.5s ease-in-out;
-        }
-        
-        .mySlides.active { 
-            display: block; 
-            opacity: 1;
-        }
-        
-        .slide-link { 
-            display: block; 
-            height: 100%; 
-            position: relative;
-            text-decoration: none;
-        }
-        
-        .mySlides img { 
-            width: 100%; 
-            height: 100%; 
-            object-fit: cover; 
-            filter: brightness(0.8);
-        }
-        
-        .slide-text { 
-            position: absolute; 
-            bottom: 0; 
-            left: 0; 
-            right: 0; 
-            background: linear-gradient(transparent, rgba(0,0,0,0.9)); 
-            color: white; 
-            padding: 40px; 
-        }
-        
-        .slide-text h2 { 
-            color: #ff3e00; 
-            font-size: 18px; 
-            margin-bottom: 10px; 
-            text-transform: uppercase;
-        }
-        
-        .slide-text h1 { 
-            font-size: 42px; 
-            margin-bottom: 15px; 
-            font-weight: 800;
-        }
-        
-        .slide-text p { 
-            font-size: 18px; 
-            margin-bottom: 25px; 
-            max-width: 600px; 
-            color: #f0f0f0;
-        }
-        
-        /* Slideshow Controls */
-        .prev, .next { 
-            cursor: pointer; 
-            position: absolute; 
-            top: 50%; 
-            width: 50px; 
-            height: 50px; 
-            margin-top: -25px; 
-            color: white; 
-            font-size: 24px; 
-            background: rgba(0,0,0,0.5); 
-            border-radius: 50%; 
-            display: flex; 
-            align-items: center; 
-            justify-content: center; 
-            border: none; 
-            text-decoration: none;
-            z-index: 10;
-        }
-        
-        .prev:hover, .next:hover { 
-            background: rgba(255,62,0,0.8); 
-        }
-        
-        .next { 
-            right: 20px; 
-        }
-        
-        .prev { 
-            left: 20px; 
-        }
-        
-        .dots-container { 
-            text-align: center; 
-            padding: 20px; 
-            position: absolute;
-            bottom: 10px;
-            left: 0;
-            right: 0;
-            z-index: 10;
-        }
-        
-        .dot { 
-            cursor: pointer; 
-            height: 14px; 
-            width: 14px; 
-            margin: 0 8px; 
-            background: rgba(255,255,255,0.5); 
-            border-radius: 50%; 
-            display: inline-block; 
-            transition: background 0.3s; 
-            border: 2px solid transparent; 
-        }
-        
-        .dot:hover, .dot.active { 
-            background: #ff3e00; 
-            border-color: white; 
-        }
-        
-        /* ========== BUTTONS ========== */
-        .cta-button { 
-            display: inline-block; 
-            background: #ff3e00; 
-            color: white; 
-            padding: 14px 30px; 
-            border-radius: 30px; 
-            font-weight: 700; 
-            text-transform: uppercase; 
-            letter-spacing: 0.5px;
-            border: none; 
-            cursor: pointer; 
-            transition: all 0.3s; 
-            text-decoration: none; 
-            text-align: center;
-            box-shadow: 0 4px 15px rgba(255,62,0,0.3);
-        }
-        
-        .cta-button:hover { 
-            background: #ff5c29; 
-            transform: translateY(-3px); 
-            box-shadow: 0 6px 20px rgba(255,62,0,0.4);
-        }
-        
-        .cta-button.small {
-            padding: 10px 20px;
-            font-size: 14px;
-        }
-        
-        .cta-button.amazon {
-            background: #ff9900;
-            box-shadow: 0 4px 15px rgba(255,153,0,0.3);
-        }
-        
-        .cta-button.amazon:hover {
-            background: #ffad33;
-            box-shadow: 0 6px 20px rgba(255,153,0,0.4);
-        }
-        
-        /* ========== SITE SECTIONS ========== */
-        .brands, .reviews { 
-            padding: 60px 0; 
-        }
-        
-        .brands h2, .reviews h2 { 
-            font-size: 36px; 
-            text-align: center; 
-            margin-bottom: 40px; 
-            color: white;
-        }
-        
-        .brand-grid, .review-grid { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
-            gap: 30px; 
-            margin-top: 30px; 
-        }
-        
-        .brand-card, .review-card { 
-            background: #1a1a1a; 
-            border-radius: 10px; 
-            overflow: hidden; 
-            transition: transform 0.3s; 
-            border: 1px solid #333;
-        }
-        
-        .brand-card:hover, .review-card:hover { 
-            transform: translateY(-10px); 
-            border-color: #444;
-        }
-        
-        .brand-card img, .review-card img { 
-            width: 100%; 
-            height: 200px; 
-            object-fit: cover; 
-        }
-        
-        .brand-card h3, .review-card h3 { 
-            padding: 20px 20px 10px; 
-            color: #fff; 
-            font-size: 22px; 
-        }
-        
-        .brand-card p, .review-card p { 
-            padding: 0 20px 20px; 
-            color: #d1d1d1; 
-        }
-        
-        .brand-buttons {
-            padding: 0 20px 20px;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-        
-        .review-content { 
-            padding: 20px; 
-        }
-        
-        .reviews { 
-            background: #111; 
-        }
-        
-        /* ========== FOOTER ========== */
-        .site-footer { 
-            background: #111; 
-            padding: 60px 0 30px; 
-            border-top: 1px solid #333;
-            margin-top: 60px; 
-        }
-        
-        .footer-content { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
-            gap: 40px; 
-            margin-bottom: 40px; 
-        }
-        
-        .footer-section h3 { 
-            font-size: 20px; 
-            margin-bottom: 20px; 
-            color: #fff;
-        }
-        
-        .footer-section p, .footer-section a { 
-            color: #d1d1d1; 
-            line-height: 1.8; 
-            margin-bottom: 10px; 
-            display: block; 
-        }
-        
-        .footer-section a:hover { 
-            color: #ff3e00; 
-        }
-        
-        .affiliate-disclaimer { 
-            font-size: 14px; 
-            color: #888; 
-            margin-top: 20px; 
-            font-style: italic; 
-            line-height: 1.5;
-        }
-        
-        .footer-bottom { 
-            text-align: center; 
-            padding-top: 30px; 
-            border-top: 1px solid #333; 
-            color: #666; 
-        }
-    </style>
+    
+    <!-- External CSS -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Preconnect for faster loading -->
+    <link rel="preconnect" href="https://images.unsplash.com">
+    <link rel="preconnect" href="https://www.amazon.com">
 </head>
 <body>
     <!-- ========== HEADER ========== -->
     <header class="site-header">
         <div class="container">
             <a href="#home" class="logo">Sneaker-<span>Spotlight</span></a>
-          <nav class="main-nav">
-    <a href="#home">Home</a>
-    <a href="#brands">Brands</a>
-    <a href="#reviews">Reviews</a>
-    <a href="about.html">About</a>
-    <a href="contact.html">Contact</a>
-    <a href="privacy.html">Privacy</a>
-</nav>
+            <nav class="main-nav">
+                <a href="#home">Home</a>
+                <a href="#brands">Brands</a>
+                <a href="#reviews">Reviews</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+                <a href="privacy.html">Privacy</a>
+            </nav>
         </div>
     </header>
 
-   <!-- ========== HERO SLIDESHOW ========== -->
-<section class="hero" id="home">
-    <div class="slideshow-container">
-        <!-- Slide 1 - Puma Speedcat -->
-        <div class="mySlides active">
-            <a href="https://www.amazon.com/s?k=pumma&crid=3JHN9BZFI575K&sprefix=puma%2Caps%2C348&linkCode=ll2&tag=maria555-20&linkId=04321c023701be552767306ae1cbe8d6&language=en_US&ref_=as_li_ss_tl" target="_blank" rel="sponsored nofollow" class="slide-link">
-                <img src="https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=600&q=80" alt="Puma Speedcat Sneakers">
-                <div class="slide-text">
-                    <h2>#1 Trending Retro</h2>
-                    <h1>Puma Speedcat</h1>
-                    <p>Classic racing style meets modern comfort. The ultimate Y2K revival sneaker.</p>
-                    <a href="https://www.amazon.com/s?k=pumma&crid=3JHN9BZFI575K&sprefix=puma%2Caps%2C348&linkCode=ll2&tag=maria555-20&linkId=04321c023701be552767306ae1cbe8d6&language=en_US&ref_=as_li_ss_tl" target="_blank" rel="sponsored nofollow" class="cta-button">Shop Now on Amazon</a>
-                </div>
-            </a>
+    <!-- ========== HERO SLIDESHOW ========== -->
+    <section class="hero" id="home">
+        <div class="slideshow-container">
+            <!-- Slide 1 - Puma Speedcat -->
+            <div class="mySlides active">
+                <a href="https://www.amazon.com/s?k=pumma&crid=3JHN9BZFI575K&sprefix=puma%2Caps%2C348&linkCode=ll2&tag=maria555-20&linkId=04321c023701be552767306ae1cbe8d6&language=en_US&ref_=as_li_ss_tl" target="_blank" rel="sponsored nofollow" class="slide-link">
+                    <!-- COMPRESSED: 1200x600 → 800x400 -->
+                    <img src="https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400&q=70" alt="Puma Speedcat Sneakers" loading="lazy">
+                    <div class="slide-text">
+                        <h2>#1 Trending Retro</h2>
+                        <h1>Puma Speedcat</h1>
+                        <p>Classic racing style meets modern comfort. The ultimate Y2K revival sneaker.</p>
+                        <a href="https://www.amazon.com/s?k=pumma&crid=3JHN9BZFI575K&sprefix=puma%2Caps%2C348&linkCode=ll2&tag=maria555-20&linkId=04321c023701be552767306ae1cbe8d6&language=en_US&ref_=as_li_ss_tl" target="_blank" rel="sponsored nofollow" class="cta-button">Shop Now on Amazon</a>
+                    </div>
+                </a>
+            </div>
+            
+            <!-- Slide 2 - Nike Dunk Low -->
+            <div class="mySlides">
+                <a href="https://www.amazon.com/Walking-Sneakers-Athletic-Trainers-All-Black/dp/B0D3BTNJ8Z?dib=eyJ2IjoiMSJ9.lHpKy8LSJBqhF6T_UI4A56O3fcchznt3upDbENFZZwwC0Wgsf5av9dQaaniNrOR7XrFOWAd1ySCV2XAgErEaUqw-0G6_UC-P01iVJJBAKBtpHyuQSFKt9t3oaylO02QpVklcc94A-7UPOkw8aUJqL2MQNVgL0KIKrbusbYS-Nnb_gF8UX7Qlg9sigUVQDBlPztRhID0jUYcWX7KCJvjuclMHgMDQlnlIi0exxDK4Tc_QX4R_oPSpGHlTnN0jHX9Vgki4FJf1PXiIP64ZRDbkCjGFWoYrzrB2qTomydeipio.LWOUEWKI_zJw00zx7jm3OH5bUlMIBspzEgDpq-_xgdU&dib_tag=se&keywords=nike%2Bsneakers&qid=1770703577&sr=8-3-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&th=1&psc=1&linkCode=ll2&tag=maria555-20&linkId=235fbfde316c7eac788192a6422b18ca&language=en_US&ref_=as_li_ss_tl" target="_blank" rel="sponsored nofollow" class="slide-link">
+                    <!-- COMPRESSED: 1200x600 → 800x400 -->
+                    <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400&q=70" alt="Nike Dunk Low" loading="lazy">
+                    <div class="slide-text">
+                        <h2>Streetwear Icon</h2>
+                        <h1>Nike Dunk Low</h1>
+                        <p>The silhouette that defined skate and street culture worldwide.</p>
+                        <a href="https://www.amazon.com/Walking-Sneakers-Athletic-Trainers-All-Black/dp/B0D3BTNJ8Z?dib=eyJ2IjoiMSJ9.lHpKy8LSJBqhF6T_UI4A56O3fcchznt3upDbENFZZwwC0Wgsf5av9dQaaniNrOR7XrFOWAd1ySCV2XAgErEaUqw-0G6_UC-P01iVJJBAKBtpHyuQSFKt9t3oaylO02QpVklcc94A-7UPOkw8aUJqL2MQNVgL0KIKrbusbYS-Nnb_gF8UX7Qlg9sigUVQDBlPztRhID0jUYcWX7KCJvjuclMHgMDQlnlIi0exxDK4Tc_QX4R_oPSpGHlTnN0jHX9Vgki4FJf1PXiIP64ZRDbkCjGFWoYrzrB2qTomydeipio.LWOUEWKI_zJw00zx7jm3OH5bUlMIBspzEgDpq-_xgdU&dib_tag=se&keywords=nike%2Bsneakers&qid=1770703577&sr=8-3-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&th=1&psc=1&linkCode=ll2&tag=maria555-20&linkId=235fbfde316c7eac788192a6422b18ca&language=en_US&ref_=as_li_ss_tl" target="_blank" rel="sponsored nofollow" class="cta-button">Shop Now on Amazon</a>
+                    </div>
+                </a>
+            </div>
+            
+            <!-- Slide 3 - Adidas Gazelle -->
+            <div class="mySlides">
+                <a href="https://www.amazon.com/s?k=adddas&crid=NP7I7NHNML05&sprefix=adddas%2Caps%2C348&linkCode=ll2&tag=maria555-20&linkId=1f25c1f90a38526af480b1b95644bac1&language=en_US&ref_=as_li_ss_tl" target="_blank" rel="sponsored nofollow" class="slide-link">
+                    <!-- COMPRESSED: 1200x600 → 800x400 -->
+                    <img src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400&q=70" alt="Adidas Gazelle" loading="lazy">
+                    <div class="slide-text">
+                        <h2>Vintage Revival</h2>
+                        <h1>Adidas Gazelle</h1>
+                        <p>Court-born design meets everyday luxury. The essential throwback sneaker.</p>
+                        <a href="https://www.amazon.com/s?k=adddas&crid=NP7I7NHNML05&sprefix=adddas%2Caps%2C348&linkCode=ll2&tag=maria555-20&linkId=1f25c1f90a38526af480b1b95644bac1&language=en_US&ref_=as_li_ss_tl" target="_blank" rel="sponsored nofollow" class="cta-button">Shop Now on Amazon</a>
+                    </div>
+                </a>
+            </div>
+            
+            <!-- Controls -->
+            <button class="prev">❮</button>
+            <button class="next">❯</button>
         </div>
         
-        <!-- Slide 2 - Nike Dunk Low -->
-        <div class="mySlides">
-            <a href="https://www.amazon.com/Walking-Sneakers-Athletic-Trainers-All-Black/dp/B0D3BTNJ8Z?dib=eyJ2IjoiMSJ9.lHpKy8LSJBqhF6T_UI4A56O3fcchznt3upDbENFZZwwC0Wgsf5av9dQaaniNrOR7XrFOWAd1ySCV2XAgErEaUqw-0G6_UC-P01iVJJBAKBtpHyuQSFKt9t3oaylO02QpVklcc94A-7UPOkw8aUJqL2MQNVgL0KIKrbusbYS-Nnb_gF8UX7Qlg9sigUVQDBlPztRhID0jUYcWX7KCJvjuclMHgMDQlnlIi0exxDK4Tc_QX4R_oPSpGHlTnN0jHX9Vgki4FJf1PXiIP64ZRDbkCjGFWoYrzrB2qTomydeipio.LWOUEWKI_zJw00zx7jm3OH5bUlMIBspzEgDpq-_xgdU&dib_tag=se&keywords=nike%2Bsneakers&qid=1770703577&sr=8-3-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&th=1&psc=1&linkCode=ll2&tag=maria555-20&linkId=235fbfde316c7eac788192a6422b18ca&language=en_US&ref_=as_li_ss_tl" target="_blank" rel="sponsored nofollow" class="slide-link">
-                <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=600&q=80" alt="Nike Dunk Low">
-                <div class="slide-text">
-                    <h2>Streetwear Icon</h2>
-                    <h1>Nike Dunk Low</h1>
-                    <p>The silhouette that defined skate and street culture worldwide.</p>
-                    <a href="https://www.amazon.com/Walking-Sneakers-Athletic-Trainers-All-Black/dp/B0D3BTNJ8Z?dib=eyJ2IjoiMSJ9.lHpKy8LSJBqhF6T_UI4A56O3fcchznt3upDbENFZZwwC0Wgsf5av9dQaaniNrOR7XrFOWAd1ySCV2XAgErEaUqw-0G6_UC-P01iVJJBAKBtpHyuQSFKt9t3oaylO02QpVklcc94A-7UPOkw8aUJqL2MQNVgL0KIKrbusbYS-Nnb_gF8UX7Qlg9sigUVQDBlPztRhID0jUYcWX7KCJvjuclMHgMDQlnlIi0exxDK4Tc_QX4R_oPSpGHlTnN0jHX9Vgki4FJf1PXiIP64ZRDbkCjGFWoYrzrB2qTomydeipio.LWOUEWKI_zJw00zx7jm3OH5bUlMIBspzEgDpq-_xgdU&dib_tag=se&keywords=nike%2Bsneakers&qid=1770703577&sr=8-3-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&th=1&psc=1&linkCode=ll2&tag=maria555-20&linkId=235fbfde316c7eac788192a6422b18ca&language=en_US&ref_=as_li_ss_tl" target="_blank" rel="sponsored nofollow" class="cta-button">Shop Now on Amazon</a>
-                </div>
-            </a>
+        <!-- Dots -->
+        <div class="dots-container">
+            <span class="dot active" data-index="0"></span>
+            <span class="dot" data-index="1"></span>
+            <span class="dot" data-index="2"></span>
         </div>
-        
-        <!-- Slide 3 - Adidas Gazelle -->
-        <div class="mySlides">
-            <a href="https://www.amazon.com/s?k=adddas&crid=NP7I7NHNML05&sprefix=adddas%2Caps%2C348&linkCode=ll2&tag=maria555-20&linkId=1f25c1f90a38526af480b1b95644bac1&language=en_US&ref_=as_li_ss_tl" target="_blank" rel="sponsored nofollow" class="slide-link">
-                <img src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=600&q=80" alt="Adidas Gazelle">
-                <div class="slide-text">
-                    <h2>Vintage Revival</h2>
-                    <h1>Adidas Gazelle</h1>
-                    <p>Court-born design meets everyday luxury. The essential throwback sneaker.</p>
-                    <a href="https://www.amazon.com/s?k=adddas&crid=NP7I7NHNML05&sprefix=adddas%2Caps%2C348&linkCode=ll2&tag=maria555-20&linkId=1f25c1f90a38526af480b1b95644bac1&language=en_US&ref_=as_li_ss_tl" target="_blank" rel="sponsored nofollow" class="cta-button">Shop Now on Amazon</a>
-                </div>
-            </a>
-        </div>
-        
-        <!-- Controls -->
-        <a class="prev">❮</a>
-        <a class="next">❯</a>
-    </div>
-    
-    <!-- Dots -->
-    <div class="dots-container">
-        <span class="dot active" data-index="0"></span>
-        <span class="dot" data-index="1"></span>
-        <span class="dot" data-index="2"></span>
-    </div>
-</section>
+    </section>
 
     <!-- ========== FEATURED BRANDS ========== -->
     <section class="brands" id="brands">
@@ -435,7 +95,8 @@
             <div class="brand-grid">
                 <!-- Puma Card -->
                 <div class="brand-card">
-                    <img src="https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300&q=80" alt="Puma">
+                    <!-- COMPRESSED: 400x300 → 300x225 -->
+                    <img src="https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=225&q=70" alt="Puma" loading="lazy">
                     <h3>Puma</h3>
                     <p>Explore Puma's latest releases and classic revivals.</p>
                     <div class="brand-buttons">
@@ -446,7 +107,8 @@
                 
                 <!-- Nike Card -->
                 <div class="brand-card">
-                    <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300&q=80" alt="Nike">
+                    <!-- COMPRESSED: 400x300 → 300x225 -->
+                    <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=225&q=70" alt="Nike" loading="lazy">
                     <h3>Nike</h3>
                     <p>Discover Nike's innovative technology and iconic styles.</p>
                     <div class="brand-buttons">
@@ -457,7 +119,8 @@
                 
                 <!-- Adidas Card -->
                 <div class="brand-card">
-                    <img src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300&q=80" alt="Adidas">
+                    <!-- COMPRESSED: 400x300 → 300x225 -->
+                    <img src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=225&q=70" alt="Adidas" loading="lazy">
                     <h3>Adidas</h3>
                     <p>Shop Adidas' heritage designs and performance gear.</p>
                     <div class="brand-buttons">
@@ -468,7 +131,8 @@
                 
                 <!-- New Balance Card -->
                 <div class="brand-card">
-                    <img src="https://images.unsplash.com/photo-1543508282-6319a3e2621f?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300&q=80" alt="New Balance">
+                    <!-- COMPRESSED: 400x300 → 300x225 -->
+                    <img src="https://images.unsplash.com/photo-1543508282-6319a3e2621f?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=225&q=70" alt="New Balance" loading="lazy">
                     <h3>New Balance</h3>
                     <p>Experience New Balance's premium craftsmanship.</p>
                     <div class="brand-buttons">
@@ -487,7 +151,8 @@
             <div class="review-grid">
                 <!-- Puma Palermo Review -->
                 <article class="review-card">
-                    <img src="https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300&q=80" alt="Puma Palermo">
+                    <!-- COMPRESSED: 400x300 → 300x225 -->
+                    <img src="https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=225&q=70" alt="Puma Palermo" loading="lazy">
                     <div class="review-content">
                         <h3>Puma Palermo: The Ultimate Throwback</h3>
                         <p>We test the revived classic that's taking streetwear by storm in 2025. Perfect blend of retro aesthetics and modern comfort.</p>
@@ -497,7 +162,8 @@
                 
                 <!-- Nike Air Max Review -->
                 <article class="review-card">
-                    <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300&q=80" alt="Nike Air Max">
+                    <!-- COMPRESSED: 400x300 → 300x225 -->
+                    <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=225&q=70" alt="Nike Air Max" loading="lazy">
                     <div class="review-content">
                         <h3>Nike Air Max Pulse: Comfort Revolution</h3>
                         <p>Is this the most comfortable Air Max ever made? Our detailed analysis reveals the truth about Nike's latest innovation.</p>
@@ -507,7 +173,8 @@
                 
                 <!-- Adidas Gazelle Review -->
                 <article class="review-card">
-                    <img src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300&q=80" alt="Adidas Gazelle">
+                    <!-- COMPRESSED: 400x300 → 300x225 -->
+                    <img src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=225&q=70" alt="Adidas Gazelle" loading="lazy">
                     <div class="review-content">
                         <h3>Adidas Gazelle: Icon Reinvented</h3>
                         <p>The suede classic gets a modern update. Does it live up to the legacy? We put it to the test in our comprehensive review.</p>
@@ -526,19 +193,19 @@
                     <h3>Sneaker-Spotlight</h3>
                     <p>Your premier guide to authentic sneaker analysis, honest reviews, and direct purchase links.</p>
                 </div>
-               <div class="footer-section">
-    <h3>Quick Links</h3>
-    <a href="#home">Home</a>
-    <a href="#brands">Brands</a>
-    <a href="#reviews">Reviews</a>
-    <a href="contact.html">Contact Us</a>
-</div>
-
-<div class="footer-section">
-    <h3>Legal</h3>
-    <a href="privacy.html">Privacy Policy</a>
-    <a href="privacy.html">Terms of Service</a>
-</div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <a href="#home">Home</a>
+                    <a href="#brands">Brands</a>
+                    <a href="#reviews">Reviews</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+                <div class="footer-section">
+                    <h3>Legal</h3>
+                    <a href="privacy.html">Privacy Policy</a>
+                    <a href="privacy.html">Terms of Service</a>
+                    <p class="affiliate-disclaimer"><strong>Disclosure:</strong> As an Amazon Associate, I earn from qualifying purchases. Product prices and availability are accurate as of the date/time indicated and are subject to change.</p>
+                </div>
             </div>
             <div class="footer-bottom">
                 <p>&copy; 2025 Sneaker-Spotlight. All rights reserved.</p>
@@ -546,137 +213,7 @@
         </div>
     </footer>
 
-    <!-- ========== JAVASCRIPT ========== -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            console.log('✅ Page loaded, starting slideshow...');
-            
-            // GET ELEMENTS
-            const slides = document.querySelectorAll('.mySlides');
-            const dots = document.querySelectorAll('.dot');
-            const prevBtn = document.querySelector('.prev');
-            const nextBtn = document.querySelector('.next');
-            
-            if (slides.length === 0) {
-                console.log('❌ No slides found!');
-                return;
-            }
-            
-            console.log(`✅ Found ${slides.length} slides`);
-            
-            let currentSlide = 0;
-            let slideTimer;
-            
-            // SHOW SPECIFIC SLIDE
-            function showSlide(index) {
-                console.log(`🔄 Showing slide ${index + 1}`);
-                
-                // HIDE ALL SLIDES
-                slides.forEach(slide => {
-                    slide.classList.remove('active');
-                    slide.style.opacity = '0';
-                });
-                
-                // REMOVE ACTIVE FROM ALL DOTS
-                dots.forEach(dot => dot.classList.remove('active'));
-                
-                // HANDLE WRAP-AROUND
-                if (index >= slides.length) index = 0;
-                if (index < 0) index = slides.length - 1;
-                
-                // SHOW CURRENT SLIDE
-                slides[index].classList.add('active');
-                slides[index].style.opacity = '1';
-                
-                // ACTIVATE CORRESPONDING DOT
-                if (dots[index]) {
-                    dots[index].classList.add('active');
-                }
-                
-                // UPDATE CURRENT SLIDE INDEX
-                currentSlide = index;
-            }
-            
-            // NEXT SLIDE FUNCTION
-            function nextSlide() {
-                showSlide(currentSlide + 1);
-                resetTimer();
-            }
-            
-            // PREVIOUS SLIDE FUNCTION
-            function prevSlide() {
-                showSlide(currentSlide - 1);
-                resetTimer();
-            }
-            
-            // AUTO-PLAY FUNCTIONS
-            function startTimer() {
-                stopTimer(); // Clear any existing timer first
-                slideTimer = setInterval(nextSlide, 5000); // Change slide every 5 seconds
-                console.log('⏰ Auto-play started');
-            }
-            
-            function stopTimer() {
-                if (slideTimer) {
-                    clearInterval(slideTimer);
-                    console.log('⏸️ Auto-play paused');
-                }
-            }
-            
-            function resetTimer() {
-                stopTimer();
-                startTimer();
-            }
-            
-            // SET UP CLICK EVENTS FOR DOTS
-            dots.forEach((dot, index) => {
-                dot.addEventListener('click', function() {
-                    console.log(`• Dot ${index + 1} clicked`);
-                    showSlide(index);
-                    resetTimer();
-                });
-            });
-            
-            // SET UP CLICK EVENTS FOR NAVIGATION ARROWS
-            if (prevBtn) {
-                prevBtn.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    console.log('◀️ Previous button clicked');
-                    prevSlide();
-                });
-            }
-            
-            if (nextBtn) {
-                nextBtn.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    console.log('▶️ Next button clicked');
-                    nextSlide();
-                });
-            }
-            
-            // PAUSE SLIDESHOW ON HOVER
-            const slideshowContainer = document.querySelector('.slideshow-container');
-            if (slideshowContainer) {
-                slideshowContainer.addEventListener('mouseenter', stopTimer);
-                slideshowContainer.addEventListener('mouseleave', startTimer);
-                console.log('🖱️ Hover pause/resume enabled');
-            }
-            
-            // START THE SLIDESHOW
-            showSlide(0);
-            startTimer();
-            
-            console.log('✅ Slideshow fully initialized and running!');
-            
-            // TEST: Ensure Amazon links are clickable
-            const amazonLinks = document.querySelectorAll('a[href*="amazon"], a[href*="amzn"]');
-            amazonLinks.forEach(link => {
-                link.addEventListener('click', function(e) {
-                    console.log('Amazon link clicked:', this.href);
-                    // Allow normal navigation
-                });
-            });
-        });
-    </script>
+    <!-- External JavaScript -->
+    <script src="script.js"></script>
 </body>
 </html>
