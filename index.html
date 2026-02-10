@@ -88,16 +88,20 @@
             position: absolute;
             top: 0;
             left: 0;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
         }
         
         .mySlides.active { 
             display: block; 
+            opacity: 1;
         }
         
         .slide-link { 
             display: block; 
             height: 100%; 
             position: relative;
+            text-decoration: none;
         }
         
         .mySlides img { 
@@ -220,6 +224,21 @@
             box-shadow: 0 6px 20px rgba(255,62,0,0.4);
         }
         
+        .cta-button.small {
+            padding: 10px 20px;
+            font-size: 14px;
+        }
+        
+        .cta-button.amazon {
+            background: #ff9900;
+            box-shadow: 0 4px 15px rgba(255,153,0,0.3);
+        }
+        
+        .cta-button.amazon:hover {
+            background: #ffad33;
+            box-shadow: 0 6px 20px rgba(255,153,0,0.4);
+        }
+        
         /* ========== SITE SECTIONS ========== */
         .brands, .reviews { 
             padding: 60px 0; 
@@ -267,6 +286,13 @@
         .brand-card p, .review-card p { 
             padding: 0 20px 20px; 
             color: #d1d1d1; 
+        }
+        
+        .brand-buttons {
+            padding: 0 20px 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
         }
         
         .review-content { 
@@ -345,10 +371,9 @@
     <!-- ========== HERO SLIDESHOW ========== -->
     <section class="hero">
         <div class="slideshow-container">
-            <!-- Slide 1 -->
+            <!-- Slide 1 - Puma Speedcat -->
             <div class="mySlides active">
-                <!-- REPLACE THIS WITH YOUR AMAZON LINK -->
-                <a href="YOUR_PUMA_SPEEDCAT_AMAZON_LINK" target="_blank" rel="sponsored nofollow" class="slide-link">
+                <a href="https://amzn.to/3Ml9gA2" target="_blank" rel="sponsored nofollow" class="slide-link">
                     <img src="https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=600&q=80" alt="Puma Speedcat Sneakers">
                     <div class="slide-text">
                         <h2>#1 Trending Retro</h2>
@@ -359,10 +384,10 @@
                 </a>
             </div>
             
-            <!-- Slide 2 -->
+            <!-- Slide 2 - Nike Dunk Low -->
             <div class="mySlides">
-                <!-- REPLACE THIS WITH YOUR AMAZON LINK -->
-                <a href="YOUR_NIKE_DUNK_AMAZON_LINK" target="_blank" rel="sponsored nofollow" class="slide-link">
+                <!-- REPLACE THIS WITH YOUR NIKE AMAZON LINK -->
+                <a href="https://www.amazon.com/s?k=nike+dunk+low&tag=your-affiliate-tag-20" target="_blank" rel="sponsored nofollow" class="slide-link">
                     <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=600&q=80" alt="Nike Dunk Low">
                     <div class="slide-text">
                         <h2>Streetwear Icon</h2>
@@ -373,10 +398,10 @@
                 </a>
             </div>
             
-            <!-- Slide 3 -->
+            <!-- Slide 3 - New Balance 550 -->
             <div class="mySlides">
-                <!-- REPLACE THIS WITH YOUR AMAZON LINK -->
-                <a href="YOUR_NEW_BALANCE_AMAZON_LINK" target="_blank" rel="sponsored nofollow" class="slide-link">
+                <!-- REPLACE THIS WITH YOUR NEW BALANCE AMAZON LINK -->
+                <a href="https://www.amazon.com/s?k=new+balance+550&tag=your-affiliate-tag-20" target="_blank" rel="sponsored nofollow" class="slide-link">
                     <img src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=600&q=80" alt="New Balance 550">
                     <div class="slide-text">
                         <h2>Vintage Revival</h2>
@@ -405,29 +430,51 @@
         <div class="container">
             <h2>Featured Brands</h2>
             <div class="brand-grid">
+                <!-- Puma Card -->
                 <div class="brand-card">
                     <img src="https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300&q=80" alt="Puma">
                     <h3>Puma</h3>
                     <p>Explore Puma's latest releases and classic revivals.</p>
-                    <a href="brands.html#puma" class="cta-button small">View Puma</a>
+                    <div class="brand-buttons">
+                        <a href="brands.html#puma" class="cta-button small">View Puma Collection</a>
+                        <a href="https://amzn.to/3Ml9gA2" target="_blank" rel="sponsored nofollow" class="cta-button small amazon">Shop Puma on Amazon</a>
+                    </div>
                 </div>
+                
+                <!-- Nike Card -->
                 <div class="brand-card">
                     <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300&q=80" alt="Nike">
                     <h3>Nike</h3>
                     <p>Discover Nike's innovative technology and iconic styles.</p>
-                    <a href="brands.html#nike" class="cta-button small">View Nike</a>
+                    <div class="brand-buttons">
+                        <a href="brands.html#nike" class="cta-button small">View Nike Collection</a>
+                        <!-- REPLACE THIS WITH YOUR NIKE AMAZON LINK -->
+                        <a href="https://www.amazon.com/s?k=nike+sneakers&tag=your-affiliate-tag-20" target="_blank" rel="sponsored nofollow" class="cta-button small amazon">Shop Nike on Amazon</a>
+                    </div>
                 </div>
+                
+                <!-- Adidas Card -->
                 <div class="brand-card">
                     <img src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300&q=80" alt="Adidas">
                     <h3>Adidas</h3>
                     <p>Shop Adidas' heritage designs and performance gear.</p>
-                    <a href="brands.html#adidas" class="cta-button small">View Adidas</a>
+                    <div class="brand-buttons">
+                        <a href="brands.html#adidas" class="cta-button small">View Adidas Collection</a>
+                        <!-- REPLACE THIS WITH YOUR ADIDAS AMAZON LINK -->
+                        <a href="https://www.amazon.com/s?k=adidas+sneakers&tag=your-affiliate-tag-20" target="_blank" rel="sponsored nofollow" class="cta-button small amazon">Shop Adidas on Amazon</a>
+                    </div>
                 </div>
+                
+                <!-- New Balance Card -->
                 <div class="brand-card">
                     <img src="https://images.unsplash.com/photo-1543508282-6319a3e2621f?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300&q=80" alt="New Balance">
                     <h3>New Balance</h3>
                     <p>Experience New Balance's premium craftsmanship.</p>
-                    <a href="brands.html#newbalance" class="cta-button small">View New Balance</a>
+                    <div class="brand-buttons">
+                        <a href="brands.html#newbalance" class="cta-button small">View New Balance Collection</a>
+                        <!-- REPLACE THIS WITH YOUR NEW BALANCE AMAZON LINK -->
+                        <a href="https://www.amazon.com/s?k=new+balance+sneakers&tag=your-affiliate-tag-20" target="_blank" rel="sponsored nofollow" class="cta-button small amazon">Shop New Balance on Amazon</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -438,31 +485,35 @@
         <div class="container">
             <h2>Latest Reviews</h2>
             <div class="review-grid">
+                <!-- Puma Palermo Review -->
                 <article class="review-card">
                     <img src="https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300&q=80" alt="Puma Palermo">
                     <div class="review-content">
                         <h3>Puma Palermo: The Ultimate Throwback</h3>
                         <p>We test the revived classic that's taking streetwear by storm in 2025. Perfect blend of retro aesthetics and modern comfort.</p>
-                        <!-- REPLACE THIS WITH YOUR AMAZON LINK -->
-                        <a href="YOUR_PUMA_PALERMO_AMAZON_LINK" target="_blank" rel="sponsored nofollow" class="cta-button small">Shop on Amazon</a>
+                        <a href="https://amzn.to/3Ml9gA2" target="_blank" rel="sponsored nofollow" class="cta-button small">Shop on Amazon</a>
                     </div>
                 </article>
+                
+                <!-- Nike Air Max Review -->
                 <article class="review-card">
                     <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300&q=80" alt="Nike Air Max">
                     <div class="review-content">
                         <h3>Nike Air Max Pulse: Comfort Revolution</h3>
                         <p>Is this the most comfortable Air Max ever made? Our detailed analysis reveals the truth about Nike's latest innovation.</p>
-                        <!-- REPLACE THIS WITH YOUR AMAZON LINK -->
-                        <a href="YOUR_NIKE_AIRMAX_AMAZON_LINK" target="_blank" rel="sponsored nofollow" class="cta-button small">Shop on Amazon</a>
+                        <!-- REPLACE THIS WITH YOUR NIKE AIR MAX AMAZON LINK -->
+                        <a href="https://www.amazon.com/s?k=nike+air+max+pulse&tag=your-affiliate-tag-20" target="_blank" rel="sponsored nofollow" class="cta-button small">Shop on Amazon</a>
                     </div>
                 </article>
+                
+                <!-- Adidas Gazelle Review -->
                 <article class="review-card">
                     <img src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300&q=80" alt="Adidas Gazelle">
                     <div class="review-content">
                         <h3>Adidas Gazelle: Icon Reinvented</h3>
                         <p>The suede classic gets a modern update. Does it live up to the legacy? We put it to the test in our comprehensive review.</p>
-                        <!-- REPLACE THIS WITH YOUR AMAZON LINK -->
-                        <a href="YOUR_ADIDAS_GAZELLE_AMAZON_LINK" target="_blank" rel="sponsored nofollow" class="cta-button small">Shop on Amazon</a>
+                        <!-- REPLACE THIS WITH YOUR ADIDAS GAZELLE AMAZON LINK -->
+                        <a href="https://www.amazon.com/s?k=adidas+gazelle&tag=your-affiliate-tag-20" target="_blank" rel="sponsored nofollow" class="cta-button small">Shop on Amazon</a>
                     </div>
                 </article>
             </div>
@@ -497,9 +548,8 @@
         </div>
     </footer>
 
-    <!-- ========== JAVASCRIPT (INLINE - GUARANTEED TO WORK) ========== -->
+    <!-- ========== JAVASCRIPT ========== -->
     <script>
-        // WAIT FOR PAGE TO LOAD
         document.addEventListener('DOMContentLoaded', function() {
             console.log('✅ Page loaded, starting slideshow...');
             
@@ -525,8 +575,8 @@
                 
                 // HIDE ALL SLIDES
                 slides.forEach(slide => {
-                    slide.style.display = 'none';
                     slide.classList.remove('active');
+                    slide.style.opacity = '0';
                 });
                 
                 // REMOVE ACTIVE FROM ALL DOTS
@@ -537,8 +587,8 @@
                 if (index < 0) index = slides.length - 1;
                 
                 // SHOW CURRENT SLIDE
-                slides[index].style.display = 'block';
                 slides[index].classList.add('active');
+                slides[index].style.opacity = '1';
                 
                 // ACTIVATE CORRESPONDING DOT
                 if (dots[index]) {
@@ -619,6 +669,15 @@
             startTimer();
             
             console.log('✅ Slideshow fully initialized and running!');
+            
+            // TEST: Ensure Amazon links are clickable
+            const amazonLinks = document.querySelectorAll('a[href*="amazon"], a[href*="amzn"]');
+            amazonLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    console.log('Amazon link clicked:', this.href);
+                    // Allow normal navigation
+                });
+            });
         });
     </script>
 </body>
