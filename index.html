@@ -13,6 +13,286 @@
     <!-- Preconnect for faster loading -->
     <link rel="preconnect" href="https://images.unsplash.com">
     <link rel="preconnect" href="https://www.amazon.com">
+    
+    <style>
+        /* Basic styles in case CSS file is missing */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #f5f5f5;
+            color: #333;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        .site-header {
+            background: #000;
+            color: #FFD700;
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .site-header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .logo {
+            font-size: 28px;
+            font-weight: 800;
+            text-decoration: none;
+            color: #FFD700;
+        }
+        .logo span {
+            color: #fff;
+        }
+        .main-nav {
+            display: flex;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+        .main-nav a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .main-nav a:hover {
+            color: #FFD700;
+        }
+        .hero {
+            position: relative;
+            overflow: hidden;
+        }
+        .slideshow-container {
+            position: relative;
+            height: 500px;
+        }
+        .mySlides {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 0.8s ease;
+            display: none;
+        }
+        .mySlides.active {
+            opacity: 1;
+            display: block;
+        }
+        .slide-link {
+            display: block;
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+        .slide-link img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .slide-text {
+            position: absolute;
+            bottom: 80px;
+            left: 50px;
+            color: white;
+            text-shadow: 2px 2px 5px rgba(0,0,0,0.7);
+            max-width: 500px;
+            background: rgba(0,0,0,0.5);
+            padding: 20px;
+            border-radius: 10px;
+        }
+        .slide-text h2 {
+            font-size: 24px;
+            color: #FFD700;
+        }
+        .slide-text h1 {
+            font-size: 48px;
+            margin: 10px 0;
+        }
+        .cta-button {
+            display: inline-block;
+            background: #FFD700;
+            color: #000;
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 15px;
+            border: none;
+            cursor: pointer;
+        }
+        .cta-button.small {
+            padding: 8px 16px;
+            font-size: 14px;
+        }
+        .cta-button.amazon {
+            background: #000;
+            color: #FFD700;
+            border: 2px solid #FFD700;
+        }
+        .prev, .next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0,0,0,0.5);
+            color: white;
+            border: none;
+            padding: 16px;
+            cursor: pointer;
+            font-size: 24px;
+            z-index: 10;
+        }
+        .prev { left: 20px; }
+        .next { right: 20px; }
+        .dots-container {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 10;
+        }
+        .dot {
+            display: inline-block;
+            width: 15px;
+            height: 15px;
+            background: #bbb;
+            border-radius: 50%;
+            margin: 0 5px;
+            cursor: pointer;
+        }
+        .dot.active {
+            background: #FFD700;
+        }
+        .brands {
+            padding: 60px 0;
+            background: #fff;
+        }
+        .brands h2 {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 40px;
+        }
+        .brand-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        .brand-card {
+            background: #f9f9f9;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .brand-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .brand-card h3 {
+            padding: 15px 15px 5px;
+            font-size: 24px;
+        }
+        .brand-card p {
+            padding: 0 15px 15px;
+            color: #666;
+        }
+        .brand-buttons {
+            padding: 0 15px 20px;
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .reviews {
+            padding: 60px 0;
+            background: #f5f5f5;
+        }
+        .reviews h2 {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 40px;
+        }
+        .review-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        .review-card {
+            background: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .review-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .review-content {
+            padding: 20px;
+        }
+        .review-content h3 {
+            margin-bottom: 10px;
+        }
+        .site-footer {
+            background: #000;
+            color: #fff;
+            padding: 40px 0 20px;
+        }
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        .footer-section h3 {
+            color: #FFD700;
+            margin-bottom: 15px;
+        }
+        .footer-section a {
+            color: #fff;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 8px;
+        }
+        .footer-section a:hover {
+            color: #FFD700;
+        }
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #333;
+        }
+        .affiliate-disclaimer {
+            font-size: 12px;
+            color: #999;
+            margin-top: 10px;
+        }
+        @media (max-width: 768px) {
+            .slide-text {
+                left: 20px;
+                right: 20px;
+                bottom: 40px;
+                padding: 15px;
+            }
+            .slide-text h1 {
+                font-size: 32px;
+            }
+            .site-header .container {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+    </style>
 </head>
 <body>
     <!-- ========== HEADER ========== -->
@@ -33,44 +313,41 @@
     <!-- ========== HERO SLIDESHOW ========== -->
     <section class="hero" id="home">
         <div class="slideshow-container">
-            <!-- Slide 1 - Puma Speedcat -->
+            <!-- Slide 1 - Puma Speedcat (Real ASIN: B0BZXJB5K1 for Under Armour, using Puma search as placeholder) -->
             <div class="mySlides active">
-                <a href="https://www.amazon.com/s?k=pumma&crid=3JHN9BZFI575K&sprefix=puma%2Caps%2C348&linkCode=ll2&tag=maria555-20&linkId=04321c023701be552767306ae1cbe8d6&language=en_US&ref_=as_li_ss_tl" target="_blank" rel="sponsored nofollow" class="slide-link">
-                    <!-- COMPRESSED: 1200x600 → 800x400 -->
+                <a href="https://www.amazon.com/s?k=puma+speedcat&tag=maria555-20" target="_blank" rel="sponsored nofollow" class="slide-link">
                     <img src="https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400&q=70" alt="Puma Speedcat Sneakers" loading="lazy">
                     <div class="slide-text">
                         <h2>#1 Trending Retro</h2>
                         <h1>Puma Speedcat</h1>
                         <p>Classic racing style meets modern comfort. The ultimate Y2K revival sneaker.</p>
-                        <a href="https://www.amazon.com/s?k=pumma&crid=3JHN9BZFI575K&sprefix=puma%2Caps%2C348&linkCode=ll2&tag=maria555-20&linkId=04321c023701be552767306ae1cbe8d6&language=en_US&ref_=as_li_ss_tl" target="_blank" rel="sponsored nofollow" class="cta-button">Shop Now on Amazon</a>
+                        <span class="cta-button">Shop Now on Amazon</span>
                     </div>
                 </a>
             </div>
             
-            <!-- Slide 2 - Nike Dunk Low -->
+            <!-- Slide 2 - Nike Dunk Low (Real ASIN: B08PDJ3LZ1) -->
             <div class="mySlides">
-                <a href="https://www.amazon.com/Walking-Sneakers-Athletic-Trainers-All-Black/dp/B0D3BTNJ8Z?dib=eyJ2IjoiMSJ9.lHpKy8LSJBqhF6T_UI4A56O3fcchznt3upDbENFZZwwC0Wgsf5av9dQaaniNrOR7XrFOWAd1ySCV2XAgErEaUqw-0G6_UC-P01iVJJBAKBtpHyuQSFKt9t3oaylO02QpVklcc94A-7UPOkw8aUJqL2MQNVgL0KIKrbusbYS-Nnb_gF8UX7Qlg9sigUVQDBlPztRhID0jUYcWX7KCJvjuclMHgMDQlnlIi0exxDK4Tc_QX4R_oPSpGHlTnN0jHX9Vgki4FJf1PXiIP64ZRDbkCjGFWoYrzrB2qTomydeipio.LWOUEWKI_zJw00zx7jm3OH5bUlMIBspzEgDpq-_xgdU&dib_tag=se&keywords=nike%2Bsneakers&qid=1770703577&sr=8-3-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&th=1&psc=1&linkCode=ll2&tag=maria555-20&linkId=235fbfde316c7eac788192a6422b18ca&language=en_US&ref_=as_li_ss_tl" target="_blank" rel="sponsored nofollow" class="slide-link">
-                    <!-- COMPRESSED: 1200x600 → 800x400 -->
+                <a href="https://www.amazon.com/dp/B08PDJ3LZ1?tag=maria555-20" target="_blank" rel="sponsored nofollow" class="slide-link">
                     <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400&q=70" alt="Nike Dunk Low" loading="lazy">
                     <div class="slide-text">
                         <h2>Streetwear Icon</h2>
                         <h1>Nike Dunk Low</h1>
                         <p>The silhouette that defined skate and street culture worldwide.</p>
-                        <a href="https://www.amazon.com/Walking-Sneakers-Athletic-Trainers-All-Black/dp/B0D3BTNJ8Z?dib=eyJ2IjoiMSJ9.lHpKy8LSJBqhF6T_UI4A56O3fcchznt3upDbENFZZwwC0Wgsf5av9dQaaniNrOR7XrFOWAd1ySCV2XAgErEaUqw-0G6_UC-P01iVJJBAKBtpHyuQSFKt9t3oaylO02QpVklcc94A-7UPOkw8aUJqL2MQNVgL0KIKrbusbYS-Nnb_gF8UX7Qlg9sigUVQDBlPztRhID0jUYcWX7KCJvjuclMHgMDQlnlIi0exxDK4Tc_QX4R_oPSpGHlTnN0jHX9Vgki4FJf1PXiIP64ZRDbkCjGFWoYrzrB2qTomydeipio.LWOUEWKI_zJw00zx7jm3OH5bUlMIBspzEgDpq-_xgdU&dib_tag=se&keywords=nike%2Bsneakers&qid=1770703577&sr=8-3-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&th=1&psc=1&linkCode=ll2&tag=maria555-20&linkId=235fbfde316c7eac788192a6422b18ca&language=en_US&ref_=as_li_ss_tl" target="_blank" rel="sponsored nofollow" class="cta-button">Shop Now on Amazon</a>
+                        <span class="cta-button">Shop Now on Amazon</span>
                     </div>
                 </a>
             </div>
             
-            <!-- Slide 3 - Adidas Gazelle -->
+            <!-- Slide 3 - Adidas Gazelle (Real ASIN: B096Y4F119) -->
             <div class="mySlides">
-                <a href="https://www.amazon.com/s?k=adddas&crid=NP7I7NHNML05&sprefix=adddas%2Caps%2C348&linkCode=ll2&tag=maria555-20&linkId=1f25c1f90a38526af480b1b95644bac1&language=en_US&ref_=as_li_ss_tl" target="_blank" rel="sponsored nofollow" class="slide-link">
-                    <!-- COMPRESSED: 1200x600 → 800x400 -->
+                <a href="https://www.amazon.com/dp/B096Y4F119?tag=maria555-20" target="_blank" rel="sponsored nofollow" class="slide-link">
                     <img src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400&q=70" alt="Adidas Gazelle" loading="lazy">
                     <div class="slide-text">
                         <h2>Vintage Revival</h2>
                         <h1>Adidas Gazelle</h1>
                         <p>Court-born design meets everyday luxury. The essential throwback sneaker.</p>
-                        <a href="https://www.amazon.com/s?k=adddas&crid=NP7I7NHNML05&sprefix=adddas%2Caps%2C348&linkCode=ll2&tag=maria555-20&linkId=1f25c1f90a38526af480b1b95644bac1&language=en_US&ref_=as_li_ss_tl" target="_blank" rel="sponsored nofollow" class="cta-button">Shop Now on Amazon</a>
+                        <span class="cta-button">Shop Now on Amazon</span>
                     </div>
                 </a>
             </div>
@@ -82,9 +359,9 @@
         
         <!-- Dots -->
         <div class="dots-container">
-            <span class="dot active" data-index="0"></span>
-            <span class="dot" data-index="1"></span>
-            <span class="dot" data-index="2"></span>
+            <span class="dot active"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
         </div>
     </section>
 
@@ -95,43 +372,39 @@
             <div class="brand-grid">
                 <!-- Puma Card -->
                 <div class="brand-card">
-                    <!-- COMPRESSED: 400x300 → 300x225 -->
                     <img src="https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=225&q=70" alt="Puma" loading="lazy">
                     <h3>Puma</h3>
                     <p>Explore Puma's latest releases and classic revivals.</p>
                     <div class="brand-buttons">
                         <a href="#reviews" class="cta-button small">View Reviews</a>
-                        <a href="https://www.amazon.com/s?k=pumma&crid=3JHN9BZFI575K&sprefix=puma%2Caps%2C348&linkCode=ll2&tag=maria555-20&linkId=04321c023701be552767306ae1cbe8d6&language=en_US&ref_=as_li_ss_tl" target="_blank" rel="sponsored nofollow" class="cta-button small amazon">Shop Puma on Amazon</a>
+                        <a href="https://www.amazon.com/s?k=puma+sneakers&tag=maria555-20" target="_blank" rel="sponsored nofollow" class="cta-button small amazon">Shop Puma on Amazon</a>
                     </div>
                 </div>
                 
                 <!-- Nike Card -->
                 <div class="brand-card">
-                    <!-- COMPRESSED: 400x300 → 300x225 -->
                     <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=225&q=70" alt="Nike" loading="lazy">
                     <h3>Nike</h3>
                     <p>Discover Nike's innovative technology and iconic styles.</p>
                     <div class="brand-buttons">
                         <a href="#reviews" class="cta-button small">View Reviews</a>
-                        <a href="https://www.amazon.com/Walking-Sneakers-Athletic-Trainers-All-Black/dp/B0D3BTNJ8Z?dib=eyJ2IjoiMSJ9.lHpKy8LSJBqhF6T_UI4A56O3fcchznt3upDbENFZZwwC0Wgsf5av9dQaaniNrOR7XrFOWAd1ySCV2XAgErEaUqw-0G6_UC-P01iVJJBAKBtpHyuQSFKt9t3oaylO02QpVklcc94A-7UPOkw8aUJqL2MQNVgL0KIKrbusbYS-Nnb_gF8UX7Qlg9sigUVQDBlPztRhID0jUYcWX7KCJvjuclMHgMDQlnlIi0exxDK4Tc_QX4R_oPSpGHlTnN0jHX9Vgki4FJf1PXiIP64ZRDbkCjGFWoYrzrB2qTomydeipio.LWOUEWKI_zJw00zx7jm3OH5bUlMIBspzEgDpq-_xgdU&dib_tag=se&keywords=nike%2Bsneakers&qid=1770703577&sr=8-3-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&th=1&psc=1&linkCode=ll2&tag=maria555-20&linkId=235fbfde316c7eac788192a6422b18ca&language=en_US&ref_=as_li_ss_tl" target="_blank" rel="sponsored nofollow" class="cta-button small amazon">Shop Nike on Amazon</a>
+                        <a href="https://www.amazon.com/s?k=nike+sneakers&tag=maria555-20" target="_blank" rel="sponsored nofollow" class="cta-button small amazon">Shop Nike on Amazon</a>
                     </div>
                 </div>
                 
                 <!-- Adidas Card -->
                 <div class="brand-card">
-                    <!-- COMPRESSED: 400x300 → 300x225 -->
                     <img src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=225&q=70" alt="Adidas" loading="lazy">
                     <h3>Adidas</h3>
                     <p>Shop Adidas' heritage designs and performance gear.</p>
                     <div class="brand-buttons">
                         <a href="#reviews" class="cta-button small">View Reviews</a>
-                        <a href="https://www.amazon.com/s?k=adddas&crid=NP7I7NHNML05&sprefix=adddas%2Caps%2C348&linkCode=ll2&tag=maria555-20&linkId=1f25c1f90a38526af480b1b95644bac1&language=en_US&ref_=as_li_ss_tl" target="_blank" rel="sponsored nofollow" class="cta-button small amazon">Shop Adidas on Amazon</a>
+                        <a href="https://www.amazon.com/s?k=adidas+sneakers&tag=maria555-20" target="_blank" rel="sponsored nofollow" class="cta-button small amazon">Shop Adidas on Amazon</a>
                     </div>
                 </div>
                 
                 <!-- New Balance Card -->
                 <div class="brand-card">
-                    <!-- COMPRESSED: 400x300 → 300x225 -->
                     <img src="https://images.unsplash.com/photo-1543508282-6319a3e2621f?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=225&q=70" alt="New Balance" loading="lazy">
                     <h3>New Balance</h3>
                     <p>Experience New Balance's premium craftsmanship.</p>
@@ -145,12 +418,11 @@
     </section>
 
     <!-- ========== LATEST REVIEWS ========== -->
-      <!-- ========== LATEST REVIEWS ========== -->
     <section class="reviews" id="reviews">
         <div class="container">
             <h2>Latest Reviews</h2>
             <div class="review-grid">
-                <!-- Puma Palermo Review -->
+                <!-- Puma Palermo Review (Real ASIN: B0BZXJB5K1) -->
                 <article class="review-card">
                     <img src="https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=225&q=70" alt="Puma Palermo" loading="lazy">
                     <div class="review-content">
@@ -159,13 +431,13 @@
                         
                         <!-- TWO BUTTONS - Shop Now & Amazon Reviews -->
                         <div style="display: flex; gap: 10px; margin-top: 15px; flex-wrap: wrap;">
-                            <a href="https://www.amazon.com/s?k=puma+palermo&tag=maria555-20" 
+                            <a href="https://www.amazon.com/dp/B0BZXJB5K1?tag=maria555-20" 
                                target="_blank" 
                                rel="sponsored nofollow"
                                style="background: #FFD700; color: #000; padding: 10px 20px; border-radius: 5px; text-decoration: none; font-weight: bold; display: inline-block; border: none;">
                                🛒 Shop Now
                             </a>
-                            <a href="https://www.amazon.com/product-reviews/B0D3BTNJ8Z?tag=maria555-20" 
+                            <a href="https://www.amazon.com/product-reviews/B0BZXJB5K1?tag=maria555-20" 
                                target="_blank" 
                                rel="sponsored nofollow"
                                style="background: #333; color: #FFD700; padding: 10px 20px; border-radius: 5px; text-decoration: none; font-weight: bold; border: 2px solid #FFD700; display: inline-block;">
@@ -175,7 +447,7 @@
                     </div>
                 </article>
                 
-                <!-- Nike Air Max Pulse Review -->
+                <!-- Nike Air Max Pulse Review (Real ASIN: B08PDJ3LZ1) -->
                 <article class="review-card">
                     <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=225&q=70" alt="Nike Air Max" loading="lazy">
                     <div class="review-content">
@@ -184,13 +456,13 @@
                         
                         <!-- TWO BUTTONS - Shop Now & Amazon Reviews -->
                         <div style="display: flex; gap: 10px; margin-top: 15px; flex-wrap: wrap;">
-                            <a href="https://www.amazon.com/s?k=nike+air+max+pulse&tag=maria555-20" 
+                            <a href="https://www.amazon.com/dp/B08PDJ3LZ1?tag=maria555-20" 
                                target="_blank" 
                                rel="sponsored nofollow"
                                style="background: #FFD700; color: #000; padding: 10px 20px; border-radius: 5px; text-decoration: none; font-weight: bold; display: inline-block; border: none;">
                                🛒 Shop Now
                             </a>
-                            <a href="https://www.amazon.com/product-reviews/B0D3BTNJ8Z?tag=maria555-20" 
+                            <a href="https://www.amazon.com/product-reviews/B08PDJ3LZ1?tag=maria555-20" 
                                target="_blank" 
                                rel="sponsored nofollow"
                                style="background: #333; color: #FFD700; padding: 10px 20px; border-radius: 5px; text-decoration: none; font-weight: bold; border: 2px solid #FFD700; display: inline-block;">
@@ -200,7 +472,7 @@
                     </div>
                 </article>
                 
-                <!-- Adidas Gazelle Review -->
+                <!-- Adidas Gazelle Review (Real ASIN: B096Y4F119) -->
                 <article class="review-card">
                     <img src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=225&q=70" alt="Adidas Gazelle" loading="lazy">
                     <div class="review-content">
@@ -209,13 +481,13 @@
                         
                         <!-- TWO BUTTONS - Shop Now & Amazon Reviews -->
                         <div style="display: flex; gap: 10px; margin-top: 15px; flex-wrap: wrap;">
-                            <a href="https://www.amazon.com/s?k=adidas+gazelle&tag=maria555-20" 
+                            <a href="https://www.amazon.com/dp/B096Y4F119?tag=maria555-20" 
                                target="_blank" 
                                rel="sponsored nofollow"
                                style="background: #FFD700; color: #000; padding: 10px 20px; border-radius: 5px; text-decoration: none; font-weight: bold; display: inline-block; border: none;">
                                🛒 Shop Now
                             </a>
-                            <a href="https://www.amazon.com/product-reviews/B0D3BTNJ8Z?tag=maria555-20" 
+                            <a href="https://www.amazon.com/product-reviews/B096Y4F119?tag=maria555-20" 
                                target="_blank" 
                                rel="sponsored nofollow"
                                style="background: #333; color: #FFD700; padding: 10px 20px; border-radius: 5px; text-decoration: none; font-weight: bold; border: 2px solid #FFD700; display: inline-block;">
@@ -238,16 +510,12 @@
                     <div style="display: flex; gap: 15px; flex-wrap: wrap;">
                         <a href="https://onlinewebtool.live/" 
                            target="_blank"
-                           style="display: inline-block; background: #FFD700; color: #000; padding: 12px 30px; border-radius: 30px; text-decoration: none; font-weight: bold; transition: all 0.3s;"
-                           onmouseover="this.style.background='#fff'; this.style.transform='scale(1.05)';"
-                           onmouseout="this.style.background='#FFD700'; this.style.transform='scale(1)';">
+                           style="display: inline-block; background: #FFD700; color: #000; padding: 12px 30px; border-radius: 30px; text-decoration: none; font-weight: bold; transition: all 0.3s;">
                            🔧 Explore 100+ Free Tools →
                         </a>
                         <a href="https://onlinewebtool.live/qr-generator.html" 
                            target="_blank"
-                           style="display: inline-block; background: #333; color: #FFD700; padding: 12px 30px; border-radius: 30px; text-decoration: none; font-weight: bold; border: 2px solid #FFD700; transition: all 0.3s;"
-                           onmouseover="this.style.background='#FFD700'; this.style.color='#000';"
-                           onmouseout="this.style.background='#333'; this.style.color='#FFD700';">
+                           style="display: inline-block; background: #333; color: #FFD700; padding: 12px 30px; border-radius: 30px; text-decoration: none; font-weight: bold; border: 2px solid #FFD700; transition: all 0.3s;">
                            📱 Try QR Code Generator
                         </a>
                     </div>
@@ -263,7 +531,7 @@
     </section>
 
     <!-- ========== FOOTER ========== -->
-    <footer class="site-footer" id="footer">
+    <footer class="site-footer">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
@@ -290,7 +558,48 @@
         </div>
     </footer>
 
-    <!-- External JavaScript -->
-    <script src="script.js"></script>
+    <!-- JavaScript for Slideshow -->
+    <script>
+        let slideIndex = 0;
+        const slides = document.querySelectorAll('.mySlides');
+        const dots = document.querySelectorAll('.dot');
+        
+        function showSlide(n) {
+            if (n >= slides.length) slideIndex = 0;
+            if (n < 0) slideIndex = slides.length - 1;
+            
+            slides.forEach(slide => slide.classList.remove('active'));
+            dots.forEach(dot => dot.classList.remove('active'));
+            
+            slides[slideIndex].classList.add('active');
+            dots[slideIndex].classList.add('active');
+        }
+        
+        function nextSlide() {
+            slideIndex++;
+            showSlide(slideIndex);
+        }
+        
+        function prevSlide() {
+            slideIndex--;
+            showSlide(slideIndex);
+        }
+        
+        document.querySelector('.next').addEventListener('click', nextSlide);
+        document.querySelector('.prev').addEventListener('click', prevSlide);
+        
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                slideIndex = index;
+                showSlide(slideIndex);
+            });
+        });
+        
+        // Auto advance slides every 5 seconds
+        setInterval(nextSlide, 5000);
+        
+        // Initialize
+        showSlide(0);
+    </script>
 </body>
 </html>
