@@ -25,6 +25,7 @@
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             background: #f5f5f5;
             color: #333;
+            line-height: 1.6;
         }
         .container {
             max-width: 1200px;
@@ -63,6 +64,7 @@
             color: #fff;
             text-decoration: none;
             font-weight: 500;
+            transition: color 0.3s;
         }
         .main-nav a:hover {
             color: #FFD700;
@@ -94,6 +96,7 @@
             width: 100%;
             height: 100%;
             position: relative;
+            text-decoration: none;
         }
         .slide-link img {
             width: 100%;
@@ -107,17 +110,21 @@
             color: white;
             text-shadow: 2px 2px 5px rgba(0,0,0,0.7);
             max-width: 500px;
-            background: rgba(0,0,0,0.5);
+            background: rgba(0,0,0,0.6);
             padding: 20px;
             border-radius: 10px;
         }
         .slide-text h2 {
             font-size: 24px;
             color: #FFD700;
+            margin-bottom: 5px;
         }
         .slide-text h1 {
             font-size: 48px;
             margin: 10px 0;
+        }
+        .slide-text p {
+            margin-bottom: 15px;
         }
         .cta-button {
             display: inline-block;
@@ -130,6 +137,11 @@
             margin-top: 15px;
             border: none;
             cursor: pointer;
+            transition: all 0.3s;
+        }
+        .cta-button:hover {
+            background: #fff;
+            transform: scale(1.05);
         }
         .cta-button.small {
             padding: 8px 16px;
@@ -139,6 +151,10 @@
             background: #000;
             color: #FFD700;
             border: 2px solid #FFD700;
+        }
+        .cta-button.amazon:hover {
+            background: #FFD700;
+            color: #000;
         }
         .prev, .next {
             position: absolute;
@@ -151,6 +167,10 @@
             cursor: pointer;
             font-size: 24px;
             z-index: 10;
+            transition: background 0.3s;
+        }
+        .prev:hover, .next:hover {
+            background: rgba(0,0,0,0.8);
         }
         .prev { left: 20px; }
         .next { right: 20px; }
@@ -169,6 +189,7 @@
             border-radius: 50%;
             margin: 0 5px;
             cursor: pointer;
+            transition: background 0.3s;
         }
         .dot.active {
             background: #FFD700;
@@ -192,6 +213,11 @@
             border-radius: 10px;
             overflow: hidden;
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        .brand-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
         }
         .brand-card img {
             width: 100%;
@@ -231,6 +257,11 @@
             border-radius: 10px;
             overflow: hidden;
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        .review-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
         }
         .review-card img {
             width: 100%;
@@ -263,6 +294,7 @@
             text-decoration: none;
             display: block;
             margin-bottom: 8px;
+            transition: color 0.3s;
         }
         .footer-section a:hover {
             color: #FFD700;
@@ -313,55 +345,55 @@
     <!-- ========== HERO SLIDESHOW ========== -->
     <section class="hero" id="home">
         <div class="slideshow-container">
-            <!-- Slide 1 - Puma Speedcat (Real ASIN: B0BZXJB5K1 for Under Armour, using Puma search as placeholder) -->
+            <!-- Slide 1 - Puma Suede Classic (ASIN: B07S8ZR5Z7) -->
             <div class="mySlides active">
-                <a href="https://www.amazon.com/s?k=puma+speedcat&tag=maria555-20" target="_blank" rel="sponsored nofollow" class="slide-link">
-                    <img src="https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400&q=70" alt="Puma Speedcat Sneakers" loading="lazy">
+                <a href="https://www.amazon.com/dp/B07S8ZR5Z7?tag=maria555-20&th=1&psc=1" target="_blank" rel="sponsored nofollow" class="slide-link">
+                    <img src="https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400&q=70" alt="Puma Suede Classic Sneakers" loading="lazy">
                     <div class="slide-text">
                         <h2>#1 Trending Retro</h2>
-                        <h1>Puma Speedcat</h1>
-                        <p>Classic racing style meets modern comfort. The ultimate Y2K revival sneaker.</p>
+                        <h1>Puma Suede Classic</h1>
+                        <p>Classic style meets modern comfort. The ultimate streetwear essential.</p>
                         <span class="cta-button">Shop Now on Amazon</span>
                     </div>
                 </a>
             </div>
             
-            <!-- Slide 2 - Nike Dunk Low (Real ASIN: B08PDJ3LZ1) -->
+            <!-- Slide 2 - Nike Air Max 90 (ASIN: B08PDJ3LZ1) -->
             <div class="mySlides">
-                <a href="https://www.amazon.com/dp/B08PDJ3LZ1?tag=maria555-20" target="_blank" rel="sponsored nofollow" class="slide-link">
-                    <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400&q=70" alt="Nike Dunk Low" loading="lazy">
+                <a href="https://www.amazon.com/dp/B08PDJ3LZ1?tag=maria555-20&th=1&psc=1" target="_blank" rel="sponsored nofollow" class="slide-link">
+                    <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400&q=70" alt="Nike Air Max 90" loading="lazy">
                     <div class="slide-text">
                         <h2>Streetwear Icon</h2>
-                        <h1>Nike Dunk Low</h1>
-                        <p>The silhouette that defined skate and street culture worldwide.</p>
+                        <h1>Nike Air Max 90</h1>
+                        <p>The silhouette that defined sneaker culture worldwide.</p>
                         <span class="cta-button">Shop Now on Amazon</span>
                     </div>
                 </a>
             </div>
             
-            <!-- Slide 3 - Adidas Gazelle (Real ASIN: B096Y4F119) -->
+            <!-- Slide 3 - Adidas Ultraboost (ASIN: B096Y4F119) -->
             <div class="mySlides">
-                <a href="https://www.amazon.com/dp/B096Y4F119?tag=maria555-20" target="_blank" rel="sponsored nofollow" class="slide-link">
-                    <img src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400&q=70" alt="Adidas Gazelle" loading="lazy">
+                <a href="https://www.amazon.com/dp/B096Y4F119?tag=maria555-20&th=1&psc=1" target="_blank" rel="sponsored nofollow" class="slide-link">
+                    <img src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400&q=70" alt="Adidas Ultraboost" loading="lazy">
                     <div class="slide-text">
-                        <h2>Vintage Revival</h2>
-                        <h1>Adidas Gazelle</h1>
-                        <p>Court-born design meets everyday luxury. The essential throwback sneaker.</p>
+                        <h2>Ultimate Comfort</h2>
+                        <h1>Adidas Ultraboost</h1>
+                        <p>The most comfortable running shoe, now available for everyday wear.</p>
                         <span class="cta-button">Shop Now on Amazon</span>
                     </div>
                 </a>
             </div>
             
             <!-- Controls -->
-            <button class="prev">❮</button>
-            <button class="next">❯</button>
+            <button class="prev" aria-label="Previous slide">❮</button>
+            <button class="next" aria-label="Next slide">❯</button>
         </div>
         
         <!-- Dots -->
         <div class="dots-container">
-            <span class="dot active"></span>
-            <span class="dot"></span>
-            <span class="dot"></span>
+            <span class="dot active" aria-label="Slide 1"></span>
+            <span class="dot" aria-label="Slide 2"></span>
+            <span class="dot" aria-label="Slide 3"></span>
         </div>
     </section>
 
@@ -370,47 +402,47 @@
         <div class="container">
             <h2>Featured Brands</h2>
             <div class="brand-grid">
-                <!-- Puma Card -->
+                <!-- Puma Card - Suede Classic -->
                 <div class="brand-card">
                     <img src="https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=225&q=70" alt="Puma" loading="lazy">
                     <h3>Puma</h3>
-                    <p>Explore Puma's latest releases and classic revivals.</p>
+                    <p>Explore Puma's latest releases and classic revivals like the Suede Classic.</p>
                     <div class="brand-buttons">
                         <a href="#reviews" class="cta-button small">View Reviews</a>
-                        <a href="https://www.amazon.com/s?k=puma+sneakers&tag=maria555-20" target="_blank" rel="sponsored nofollow" class="cta-button small amazon">Shop Puma on Amazon</a>
+                        <a href="https://www.amazon.com/dp/B07S8ZR5Z7?tag=maria555-20&th=1&psc=1" target="_blank" rel="sponsored nofollow" class="cta-button small amazon">Shop Puma on Amazon</a>
                     </div>
                 </div>
                 
-                <!-- Nike Card -->
+                <!-- Nike Card - Air Max 90 -->
                 <div class="brand-card">
                     <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=225&q=70" alt="Nike" loading="lazy">
                     <h3>Nike</h3>
-                    <p>Discover Nike's innovative technology and iconic styles.</p>
+                    <p>Discover Nike's innovative technology with the iconic Air Max 90.</p>
                     <div class="brand-buttons">
                         <a href="#reviews" class="cta-button small">View Reviews</a>
-                        <a href="https://www.amazon.com/s?k=nike+sneakers&tag=maria555-20" target="_blank" rel="sponsored nofollow" class="cta-button small amazon">Shop Nike on Amazon</a>
+                        <a href="https://www.amazon.com/dp/B08PDJ3LZ1?tag=maria555-20&th=1&psc=1" target="_blank" rel="sponsored nofollow" class="cta-button small amazon">Shop Nike on Amazon</a>
                     </div>
                 </div>
                 
-                <!-- Adidas Card -->
+                <!-- Adidas Card - Ultraboost -->
                 <div class="brand-card">
                     <img src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=225&q=70" alt="Adidas" loading="lazy">
                     <h3>Adidas</h3>
-                    <p>Shop Adidas' heritage designs and performance gear.</p>
+                    <p>Shop Adidas' heritage designs and the ultra-comfortable Ultraboost.</p>
                     <div class="brand-buttons">
                         <a href="#reviews" class="cta-button small">View Reviews</a>
-                        <a href="https://www.amazon.com/s?k=adidas+sneakers&tag=maria555-20" target="_blank" rel="sponsored nofollow" class="cta-button small amazon">Shop Adidas on Amazon</a>
+                        <a href="https://www.amazon.com/dp/B096Y4F119?tag=maria555-20&th=1&psc=1" target="_blank" rel="sponsored nofollow" class="cta-button small amazon">Shop Adidas on Amazon</a>
                     </div>
                 </div>
                 
-                <!-- New Balance Card -->
+                <!-- New Balance Card - 574 Classic -->
                 <div class="brand-card">
                     <img src="https://images.unsplash.com/photo-1543508282-6319a3e2621f?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=225&q=70" alt="New Balance" loading="lazy">
                     <h3>New Balance</h3>
-                    <p>Experience New Balance's premium craftsmanship.</p>
+                    <p>Experience New Balance's premium craftsmanship with the 574 Classic.</p>
                     <div class="brand-buttons">
                         <a href="#reviews" class="cta-button small">View Reviews</a>
-                        <a href="https://www.amazon.com/s?k=new+balance+sneakers&tag=maria555-20" target="_blank" rel="sponsored nofollow" class="cta-button small amazon">Shop New Balance on Amazon</a>
+                        <a href="https://www.amazon.com/dp/B00191RLZ6?tag=maria555-20&th=1&psc=1" target="_blank" rel="sponsored nofollow" class="cta-button small amazon">Shop New Balance on Amazon</a>
                     </div>
                 </div>
             </div>
@@ -422,76 +454,76 @@
         <div class="container">
             <h2>Latest Reviews</h2>
             <div class="review-grid">
-                <!-- Puma Palermo Review (Real ASIN: B0BZXJB5K1) -->
+                <!-- Puma Suede Classic Review -->
                 <article class="review-card">
-                    <img src="https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=225&q=70" alt="Puma Palermo" loading="lazy">
+                    <img src="https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=225&q=70" alt="Puma Suede Classic" loading="lazy">
                     <div class="review-content">
-                        <h3>Puma Palermo: The Ultimate Throwback</h3>
-                        <p>We test the revived classic that's taking streetwear by storm in 2025. Perfect blend of retro aesthetics and modern comfort.</p>
+                        <h3>Puma Suede Classic: Timeless Icon</h3>
+                        <p>The shoe that defined hip-hop culture returns. Perfect blend of retro aesthetics and everyday comfort.</p>
                         
                         <!-- TWO BUTTONS - Shop Now & Amazon Reviews -->
                         <div style="display: flex; gap: 10px; margin-top: 15px; flex-wrap: wrap;">
-                            <a href="https://www.amazon.com/dp/B0BZXJB5K1?tag=maria555-20" 
+                            <a href="https://www.amazon.com/dp/B07S8ZR5Z7?tag=maria555-20&th=1&psc=1" 
                                target="_blank" 
                                rel="sponsored nofollow"
-                               style="background: #FFD700; color: #000; padding: 10px 20px; border-radius: 5px; text-decoration: none; font-weight: bold; display: inline-block; border: none;">
+                               style="background: #FFD700; color: #000; padding: 10px 20px; border-radius: 5px; text-decoration: none; font-weight: bold; display: inline-block;">
                                🛒 Shop Now
                             </a>
-                            <a href="https://www.amazon.com/product-reviews/B0BZXJB5K1?tag=maria555-20" 
+                            <a href="https://www.amazon.com/product-reviews/B07S8ZR5Z7?tag=maria555-20" 
                                target="_blank" 
                                rel="sponsored nofollow"
                                style="background: #333; color: #FFD700; padding: 10px 20px; border-radius: 5px; text-decoration: none; font-weight: bold; border: 2px solid #FFD700; display: inline-block;">
-                               ⭐ Read 1,200+ Reviews
+                               ⭐ Read 3,200+ Reviews
                             </a>
                         </div>
                     </div>
                 </article>
                 
-                <!-- Nike Air Max Pulse Review (Real ASIN: B08PDJ3LZ1) -->
+                <!-- Nike Air Max 90 Review -->
                 <article class="review-card">
-                    <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=225&q=70" alt="Nike Air Max" loading="lazy">
+                    <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=225&q=70" alt="Nike Air Max 90" loading="lazy">
                     <div class="review-content">
-                        <h3>Nike Air Max Pulse: Comfort Revolution</h3>
-                        <p>Is this the most comfortable Air Max ever made? Our detailed analysis reveals the truth about Nike's latest innovation.</p>
+                        <h3>Nike Air Max 90: Legendary Comfort</h3>
+                        <p>Thirty years later, the Air Max 90 remains the benchmark for visible Air technology and street style.</p>
                         
                         <!-- TWO BUTTONS - Shop Now & Amazon Reviews -->
                         <div style="display: flex; gap: 10px; margin-top: 15px; flex-wrap: wrap;">
-                            <a href="https://www.amazon.com/dp/B08PDJ3LZ1?tag=maria555-20" 
+                            <a href="https://www.amazon.com/dp/B08PDJ3LZ1?tag=maria555-20&th=1&psc=1" 
                                target="_blank" 
                                rel="sponsored nofollow"
-                               style="background: #FFD700; color: #000; padding: 10px 20px; border-radius: 5px; text-decoration: none; font-weight: bold; display: inline-block; border: none;">
+                               style="background: #FFD700; color: #000; padding: 10px 20px; border-radius: 5px; text-decoration: none; font-weight: bold; display: inline-block;">
                                🛒 Shop Now
                             </a>
                             <a href="https://www.amazon.com/product-reviews/B08PDJ3LZ1?tag=maria555-20" 
                                target="_blank" 
                                rel="sponsored nofollow"
                                style="background: #333; color: #FFD700; padding: 10px 20px; border-radius: 5px; text-decoration: none; font-weight: bold; border: 2px solid #FFD700; display: inline-block;">
-                               ⭐ Read 850+ Reviews
+                               ⭐ Read 5,800+ Reviews
                             </a>
                         </div>
                     </div>
                 </article>
                 
-                <!-- Adidas Gazelle Review (Real ASIN: B096Y4F119) -->
+                <!-- Adidas Ultraboost Review -->
                 <article class="review-card">
-                    <img src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=225&q=70" alt="Adidas Gazelle" loading="lazy">
+                    <img src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=225&q=70" alt="Adidas Ultraboost" loading="lazy">
                     <div class="review-content">
-                        <h3>Adidas Gazelle: Icon Reinvented</h3>
-                        <p>The suede classic gets a modern update. Does it live up to the legacy? We put it to the test in our comprehensive review.</p>
+                        <h3>Adidas Ultraboost: The Ultimate Running Shoe</h3>
+                        <p>Boost technology revolutionized running. The Ultraboost delivers energy return like no other.</p>
                         
                         <!-- TWO BUTTONS - Shop Now & Amazon Reviews -->
                         <div style="display: flex; gap: 10px; margin-top: 15px; flex-wrap: wrap;">
-                            <a href="https://www.amazon.com/dp/B096Y4F119?tag=maria555-20" 
+                            <a href="https://www.amazon.com/dp/B096Y4F119?tag=maria555-20&th=1&psc=1" 
                                target="_blank" 
                                rel="sponsored nofollow"
-                               style="background: #FFD700; color: #000; padding: 10px 20px; border-radius: 5px; text-decoration: none; font-weight: bold; display: inline-block; border: none;">
+                               style="background: #FFD700; color: #000; padding: 10px 20px; border-radius: 5px; text-decoration: none; font-weight: bold; display: inline-block;">
                                🛒 Shop Now
                             </a>
                             <a href="https://www.amazon.com/product-reviews/B096Y4F119?tag=maria555-20" 
                                target="_blank" 
                                rel="sponsored nofollow"
                                style="background: #333; color: #FFD700; padding: 10px 20px; border-radius: 5px; text-decoration: none; font-weight: bold; border: 2px solid #FFD700; display: inline-block;">
-                               ⭐ Read 2,100+ Reviews
+                               ⭐ Read 4,500+ Reviews
                             </a>
                         </div>
                     </div>
@@ -560,46 +592,51 @@
 
     <!-- JavaScript for Slideshow -->
     <script>
-        let slideIndex = 0;
-        const slides = document.querySelectorAll('.mySlides');
-        const dots = document.querySelectorAll('.dot');
-        
-        function showSlide(n) {
-            if (n >= slides.length) slideIndex = 0;
-            if (n < 0) slideIndex = slides.length - 1;
+        document.addEventListener('DOMContentLoaded', function() {
+            let slideIndex = 0;
+            const slides = document.querySelectorAll('.mySlides');
+            const dots = document.querySelectorAll('.dot');
             
-            slides.forEach(slide => slide.classList.remove('active'));
-            dots.forEach(dot => dot.classList.remove('active'));
+            function showSlide(n) {
+                if (n >= slides.length) slideIndex = 0;
+                if (n < 0) slideIndex = slides.length - 1;
+                
+                slides.forEach(slide => slide.classList.remove('active'));
+                dots.forEach(dot => dot.classList.remove('active'));
+                
+                slides[slideIndex].classList.add('active');
+                dots[slideIndex].classList.add('active');
+            }
             
-            slides[slideIndex].classList.add('active');
-            dots[slideIndex].classList.add('active');
-        }
-        
-        function nextSlide() {
-            slideIndex++;
-            showSlide(slideIndex);
-        }
-        
-        function prevSlide() {
-            slideIndex--;
-            showSlide(slideIndex);
-        }
-        
-        document.querySelector('.next').addEventListener('click', nextSlide);
-        document.querySelector('.prev').addEventListener('click', prevSlide);
-        
-        dots.forEach((dot, index) => {
-            dot.addEventListener('click', () => {
-                slideIndex = index;
+            function nextSlide() {
+                slideIndex++;
                 showSlide(slideIndex);
+            }
+            
+            function prevSlide() {
+                slideIndex--;
+                showSlide(slideIndex);
+            }
+            
+            const nextBtn = document.querySelector('.next');
+            const prevBtn = document.querySelector('.prev');
+            
+            if (nextBtn) nextBtn.addEventListener('click', nextSlide);
+            if (prevBtn) prevBtn.addEventListener('click', prevSlide);
+            
+            dots.forEach((dot, index) => {
+                dot.addEventListener('click', () => {
+                    slideIndex = index;
+                    showSlide(slideIndex);
+                });
             });
+            
+            // Auto advance slides every 5 seconds
+            setInterval(nextSlide, 5000);
+            
+            // Initialize
+            showSlide(0);
         });
-        
-        // Auto advance slides every 5 seconds
-        setInterval(nextSlide, 5000);
-        
-        // Initialize
-        showSlide(0);
     </script>
 </body>
 </html>
