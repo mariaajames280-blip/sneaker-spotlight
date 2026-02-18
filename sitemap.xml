@@ -1,64 +1,91 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     
-    <!-- Homepage - Highest Priority -->
+    <!-- ===== HOME & CORE PAGES ===== -->
     <url>
         <loc>https://mariaajames280-blip.github.io/sneaker-spotlight/</loc>
         <priority>1.0</priority>
         <changefreq>weekly</changefreq>
+        <lastmod>2026-02-18</lastmod>
     </url>
     
-    <!-- Static Pages -->
     <url>
         <loc>https://mariaajames280-blip.github.io/sneaker-spotlight/about.html</loc>
-        <priority>0.6</priority>
+        <priority>0.8</priority>
         <changefreq>monthly</changefreq>
+        <lastmod>2026-02-18</lastmod>
     </url>
     
     <url>
         <loc>https://mariaajames280-blip.github.io/sneaker-spotlight/contact.html</loc>
-        <priority>0.6</priority>
+        <priority>0.8</priority>
         <changefreq>monthly</changefreq>
+        <lastmod>2026-02-18</lastmod>
     </url>
     
     <url>
         <loc>https://mariaajames280-blip.github.io/sneaker-spotlight/privacy.html</loc>
         <priority>0.5</priority>
         <changefreq>yearly</changefreq>
+        <lastmod>2026-02-11</lastmod>
     </url>
     
     <url>
         <loc>https://mariaajames280-blip.github.io/sneaker-spotlight/terms.html</loc>
         <priority>0.5</priority>
         <changefreq>yearly</changefreq>
+        <lastmod>2026-02-18</lastmod>
     </url>
     
-    <!-- Brand Pages -->
+    <!-- ===== MAIN CONTENT PAGES ===== -->
     <url>
         <loc>https://mariaajames280-blip.github.io/sneaker-spotlight/brands.html</loc>
-        <priority>0.7</priority>
-        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+        <changefreq>weekly</changefreq>
+        <lastmod>2026-02-11</lastmod>
     </url>
     
-    <!-- Trending Page -->
     <url>
         <loc>https://mariaajames280-blip.github.io/sneaker-spotlight/trending.html</loc>
-        <priority>0.7</priority>
+        <priority>0.9</priority>
         <changefreq>weekly</changefreq>
+        <lastmod>2026-02-11</lastmod>
     </url>
     
-    <!-- Comparison Page -->
     <url>
         <loc>https://mariaajames280-blip.github.io/sneaker-spotlight/comparison.html</loc>
-        <priority>0.7</priority>
-        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+        <changefreq>weekly</changefreq>
+        <lastmod>2026-02-11</lastmod>
     </url>
     
-    <!-- Individual Review Pages -->
+    <!-- ===== INDIVIDUAL REVIEW PAGES ===== -->
     <url>
         <loc>https://mariaajames280-blip.github.io/sneaker-spotlight/puma-speedcat.html</loc>
-        <priority>0.8</priority>
+        <priority>0.9</priority>
         <changefreq>monthly</changefreq>
+        <lastmod>2026-02-18</lastmod>
     </url>
+    
+    <url>
+        <loc>https://mariaajames280-blip.github.io/sneaker-spotlight/nike-air-max-90.html</loc>
+        <priority>0.9</priority>
+        <changefreq>monthly</changefreq>
+        <lastmod>2026-02-18</lastmod>
+    </url>
+    
+    <url>
+        <loc>https://mariaajames280-blip.github.io/sneaker-spotlight/adidas-ultraboost.html</loc>
+        <priority>0.9</priority>
+        <changefreq>monthly</changefreq>
+        <lastmod>2026-02-18</lastmod>
+    </url>
+    
+    <!-- ===== SUPPORT FILES (NOT INCLUDED IN SITEMAP) =====
+         googleb1234567890abc.html - Google verification file
+         robots.txt - Robots instructions
+         script.js - JavaScript file
+         style.css - Stylesheet
+    -->
     
 </urlset>
