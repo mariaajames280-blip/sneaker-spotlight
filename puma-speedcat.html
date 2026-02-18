@@ -7,43 +7,379 @@
     <meta name="description" content="Sneaker-Spotlight's detailed review of the Puma Speedcat: analysis of comfort, style, value, and where to buy with affiliate links.">
     <link rel="stylesheet" href="style.css">
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        .site-header {
+            background: #000;
+            color: #FFD700;
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .site-header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        
+        .logo {
+            font-size: 28px;
+            font-weight: 800;
+            text-decoration: none;
+            color: #FFD700;
+        }
+        
+        .logo span {
+            color: #fff;
+        }
+        
+        .main-nav {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .main-nav a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            font-size: 0.95rem;
+        }
+        
+        .main-nav a:hover {
+            color: #FFD700;
+        }
+        
+        /* Product Hero Section */
         .product-hero {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 3rem;
-            margin-bottom: 3rem;
+            margin: 40px 0;
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border: 2px solid #FFD700;
         }
+        
+        .product-image {
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .product-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+        .product-title {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            color: #000;
+        }
+        
+        .product-subtitle {
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+        
+        .rating {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .stars {
+            color: #FFD700;
+            font-size: 1.3rem;
+            letter-spacing: 2px;
+        }
+        
+        .rating-count {
+            color: #666;
+            font-size: 0.95rem;
+        }
+        
+        .spec-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin: 25px 0;
+        }
+        
+        .spec-item {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 10px;
+            border-left: 4px solid #FFD700;
+        }
+        
+        .spec-label {
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 5px;
+        }
+        
+        .spec-value {
+            color: #666;
+            font-size: 0.95rem;
+        }
+        
+        .price-section {
+            background: linear-gradient(135deg, #000, #1a1a1a);
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            margin: 25px 0;
+        }
+        
+        .price {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #FFD700;
+        }
+        
+        .prime-info {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 10px;
+            color: #999;
+        }
+        
+        .prime-info i {
+            color: #00A8E1;
+        }
+        
+        .buy-button {
+            display: inline-block;
+            background: linear-gradient(45deg, #FFD700, #FFA500);
+            color: #000;
+            text-decoration: none;
+            padding: 15px 40px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.2rem;
+            transition: all 0.3s;
+            border: 2px solid #FFD700;
+            margin-top: 20px;
+        }
+        
+        .buy-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.3);
+        }
+        
+        .buy-button i {
+            margin-right: 10px;
+        }
+        
+        .affiliate-note {
+            font-size: 0.85rem;
+            color: #999;
+            margin-top: 10px;
+        }
+        
+        /* Review Sections */
+        .review-section {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            margin: 30px 0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            border: 1px solid #e0e0e0;
+        }
+        
+        .review-section h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: #000;
+            border-bottom: 3px solid #FFD700;
+            padding-bottom: 10px;
+            display: inline-block;
+        }
+        
+        .pros-cons {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin: 30px 0;
+        }
+        
+        .pros, .cons {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 15px;
+        }
+        
+        .pros h3, .cons h3 {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .pros h3 i {
+            color: #28a745;
+        }
+        
+        .cons h3 i {
+            color: #dc3545;
+        }
+        
+        .pros ul, .cons ul {
+            list-style: none;
+        }
+        
+        .pros li, .cons li {
+            margin-bottom: 10px;
+            padding-left: 25px;
+            position: relative;
+        }
+        
+        .pros li::before {
+            content: "✓";
+            color: #28a745;
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+        
+        .cons li::before {
+            content: "✗";
+            color: #dc3545;
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+        
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+        }
+        
+        .comparison-table th {
+            background: #000;
+            color: #FFD700;
+            padding: 15px;
+            text-align: left;
+        }
+        
+        .comparison-table td {
+            padding: 15px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        .comparison-table tr:hover {
+            background: #f8f9fa;
+        }
+        
+        .verdict {
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            padding: 30px;
+            border-radius: 15px;
+            margin: 30px 0;
+            border-left: 5px solid #FFD700;
+        }
+        
+        .verdict h3 {
+            color: #000;
+            margin-bottom: 15px;
+        }
+        
+        .footer {
+            background: #000;
+            color: #fff;
+            padding: 40px 0 20px;
+            margin-top: 60px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-section h3 {
+            color: #FFD700;
+            margin-bottom: 15px;
+        }
+        
+        .footer-section a {
+            color: #fff;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 8px;
+        }
+        
+        .footer-section a:hover {
+            color: #FFD700;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #333;
+        }
+        
+        .affiliate-disclaimer {
+            font-size: 12px;
+            color: #999;
+            margin-top: 10px;
+        }
+        
         @media (max-width: 768px) {
             .product-hero {
                 grid-template-columns: 1fr;
+                gap: 2rem;
             }
-        }
-        .product-purchase .cta-button.large-button {
-            display: block;
-            text-align: center;
-            padding: 18px 30px;
-            font-size: 1.2rem;
-            margin: 1.5rem 0;
-        }
-        .specs-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1rem;
-            background: #1a1a1a;
-            padding: 1.5rem;
-            border-radius: 10px;
-            margin: 1.5rem 0;
-        }
-        .spec-item {
-            padding: 0.5rem 0;
-        }
-        .spec-label {
-            color: #a1a1aa;
-            font-size: 0.9rem;
-        }
-        .spec-value {
-            color: #fff;
-            font-weight: 600;
+            
+            .pros-cons {
+                grid-template-columns: 1fr;
+            }
+            
+            .spec-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .main-nav {
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+                margin-top: 15px;
+            }
         }
     </style>
 </head>
@@ -53,140 +389,198 @@
             <a href="index.html" class="logo">Sneaker-<span>Spotlight</span></a>
             <nav class="main-nav">
                 <a href="index.html">Home</a>
-                <a href="trending.html">Trending</a>
                 <a href="brands.html">Brands</a>
-                <a href="comparison.html">Compare</a>
+                <a href="comparison.html">Comparison</a>
+                <a href="trending.html">Trending</a>
+                <a href="puma-speedcat.html">Puma Review</a>
                 <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+                <a href="privacy.html">Privacy</a>
+                <a href="terms.html">Terms</a>
             </nav>
         </div>
     </header>
 
-    <main class="product-page">
-        <div class="container">
-            <!-- Breadcrumb -->
-            <nav class="breadcrumb">
-                <a href="index.html">Home</a> &gt; 
-                <a href="puma.html">Puma</a> &gt; 
-                <span>Speedcat</span>
-            </nav>
-            
-            <!-- Product Hero -->
-            <div class="product-hero">
-                <div class="product-images">
-                    <img src="assets/images/puma-speedcat-detail.jpg" alt="Puma Speedcat detailed view" style="width:100%; border-radius:10px;">
-                </div>
-                <div class="product-info">
-                    <h1>Puma Speedcat</h1>
-                    <p class="product-subtitle">Classic Racing Style Reimagined</p>
-                    
-                    <div class="product-rating">
-                        <span class="stars">★★★★★</span>
-                        <span>4.8/5 (124 reviews)</span>
-                    </div>
-                    
-                    <div class="specs-grid">
-                        <div class="spec-item">
-                            <div class="spec-label">Best For</div>
-                            <div class="spec-value">Casual Wear, Retro Style</div>
-                        </div>
-                        <div class="spec-item">
-                            <div class="spec-label">Release Year</div>
-                            <div class="spec-value">2024 (Revival)</div>
-                        </div>
-                        <div class="spec-item">
-                            <div class="spec-label">Materials</div>
-                            <div class="spec-value">Suede, Leather</div>
-                        </div>
-                        <div class="spec-item">
-                            <div class="spec-label">Weight</div>
-                            <div class="spec-value">285g (Size 9)</div>
-                        </div>
-                    </div>
-                    
-                    <div class="product-purchase">
-                        <h3>Where to Buy</h3>
-                        <!-- Amazon Affiliate Link -->
-                        <a href="https://www.amazon.com/dp/PUMA_SPEEDCAT_ASIN?tag=maria555-20" 
-                           target="_blank" 
-                           rel="sponsored nofollow"
-                           class="cta-button large-button">
-                            <i class="fas fa-shopping-cart"></i> Buy on Amazon - $89.99
-                        </a>
-                        <p class="shipping-note">Free shipping for Prime members</p>
-                        
-                        <div class="affiliate-disclaimer" style="margin-top:1rem; font-size:0.9rem;">
-                            <strong>Note:</strong> As an Amazon Associate, Sneaker-Spotlight earns from qualifying purchases.
-                        </div>
-                    </div>
-                </div>
+    <div class="container">
+        <!-- Product Hero Section -->
+        <div class="product-hero">
+            <div class="product-image">
+                <img src="https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80" alt="Puma Speedcat Sneakers">
             </div>
             
-            <!-- Detailed Review -->
-            <article class="product-content">
-                <h2>Detailed Review & Analysis</h2>
+            <div>
+                <h1 class="product-title">Puma Speedcat</h1>
+                <p class="product-subtitle">Classic Racing Style Reimagined</p>
                 
-                <section>
-                    <h3>Overview</h3>
-                    <p>The Puma Speedcat represents the perfect marriage of retro aesthetics and modern comfort. Originally designed for motorsport, this 2024 revival captures the Y2K essence while updating materials for contemporary wearability.</p>
-                </section>
+                <div class="rating">
+                    <span class="stars">★★★★★</span>
+                    <span class="rating-count">4.8/5 (124 reviews)</span>
+                </div>
                 
-                <section>
-                    <h3>Comfort & Fit</h3>
-                    <p>True to size with a comfortable, snug fit that doesn't require break-in time. The padded collar and tongue provide excellent ankle support without restriction. The insole offers moderate cushioning suitable for all-day wear.</p>
-                </section>
-                
-                <section>
-                    <h3>Style & Versatility</h3>
-                    <p>Pairs perfectly with jeans, shorts, or smarter casual outfits. The classic racing silhouette works across multiple styles from streetwear to retro-inspired looks. Available in multiple colorways to match different wardrobes.</p>
-                </section>
-                
-                <section>
-                    <h3>Comparison with Similar Models</h3>
-                    <p>Compared to the Puma Future Rider, the Speedcat offers more traditional racing styling with less chunky proportions. Against the Nike Dunk Low, it provides a more streamlined profile with distinct motorsport heritage.</p>
-                </section>
-                
-                <!-- Alternative Purchase Options -->
-                <section class="alternative-links">
-                    <h3>Also Available In</h3>
-                    <div style="display:flex; gap:1rem; flex-wrap:wrap; margin-top:1rem;">
-                        <a href="https://www.amazon.com/dp/SPEEDCAT_BLACK_ASIN?tag=maria555-20" 
-                           target="_blank" 
-                           rel="sponsored nofollow"
-                           class="alt-button">
-                            Black/White Colorway
-                        </a>
-                        <a href="https://www.amazon.com/dp/SPEEDCAT_WHITE_ASIN?tag=maria555-20" 
-                           target="_blank" 
-                           rel="sponsored nofollow"
-                           class="alt-button">
-                            White/Gold Colorway
-                        </a>
+                <div class="spec-grid">
+                    <div class="spec-item">
+                        <div class="spec-label">Best For</div>
+                        <div class="spec-value">Casual Wear, Retro Style</div>
                     </div>
-                </section>
-            </article>
+                    <div class="spec-item">
+                        <div class="spec-label">Release Year</div>
+                        <div class="spec-value">2024 (Revival)</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-label">Materials</div>
+                        <div class="spec-value">Suede, Leather</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-label">Weight</div>
+                        <div class="spec-value">285g (Size 9)</div>
+                    </div>
+                </div>
+                
+                <div class="price-section">
+                    <div class="price">$89.99</div>
+                    <div class="prime-info">
+                        <i class="fab fa-amazon"></i>
+                        <span>Free shipping for Prime members</span>
+                    </div>
+                    
+                    <a href="https://amzn.to/4aC23U9" target="_blank" rel="sponsored nofollow" class="buy-button">
+                        <i class="fas fa-shopping-cart"></i> Buy on Amazon
+                    </a>
+                    <p class="affiliate-note">As an Amazon Associate, we earn from qualifying purchases.</p>
+                </div>
+            </div>
         </div>
-    </main>
-
-    <footer class="site-footer">
+        
+        <!-- Detailed Review -->
+        <div class="review-section">
+            <h2>Detailed Review & Analysis</h2>
+            
+            <h3>Overview</h3>
+            <p>The Puma Speedcat represents the perfect marriage of retro aesthetics and modern comfort. Originally designed for motorsport, this 2024 revival captures the Y2K essence while updating materials for contemporary wearability.</p>
+            
+            <h3>Comfort & Fit</h3>
+            <p>True to size with a comfortable, snug fit that doesn't require break-in time. The padded collar and tongue provide excellent ankle support without restriction. The insole offers moderate cushioning suitable for all-day wear.</p>
+            
+            <h3>Style & Versatility</h3>
+            <p>Pairs perfectly with jeans, shorts, or smarter casual outfits. The classic racing silhouette works across multiple styles from streetwear to retro-inspired looks. Available in multiple colorways to match different wardrobes.</p>
+            
+            <h3>Comparison with Similar Models</h3>
+            <p>Compared to the Puma Future Rider, the Speedcat offers more traditional racing styling with less chunky proportions. Against the Nike Dunk Low, it provides a more streamlined profile with distinct motorsport heritage.</p>
+        </div>
+        
+        <!-- Pros & Cons -->
+        <div class="review-section">
+            <h2>Pros & Cons</h2>
+            
+            <div class="pros-cons">
+                <div class="pros">
+                    <h3><i class="fas fa-check-circle"></i> Pros</h3>
+                    <ul>
+                        <li>Excellent retro styling</li>
+                        <li>Comfortable straight out of the box</li>
+                        <li>Versatile color options</li>
+                        <li>Good build quality</li>
+                        <li>Affordable price point</li>
+                    </ul>
+                </div>
+                
+                <div class="cons">
+                    <h3><i class="fas fa-times-circle"></i> Cons</h3>
+                    <ul>
+                        <li>Limited colorways currently</li>
+                        <li>Not for wide feet</li>
+                        <li>Minimal arch support</li>
+                        <li>Sole could be more durable</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Comparison Table -->
+        <div class="review-section">
+            <h2>Size Guide & Comparison</h2>
+            
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Brand</th>
+                        <th>Model</th>
+                        <th>Price</th>
+                        <th>Comfort</th>
+                        <th>Style</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Puma</td>
+                        <td><strong>Speedcat</strong> (This Review)</td>
+                        <td>$89.99</td>
+                        <td>8.5/10</td>
+                        <td>9/10</td>
+                    </tr>
+                    <tr>
+                        <td>Nike</td>
+                        <td>Dunk Low</td>
+                        <td>$110</td>
+                        <td>8/10</td>
+                        <td>9.5/10</td>
+                    </tr>
+                    <tr>
+                        <td>Adidas</td>
+                        <td>Samba</td>
+                        <td>$90</td>
+                        <td>8/10</td>
+                        <td>9/10</td>
+                    </tr>
+                    <tr>
+                        <td>New Balance</td>
+                        <td>574</td>
+                        <td>$85</td>
+                        <td>9/10</td>
+                        <td>8/10</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <!-- Verdict -->
+        <div class="review-section">
+            <h2>Final Verdict</h2>
+            
+            <div class="verdict">
+                <h3>⭐ 8.7/10 – Highly Recommended</h3>
+                <p>The Puma Speedcat successfully revives a classic silhouette for modern sneakerheads. While it may not revolutionize footwear, it delivers exactly what fans of retro racing style want: authentic looks, solid comfort, and everyday versatility.</p>
+                <p><strong>Best for:</strong> Puma fans, retro style enthusiasts, those seeking a more affordable alternative to Nike Dunks.</p>
+                <p><strong>Consider alternatives if:</strong> You need serious arch support or have very wide feet.</p>
+            </div>
+        </div>
+    </div>
+    
+    <footer class="footer">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
                     <h3>Sneaker-Spotlight</h3>
-                    <p>Authentic sneaker analysis without the hype.</p>
+                    <p>Your premier guide to authentic sneaker analysis, honest reviews, and direct purchase links.</p>
                 </div>
                 <div class="footer-section">
-                    <h3>More Reviews</h3>
-                    <a href="nike-dunk-low.html">Nike Dunk Low</a>
-                    <a href="new-balance-550.html">New Balance 550</a>
-                    <a href="adidas-samba.html">Adidas Samba</a>
+                    <h3>Quick Links</h3>
+                    <a href="index.html">Home</a>
+                    <a href="brands.html">Brands</a>
+                    <a href="comparison.html">Comparison</a>
+                    <a href="trending.html">Trending</a>
+                    <a href="about.html">About</a>
+                    <a href="contact.html">Contact</a>
                 </div>
                 <div class="footer-section">
                     <h3>Legal</h3>
-                    <p class="affiliate-disclaimer">We use affiliate links to support our independent reviews.</p>
+                    <a href="privacy.html">Privacy Policy</a>
+                    <a href="terms.html">Terms of Service</a>
+                    <p class="affiliate-disclaimer"><strong>Disclosure:</strong> As an Amazon Associate (ID: maria555-20), we earn from qualifying purchases.</p>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 Sneaker-Spotlight. All rights reserved.</p>
+                <p>&copy; 2026 Sneaker-Spotlight. All rights reserved.</p>
             </div>
         </div>
     </footer>
