@@ -4,42 +4,45 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sneaker-Spotlight | Discover Top Trending Sneakers</title>
-    <!-- Google tag (gtag.js) for Sneaker-Spotlight -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-9NQ0LBZNX3"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-9NQ0LBZNX3');
-</script>
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-9NQ0LBZNX3"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-9NQ0LBZNX3');
+    </script>
+    
     <meta name="description" content="Sneaker-Spotlight: Your guide to trending sneakers. Honest reviews, comparisons, and direct Amazon purchase links.">
     <meta name="google-site-verification" content="xEaZuP2vM8HpHzNrhaQP4GmhPZPEy21CJMSysJynShY" />
-    
-    <!-- External CSS -->
-    <link rel="stylesheet" href="style.css">
     
     <!-- Preconnect for faster loading -->
     <link rel="preconnect" href="https://images.unsplash.com">
     <link rel="preconnect" href="https://www.amazon.com">
     
     <style>
-        /* Basic styles in case CSS file is missing */
+        /* ===== COMPLETE STYLES - YOUR DESIGN PRESERVED ===== */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
+        
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             background: #f5f5f5;
             color: #333;
             line-height: 1.6;
         }
+        
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
         }
+        
+        /* ===== HEADER - EXACTLY AS YOU HAVE IT ===== */
         .site-header {
             background: #000;
             color: #FFD700;
@@ -48,43 +51,53 @@
             top: 0;
             z-index: 100;
         }
+        
         .site-header .container {
             display: flex;
             justify-content: space-between;
             align-items: center;
             flex-wrap: wrap;
         }
+        
         .logo {
             font-size: 28px;
             font-weight: 800;
             text-decoration: none;
             color: #FFD700;
         }
+        
         .logo span {
             color: #fff;
         }
+        
         .main-nav {
             display: flex;
             gap: 25px;
             flex-wrap: wrap;
         }
+        
         .main-nav a {
             color: #fff;
             text-decoration: none;
             font-weight: 500;
             transition: color 0.3s;
         }
+        
         .main-nav a:hover {
             color: #FFD700;
         }
+        
+        /* ===== HERO SLIDER - EXACTLY AS YOU HAVE IT ===== */
         .hero {
             position: relative;
             overflow: hidden;
         }
+        
         .slideshow-container {
             position: relative;
             height: 500px;
         }
+        
         .mySlides {
             position: absolute;
             top: 0;
@@ -95,10 +108,12 @@
             transition: opacity 0.8s ease;
             display: none;
         }
+        
         .mySlides.active {
             opacity: 1;
             display: block;
         }
+        
         .slide-link {
             display: block;
             width: 100%;
@@ -106,11 +121,13 @@
             position: relative;
             text-decoration: none;
         }
+        
         .slide-link img {
             width: 100%;
             height: 100%;
             object-fit: cover;
         }
+        
         .slide-text {
             position: absolute;
             bottom: 80px;
@@ -122,18 +139,22 @@
             padding: 20px;
             border-radius: 10px;
         }
+        
         .slide-text h2 {
             font-size: 24px;
             color: #FFD700;
             margin-bottom: 5px;
         }
+        
         .slide-text h1 {
             font-size: 48px;
             margin: 10px 0;
         }
+        
         .slide-text p {
             margin-bottom: 15px;
         }
+        
         .cta-button {
             display: inline-block;
             background: #FFD700;
@@ -147,23 +168,28 @@
             cursor: pointer;
             transition: all 0.3s;
         }
+        
         .cta-button:hover {
             background: #fff;
             transform: scale(1.05);
         }
+        
         .cta-button.small {
             padding: 8px 16px;
             font-size: 14px;
         }
+        
         .cta-button.amazon {
             background: #000;
             color: #FFD700;
             border: 2px solid #FFD700;
         }
+        
         .cta-button.amazon:hover {
             background: #FFD700;
             color: #000;
         }
+        
         .prev, .next {
             position: absolute;
             top: 50%;
@@ -177,11 +203,14 @@
             z-index: 10;
             transition: background 0.3s;
         }
+        
         .prev:hover, .next:hover {
             background: rgba(0,0,0,0.8);
         }
+        
         .prev { left: 20px; }
         .next { right: 20px; }
+        
         .dots-container {
             position: absolute;
             bottom: 20px;
@@ -189,6 +218,7 @@
             transform: translateX(-50%);
             z-index: 10;
         }
+        
         .dot {
             display: inline-block;
             width: 15px;
@@ -199,23 +229,29 @@
             cursor: pointer;
             transition: background 0.3s;
         }
+        
         .dot.active {
             background: #FFD700;
         }
+        
+        /* ===== BRANDS SECTION - EXACTLY AS YOU HAVE IT ===== */
         .brands {
             padding: 60px 0;
             background: #fff;
         }
+        
         .brands h2 {
             text-align: center;
             font-size: 36px;
             margin-bottom: 40px;
         }
+        
         .brand-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 30px;
         }
+        
         .brand-card {
             background: #f9f9f9;
             border-radius: 10px;
@@ -223,43 +259,53 @@
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
             transition: transform 0.3s;
         }
+        
         .brand-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 10px 25px rgba(0,0,0,0.2);
         }
+        
         .brand-card img {
             width: 100%;
             height: 200px;
             object-fit: cover;
         }
+        
         .brand-card h3 {
             padding: 15px 15px 5px;
             font-size: 24px;
         }
+        
         .brand-card p {
             padding: 0 15px 15px;
             color: #666;
         }
+        
         .brand-buttons {
             padding: 0 15px 20px;
             display: flex;
             gap: 10px;
             flex-wrap: wrap;
         }
+        
+        /* ===== REVIEWS SECTION - EXACTLY AS YOU HAVE IT ===== */
         .reviews {
             padding: 60px 0;
             background: #f5f5f5;
         }
+        
         .reviews h2 {
             text-align: center;
             font-size: 36px;
             margin-bottom: 40px;
         }
+        
         .review-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
         }
+        
         .review-card {
             background: #fff;
             border-radius: 10px;
@@ -267,36 +313,144 @@
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
             transition: transform 0.3s;
         }
+        
         .review-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 10px 25px rgba(0,0,0,0.2);
         }
+        
         .review-card img {
             width: 100%;
             height: 200px;
             object-fit: cover;
         }
+        
         .review-content {
             padding: 20px;
         }
+        
         .review-content h3 {
             margin-bottom: 10px;
         }
+        
+        /* ===== CROSS PROMO SECTION - EXACTLY AS YOU HAVE IT ===== */
+        .cross-promo {
+            background: linear-gradient(135deg, #000, #1a1a1a);
+            padding: 40px 0;
+            margin: 40px 0;
+            border-top: 3px solid #FFD700;
+            border-bottom: 3px solid #FFD700;
+        }
+        
+        .promo-flex {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 30px;
+        }
+        
+        .promo-text {
+            flex: 1;
+            min-width: 280px;
+        }
+        
+        .promo-text h2 {
+            color: #FFD700;
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+        
+        .promo-text p {
+            color: #fff;
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+        
+        .promo-highlight {
+            color: #FFD700;
+            font-weight: bold;
+        }
+        
+        .promo-buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        
+        .promo-btn {
+            display: inline-block;
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+        
+        .promo-btn.primary {
+            background: #FFD700;
+            color: #000;
+        }
+        
+        .promo-btn.primary:hover {
+            background: #fff;
+        }
+        
+        .promo-btn.secondary {
+            background: #333;
+            color: #FFD700;
+            border: 2px solid #FFD700;
+        }
+        
+        .promo-btn.secondary:hover {
+            background: #FFD700;
+            color: #000;
+        }
+        
+        .promo-box {
+            flex: 0.5;
+            min-width: 200px;
+            text-align: center;
+        }
+        
+        .promo-card {
+            background: #fff;
+            padding: 15px;
+            border-radius: 10px;
+            display: inline-block;
+        }
+        
+        .promo-icon {
+            font-size: 4rem;
+        }
+        
+        .promo-badge {
+            background: #000;
+            color: #FFD700;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        
+        /* ===== FOOTER - EXACTLY AS YOU HAVE IT ===== */
         .site-footer {
             background: #000;
             color: #fff;
             padding: 40px 0 20px;
         }
+        
         .footer-content {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 40px;
             margin-bottom: 40px;
         }
+        
         .footer-section h3 {
             color: #FFD700;
             margin-bottom: 15px;
         }
+        
         .footer-section a {
             color: #fff;
             text-decoration: none;
@@ -304,19 +458,29 @@
             margin-bottom: 8px;
             transition: color 0.3s;
         }
+        
         .footer-section a:hover {
             color: #FFD700;
         }
+        
         .footer-bottom {
             text-align: center;
             padding-top: 20px;
             border-top: 1px solid #333;
         }
+        
         .affiliate-disclaimer {
             font-size: 12px;
             color: #999;
             margin-top: 10px;
         }
+        
+        .affiliate-id {
+            font-size: 0.8rem;
+            margin-top: 10px;
+        }
+        
+        /* ===== RESPONSIVE - EXACTLY AS YOU HAVE IT ===== */
         @media (max-width: 768px) {
             .slide-text {
                 left: 20px;
@@ -335,30 +499,30 @@
     </style>
 </head>
 <body>
-    <!-- ========== HEADER ========== -->
+    <!-- ===== HEADER - YOUR DESIGN PRESERVED ===== -->
     <header class="site-header">
         <div class="container">
             <a href="#home" class="logo">Sneaker-<span>Spotlight</span></a>
-           <nav class="main-nav">
-    <a href="index.html">Home</a>
-    <a href="brands.html">Brands</a>
-    <a href="comparison.html">Compare</a>
-    <a href="trending.html">Trending</a>
-    <a href="puma-speedcat.html">Puma</a>
-    <a href="nike-air-max-90.html">Nike</a>
-    <a href="adidas-ultraboost.html">Adidas</a>
-    <a href="about.html">About</a>
-    <a href="contact.html">Contact</a>
-    <a href="privacy.html">Privacy</a>
-    <a href="terms.html">Terms</a>
-</nav>
+            <nav class="main-nav">
+                <a href="index.html">Home</a>
+                <a href="brands.html">Brands</a>
+                <a href="comparison.html">Compare</a>
+                <a href="trending.html">Trending</a>
+                <a href="puma-speedcat.html">Puma</a>
+                <a href="nike-air-max-90.html">Nike</a>
+                <a href="adidas-ultraboost.html">Adidas</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+                <a href="privacy.html">Privacy</a>
+                <a href="terms.html">Terms</a>
+            </nav>
         </div>
     </header>
 
-    <!-- ========== HERO SLIDESHOW ========== -->
+    <!-- ===== HERO SLIDER - YOUR DESIGN PRESERVED ===== -->
     <section class="hero" id="home">
         <div class="slideshow-container">
-            <!-- Slide 1 - Puma (UPDATED WITH WORKING LINK) -->
+            <!-- Slide 1 - Puma -->
             <div class="mySlides active">
                 <a href="https://amzn.to/4aC23U9" target="_blank" rel="sponsored nofollow" class="slide-link">
                     <img src="https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400&q=70" alt="Puma Suede Classic Sneakers" loading="lazy">
@@ -371,7 +535,7 @@
                 </a>
             </div>
             
-            <!-- Slide 2 - Nike (UPDATED WITH WORKING LINK) -->
+            <!-- Slide 2 - Nike -->
             <div class="mySlides">
                 <a href="https://amzn.to/4qL2C4h" target="_blank" rel="sponsored nofollow" class="slide-link">
                     <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400&q=70" alt="Nike Air Max 90" loading="lazy">
@@ -384,7 +548,7 @@
                 </a>
             </div>
             
-            <!-- Slide 3 - Adidas (UPDATED WITH WORKING LINK) -->
+            <!-- Slide 3 - Adidas -->
             <div class="mySlides">
                 <a href="https://amzn.to/4qBR3w1" target="_blank" rel="sponsored nofollow" class="slide-link">
                     <img src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400&q=70" alt="Adidas Ultraboost" loading="lazy">
@@ -410,12 +574,12 @@
         </div>
     </section>
 
-    <!-- ========== FEATURED BRANDS ========== -->
+    <!-- ===== FEATURED BRANDS - YOUR DESIGN PRESERVED ===== -->
     <section class="brands" id="brands">
         <div class="container">
             <h2>Featured Brands</h2>
             <div class="brand-grid">
-                <!-- Puma Card - UPDATED WITH WORKING LINK -->
+                <!-- Puma Card -->
                 <div class="brand-card">
                     <img src="https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=225&q=70" alt="Puma" loading="lazy">
                     <h3>Puma</h3>
@@ -426,7 +590,7 @@
                     </div>
                 </div>
                 
-                <!-- Nike Card - UPDATED WITH WORKING LINK -->
+                <!-- Nike Card -->
                 <div class="brand-card">
                     <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=225&q=70" alt="Nike" loading="lazy">
                     <h3>Nike</h3>
@@ -437,7 +601,7 @@
                     </div>
                 </div>
                 
-                <!-- Adidas Card - UPDATED WITH WORKING LINK -->
+                <!-- Adidas Card -->
                 <div class="brand-card">
                     <img src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=225&q=70" alt="Adidas" loading="lazy">
                     <h3>Adidas</h3>
@@ -448,7 +612,7 @@
                     </div>
                 </div>
                 
-                <!-- New Balance Card - UPDATED WITH WORKING LINK -->
+                <!-- New Balance Card -->
                 <div class="brand-card">
                     <img src="https://images.unsplash.com/photo-1543508282-6319a3e2621f?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=225&q=70" alt="New Balance" loading="lazy">
                     <h3>New Balance</h3>
@@ -462,19 +626,18 @@
         </div>
     </section>
 
-    <!-- ========== LATEST REVIEWS ========== -->
+    <!-- ===== LATEST REVIEWS - YOUR DESIGN PRESERVED ===== -->
     <section class="reviews" id="reviews">
         <div class="container">
             <h2>Latest Reviews</h2>
             <div class="review-grid">
-                <!-- Puma Suede Classic Review - UPDATED WITH WORKING LINK -->
+                <!-- Puma Suede Classic Review -->
                 <article class="review-card">
                     <img src="https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=225&q=70" alt="Puma Suede Classic" loading="lazy">
                     <div class="review-content">
                         <h3>Puma Suede Classic: Timeless Icon</h3>
                         <p>The shoe that defined hip-hop culture returns. Perfect blend of retro aesthetics and everyday comfort.</p>
                         
-                        <!-- TWO BUTTONS - Shop Now & Browse Puma (UPDATED) -->
                         <div style="display: flex; gap: 10px; margin-top: 15px; flex-wrap: wrap;">
                             <a href="https://amzn.to/4aC23U9" 
                                target="_blank" 
@@ -492,14 +655,13 @@
                     </div>
                 </article>
                 
-                <!-- Nike Air Max 90 Review - UPDATED WITH WORKING LINK -->
+                <!-- Nike Air Max 90 Review -->
                 <article class="review-card">
                     <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=225&q=70" alt="Nike Air Max 90" loading="lazy">
                     <div class="review-content">
                         <h3>Nike Air Max 90: Legendary Comfort</h3>
                         <p>Thirty years later, the Air Max 90 remains the benchmark for visible Air technology and street style.</p>
                         
-                        <!-- TWO BUTTONS - Shop Now & Browse Nike (UPDATED) -->
                         <div style="display: flex; gap: 10px; margin-top: 15px; flex-wrap: wrap;">
                             <a href="https://amzn.to/4qL2C4h" 
                                target="_blank" 
@@ -517,14 +679,13 @@
                     </div>
                 </article>
                 
-                <!-- Adidas Ultraboost Review - UPDATED WITH WORKING LINK -->
+                <!-- Adidas Ultraboost Review -->
                 <article class="review-card">
                     <img src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=225&q=70" alt="Adidas Ultraboost" loading="lazy">
                     <div class="review-content">
                         <h3>Adidas Ultraboost: The Ultimate Running Shoe</h3>
                         <p>Boost technology revolutionized running. The Ultraboost delivers energy return like no other.</p>
                         
-                        <!-- TWO BUTTONS - Shop Now & Browse Adidas (UPDATED) -->
                         <div style="display: flex; gap: 10px; margin-top: 15px; flex-wrap: wrap;">
                             <a href="https://amzn.to/4qBR3w1" 
                                target="_blank" 
@@ -545,38 +706,37 @@
         </div>
     </section>
     
-    <!-- ===== FREE TOOLS FOR SNEAKERHEADS - CROSS PROMOTION ===== -->
-    <section style="background: linear-gradient(135deg, #000, #1a1a1a); padding: 40px 0; margin: 40px 0; border-top: 3px solid #FFD700; border-bottom: 3px solid #FFD700;">
+    <!-- ===== CROSS PROMOTION - YOUR DESIGN PRESERVED ===== -->
+    <section class="cross-promo">
         <div class="container">
-            <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 30px;">
-                <div style="flex: 1; min-width: 280px;">
-                    <h2 style="color: #FFD700; font-size: 2rem; margin-bottom: 15px;">🛠️ Need Free Tools?</h2>
-                    <p style="color: #fff; font-size: 1.2rem; margin-bottom: 20px;">Check out <strong style="color: #FFD700;">100+ Free Online Tools</strong> - QR codes, image resizer, JSON formatter, and more!</p>
-                    <div style="display: flex; gap: 15px; flex-wrap: wrap;">
+            <div class="promo-flex">
+                <div class="promo-text">
+                    <h2>🛠️ Need Free Tools?</h2>
+                    <p>Check out <span class="promo-highlight">100+ Free Online Tools</span> - QR codes, image resizer, JSON formatter, and more!</p>
+                    <div class="promo-buttons">
                         <a href="https://onlinewebtool.live/" 
                            target="_blank"
-                           style="display: inline-block; background: #FFD700; color: #000; padding: 12px 30px; border-radius: 30px; text-decoration: none; font-weight: bold; transition: all 0.3s;">
+                           class="promo-btn primary">
                            🔧 Explore 100+ Free Tools →
                         </a>
                         <a href="https://onlinewebtool.live/qr-generator.html" 
                            target="_blank"
-                           style="display: inline-block; background: #333; color: #FFD700; padding: 12px 30px; border-radius: 30px; text-decoration: none; font-weight: bold; border: 2px solid #FFD700; transition: all 0.3s;">
+                           class="promo-btn secondary">
                            📱 Try QR Code Generator
                         </a>
                     </div>
                 </div>
-                <div style="flex: 0.5; min-width: 200px; text-align: center;">
-                    <div style="background: #fff; padding: 15px; border-radius: 10px; display: inline-block;">
-                        <div style="font-size: 4rem;">🛠️</div>
-                        <div style="background: #000; color: #FFD700; padding: 8px 15px; border-radius: 20px; font-weight: bold; margin-top: 10px;">FREE🔥</div>
+                <div class="promo-box">
+                    <div class="promo-card">
+                        <div class="promo-icon">🛠️</div>
+                        <div class="promo-badge">FREE🔥</div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ========== FOOTER ========== -->
-       <!-- ========== FOOTER ========== -->
+    <!-- ===== FOOTER - YOUR DESIGN PRESERVED ===== -->
     <footer class="site-footer">
         <div class="container">
             <div class="footer-content">
@@ -612,12 +772,12 @@
             
             <div class="footer-bottom">
                 <p>© 2026 Sneaker-Spotlight. All rights reserved. | 👟 Made with sole for sneaker lovers</p>
-                <p style="font-size: 0.8rem; margin-top: 10px;">Amazon Affiliate ID: maria555-20</p>
+                <p class="affiliate-id">Amazon Affiliate ID: maria555-20</p>
             </div>
         </div>
     </footer>
 
-    <!-- JavaScript for Slideshow -->
+    <!-- ===== SLIDER JAVASCRIPT - YOUR DESIGN PRESERVED ===== -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             let slideIndex = 0;
