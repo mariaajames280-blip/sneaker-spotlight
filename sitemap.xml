@@ -81,20 +81,4 @@
         <lastmod>2026-02-26</lastmod>
     </url>
     
-    <!-- ===== NEW BALANCE REVIEW PAGE ===== -->
-    <url>
-        <loc>https://mariaajames280-blip.github.io/sneaker-spotlight/new-balance-574.html</loc>
-        <priority>0.9</priority>
-        <changefreq>monthly</changefreq>
-        <lastmod>2026-02-26</lastmod>
-    </url>
-    
-    <!-- ===== FREE TOOLS PAGE (CROSS PROMOTION) ===== -->
-    <url>
-        <loc>https://mariaajames280-blip.github.io/sneaker-spotlight/free-tools.html</loc>
-        <priority>0.7</priority>
-        <changefreq>monthly</changefreq>
-        <lastmod>2026-02-26</lastmod>
-    </url>
-    
 </urlset>
