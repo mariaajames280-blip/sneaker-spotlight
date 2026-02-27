@@ -30,29 +30,17 @@
     }
     </script>
     
-    <!-- AMP CUSTOM STYLES - MATCHES YOUR ORIGINAL DESIGN -->
+    <!-- AMP CUSTOM STYLES -->
     <style amp-custom>
-        /* ===== RESET & BASE STYLES ===== */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             background: #f5f5f5;
             color: #333;
             line-height: 1.6;
         }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
         
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        /* ===== HEADER - EXACTLY LIKE YOUR SITE ===== */
         .site-header {
             background: #000;
             color: #FFD700;
@@ -61,7 +49,6 @@
             top: 0;
             z-index: 100;
         }
-        
         .header-container {
             max-width: 1200px;
             margin: 0 auto;
@@ -71,24 +58,14 @@
             align-items: center;
             flex-wrap: wrap;
         }
-        
         .logo {
             font-size: 28px;
             font-weight: 800;
             text-decoration: none;
             color: #FFD700;
         }
-        
-        .logo span {
-            color: #fff;
-        }
-        
-        .main-nav {
-            display: flex;
-            gap: 15px;
-            flex-wrap: wrap;
-        }
-        
+        .logo span { color: #fff; }
+        .main-nav { display: flex; gap: 15px; flex-wrap: wrap; }
         .main-nav a {
             color: #fff;
             text-decoration: none;
@@ -96,7 +73,6 @@
             padding: 8px 12px;
         }
         
-        /* ===== EID BANNER ===== */
         .eid-banner {
             background: linear-gradient(135deg, #000, #1a1a1a);
             padding: 40px 0;
@@ -105,18 +81,12 @@
             border-bottom: 3px solid #FFD700;
             text-align: center;
         }
-        
         .eid-banner h2 {
             color: #FFD700;
             font-size: 2.2rem;
             margin-bottom: 15px;
         }
-        
-        .eid-banner p {
-            color: #fff;
-            font-size: 1.2rem;
-        }
-        
+        .eid-banner p { color: #fff; font-size: 1.2rem; }
         .eid-badge {
             background: #FFD700;
             color: #000;
@@ -127,26 +97,19 @@
             margin-top: 15px;
         }
         
-        /* ===== HERO SECTION ===== */
-        .hero {
-            padding: 60px 0;
-            background: #fff;
-        }
-        
+        .hero { padding: 60px 0; background: #fff; }
         .hero h1 {
             text-align: center;
             font-size: 2.5rem;
             margin-bottom: 30px;
             color: #000;
         }
-        
         .hero-grid {
             display: flex;
             flex-wrap: wrap;
             gap: 30px;
             justify-content: center;
         }
-        
         .hero-card {
             flex: 1 1 300px;
             background: #f9f9f9;
@@ -155,65 +118,51 @@
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
             text-align: center;
         }
-        
         .hero-card amp-img {
             width: 100%;
             height: 200px;
             object-fit: cover;
         }
-        
         .hero-card h3 {
             padding: 15px 15px 5px;
             font-size: 24px;
         }
-        
         .hero-card p {
             padding: 0 15px 15px;
             color: #666;
         }
         
-        /* ===== BRANDS SECTION ===== */
-        .brands {
-            padding: 60px 0;
-            background: #fff;
-        }
-        
+        .brands { padding: 60px 0; background: #fff; }
         .brands h2 {
             text-align: center;
             font-size: 36px;
             margin-bottom: 40px;
             color: #000;
         }
-        
         .brand-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 30px;
         }
-        
         .brand-card {
             background: #f9f9f9;
             border-radius: 10px;
             overflow: hidden;
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
-        
         .brand-card amp-img {
             width: 100%;
             height: 200px;
             object-fit: cover;
         }
-        
         .brand-card h3 {
             padding: 15px 15px 5px;
             font-size: 24px;
         }
-        
         .brand-card p {
             padding: 0 15px 15px;
             color: #666;
         }
-        
         .brand-buttons {
             padding: 0 15px 20px;
             display: flex;
@@ -221,7 +170,6 @@
             flex-wrap: wrap;
         }
         
-        /* ===== BUTTON STYLES ===== */
         .cta-button {
             display: inline-block;
             background: #FFD700;
@@ -233,71 +181,54 @@
             font-size: 14px;
             border: none;
         }
-        
         .cta-button.amazon {
             background: #000;
             color: #FFD700;
             border: 2px solid #FFD700;
         }
-        
         .cta-button.small {
             padding: 8px 16px;
             font-size: 14px;
         }
         
-        /* ===== REVIEWS SECTION ===== */
-        .reviews {
-            padding: 60px 0;
-            background: #f5f5f5;
-        }
-        
+        .reviews { padding: 60px 0; background: #f5f5f5; }
         .reviews h2 {
             text-align: center;
             font-size: 36px;
             margin-bottom: 40px;
             color: #000;
         }
-        
         .review-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
         }
-        
         .review-card {
             background: #fff;
             border-radius: 10px;
             overflow: hidden;
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
-        
         .review-card amp-img {
             width: 100%;
             height: 200px;
             object-fit: cover;
         }
-        
-        .review-content {
-            padding: 20px;
-        }
-        
+        .review-content { padding: 20px; }
         .review-content h3 {
             margin-bottom: 10px;
             color: #000;
         }
-        
         .review-content p {
             margin-bottom: 15px;
             color: #666;
         }
-        
         .stars {
             color: #FFD700;
             font-size: 1.2rem;
             margin-bottom: 10px;
         }
         
-        /* ===== CROSS PROMO SECTION ===== */
         .cross-promo {
             background: linear-gradient(135deg, #000, #1a1a1a);
             padding: 40px 0;
@@ -305,7 +236,6 @@
             border-top: 3px solid #FFD700;
             border-bottom: 3px solid #FFD700;
         }
-        
         .promo-flex {
             display: flex;
             flex-wrap: wrap;
@@ -315,35 +245,26 @@
             margin: 0 auto;
             padding: 0 20px;
         }
-        
-        .promo-text {
-            flex: 1;
-            min-width: 280px;
-        }
-        
+        .promo-text { flex: 1; min-width: 280px; }
         .promo-text h2 {
             color: #FFD700;
             font-size: 2rem;
             margin-bottom: 15px;
         }
-        
         .promo-text p {
             color: #fff;
             font-size: 1.2rem;
             margin-bottom: 20px;
         }
-        
         .promo-highlight {
             color: #FFD700;
             font-weight: bold;
         }
-        
         .promo-buttons {
             display: flex;
             gap: 15px;
             flex-wrap: wrap;
         }
-        
         .promo-btn {
             display: inline-block;
             padding: 12px 30px;
@@ -351,35 +272,23 @@
             text-decoration: none;
             font-weight: bold;
         }
-        
         .promo-btn.primary {
             background: #FFD700;
             color: #000;
         }
-        
         .promo-btn.secondary {
             background: #333;
             color: #FFD700;
             border: 2px solid #FFD700;
         }
-        
-        .promo-box {
-            flex: 0.5;
-            min-width: 200px;
-            text-align: center;
-        }
-        
+        .promo-box { flex: 0.5; min-width: 200px; text-align: center; }
         .promo-card {
             background: #fff;
             padding: 15px;
             border-radius: 10px;
             display: inline-block;
         }
-        
-        .promo-icon {
-            font-size: 4rem;
-        }
-        
+        .promo-icon { font-size: 4rem; }
         .promo-badge {
             background: #000;
             color: #FFD700;
@@ -389,13 +298,11 @@
             margin-top: 10px;
         }
         
-        /* ===== FOOTER ===== */
         .site-footer {
             background: #000;
             color: #fff;
             padding: 40px 0 20px;
         }
-        
         .footer-content {
             max-width: 1200px;
             margin: 0 auto;
@@ -405,19 +312,16 @@
             padding: 0 20px;
             margin-bottom: 40px;
         }
-        
         .footer-section h3 {
             color: #FFD700;
             margin-bottom: 15px;
         }
-        
         .footer-section a {
             color: #fff;
             text-decoration: none;
             display: block;
             margin-bottom: 8px;
         }
-        
         .footer-bottom {
             text-align: center;
             padding-top: 20px;
@@ -425,43 +329,21 @@
             max-width: 1200px;
             margin: 0 auto;
         }
-        
         .affiliate-disclaimer {
             font-size: 12px;
             color: #999;
             margin-top: 10px;
         }
         
-        .affiliate-id {
-            font-size: 0.8rem;
-            margin-top: 10px;
-            color: #999;
-        }
-        
-        /* ===== RESPONSIVE ===== */
         @media (max-width: 768px) {
-            .header-container {
-                flex-direction: column;
-                gap: 15px;
-            }
-            
-            .eid-banner h2 {
-                font-size: 1.8rem;
-            }
-            
-            .promo-flex {
-                flex-direction: column;
-                text-align: center;
-            }
-            
-            .promo-buttons {
-                justify-content: center;
-            }
+            .header-container { flex-direction: column; gap: 15px; }
+            .eid-banner h2 { font-size: 1.8rem; }
+            .promo-flex { flex-direction: column; text-align: center; }
+            .promo-buttons { justify-content: center; }
         }
     </style>
 </head>
 <body>
-    <!-- ===== HEADER - EXACTLY LIKE YOUR ORIGINAL ===== -->
     <header class="site-header">
         <div class="header-container">
             <a href="/" class="logo">Sneaker-<span>Spotlight</span></a>
@@ -474,7 +356,6 @@
         </div>
     </header>
 
-    <!-- ===== EID BANNER ===== -->
     <div class="eid-banner">
         <div class="container">
             <h2>🌙 Eid Mubarak 2025</h2>
@@ -483,13 +364,12 @@
         </div>
     </div>
 
-    <!-- ===== HERO SECTION ===== -->
     <section class="hero">
         <div class="container">
             <h1>Top Trending Sneakers</h1>
             <div class="hero-grid">
                 <div class="hero-card">
-                    <amp-img src="https://i.ibb.co/6c0dqnd2/imgi-173-71uld4ilef-L-AC-SL1500.jpg" 
+                    <amp-img src="https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=400&h=300&fit=crop" 
                              alt="Puma Suede" 
                              width="400" 
                              height="300" 
@@ -499,7 +379,7 @@
                     <p>The ultimate streetwear essential</p>
                 </div>
                 <div class="hero-card">
-                    <amp-img src="https://i.ibb.co/ZRJmPy51/imgi-305-81-Zo-IEa-FUi-L-AC-SL1500.jpg" 
+                    <amp-img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?w=400&h=300&fit=crop" 
                              alt="Nike Air Max" 
                              width="400" 
                              height="300" 
@@ -509,7 +389,7 @@
                     <p>Legendary comfort and style</p>
                 </div>
                 <div class="hero-card">
-                    <amp-img src="https://i.ibb.co/1G0Tk1kn/imgi-400-61sxk6g-RKp-L-AC-SL1500.jpg" 
+                    <amp-img src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?w=400&h=300&fit=crop" 
                              alt="Adidas Ultraboost" 
                              width="400" 
                              height="300" 
@@ -522,14 +402,12 @@
         </div>
     </section>
 
-    <!-- ===== FEATURED BRANDS SECTION ===== -->
     <section class="brands" id="brands">
         <div class="container">
             <h2>Featured Brands</h2>
             <div class="brand-grid">
-                <!-- Puma Card -->
                 <div class="brand-card">
-                    <amp-img src="https://i.ibb.co/6c0dqnd2/imgi-173-71uld4ilef-L-AC-SL1500.jpg" 
+                    <amp-img src="https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=300&h=200&fit=crop" 
                              alt="Puma" 
                              width="300" 
                              height="200" 
@@ -543,9 +421,8 @@
                     </div>
                 </div>
                 
-                <!-- Nike Card -->
                 <div class="brand-card">
-                    <amp-img src="https://i.ibb.co/ZRJmPy51/imgi-305-81-Zo-IEa-FUi-L-AC-SL1500.jpg" 
+                    <amp-img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?w=300&h=200&fit=crop" 
                              alt="Nike" 
                              width="300" 
                              height="200" 
@@ -559,9 +436,8 @@
                     </div>
                 </div>
                 
-                <!-- Adidas Card -->
                 <div class="brand-card">
-                    <amp-img src="https://i.ibb.co/1G0Tk1kn/imgi-400-61sxk6g-RKp-L-AC-SL1500.jpg" 
+                    <amp-img src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?w=300&h=200&fit=crop" 
                              alt="Adidas" 
                              width="300" 
                              height="200" 
@@ -575,9 +451,8 @@
                     </div>
                 </div>
                 
-                <!-- New Balance Card (using placeholder since no NB image provided) -->
                 <div class="brand-card">
-                    <amp-img src="https://i.ibb.co/6c0dqnd2/imgi-173-71uld4ilef-L-AC-SL1500.jpg" 
+                    <amp-img src="https://images.unsplash.com/photo-1543508282-6319a3e2621f?w=300&h=200&fit=crop" 
                              alt="New Balance" 
                              width="300" 
                              height="200" 
@@ -594,14 +469,12 @@
         </div>
     </section>
 
-    <!-- ===== LATEST REVIEWS SECTION ===== -->
     <section class="reviews" id="reviews">
         <div class="container">
             <h2>Latest Reviews</h2>
             <div class="review-grid">
-                <!-- Puma Review -->
                 <div class="review-card">
-                    <amp-img src="https://i.ibb.co/6c0dqnd2/imgi-173-71uld4ilef-L-AC-SL1500.jpg" 
+                    <amp-img src="https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=300&h=200&fit=crop" 
                              alt="Puma Suede" 
                              width="300" 
                              height="200" 
@@ -615,9 +488,8 @@
                     </div>
                 </div>
                 
-                <!-- Nike Review -->
                 <div class="review-card">
-                    <amp-img src="https://i.ibb.co/ZRJmPy51/imgi-305-81-Zo-IEa-FUi-L-AC-SL1500.jpg" 
+                    <amp-img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?w=300&h=200&fit=crop" 
                              alt="Nike Air Max" 
                              width="300" 
                              height="200" 
@@ -631,9 +503,8 @@
                     </div>
                 </div>
                 
-                <!-- Adidas Review -->
                 <div class="review-card">
-                    <amp-img src="https://i.ibb.co/1G0Tk1kn/imgi-400-61sxk6g-RKp-L-AC-SL1500.jpg" 
+                    <amp-img src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?w=300&h=200&fit=crop" 
                              alt="Adidas Ultraboost" 
                              width="300" 
                              height="200" 
@@ -650,7 +521,6 @@
         </div>
     </section>
 
-    <!-- ===== CROSS PROMOTION SECTION ===== -->
     <section class="cross-promo">
         <div class="promo-flex">
             <div class="promo-text">
@@ -670,7 +540,6 @@
         </div>
     </section>
 
-    <!-- ===== FOOTER ===== -->
     <footer class="site-footer">
         <div class="footer-content">
             <div class="footer-section">
