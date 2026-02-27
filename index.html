@@ -98,6 +98,13 @@
             text-decoration: none;
             font-weight: 500;
             transition: color 0.3s;
+            /* Touch target fix */
+            padding: 8px 4px;
+            min-width: 44px;
+            min-height: 44px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
         }
         
         .main-nav a:hover {
@@ -184,6 +191,12 @@
             border: none;
             cursor: pointer;
             transition: all 0.3s;
+            /* Touch target fix */
+            min-width: 44px;
+            min-height: 44px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
         }
         
         .cta-button:hover {
@@ -194,6 +207,8 @@
         .cta-button.small {
             padding: 8px 16px;
             font-size: 14px;
+            /* Touch target fix */
+            min-height: 44px;
         }
         
         .cta-button.amazon {
@@ -219,6 +234,12 @@
             font-size: 24px;
             z-index: 10;
             transition: background 0.3s;
+            /* Touch target fix */
+            min-width: 50px;
+            min-height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         
         .prev:hover, .next:hover {
@@ -234,17 +255,24 @@
             left: 50%;
             transform: translateX(-50%);
             z-index: 10;
+            display: flex;
+            gap: 12px;
         }
         
         .dot {
             display: inline-block;
-            width: 15px;
-            height: 15px;
+            width: 16px;
+            height: 16px;
             background: #bbb;
             border-radius: 50%;
-            margin: 0 5px;
+            margin: 0;
             cursor: pointer;
             transition: background 0.3s;
+            /* Touch target fix */
+            min-width: 44px;
+            min-height: 44px;
+            border: 14px solid transparent;
+            background-clip: padding-box;
         }
         
         .dot.active {
@@ -401,6 +429,12 @@
             text-decoration: none;
             font-weight: bold;
             transition: all 0.3s;
+            /* Touch target fix */
+            min-width: 44px;
+            min-height: 44px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
         }
         
         .promo-btn.primary {
@@ -474,6 +508,12 @@
             display: block;
             margin-bottom: 8px;
             transition: color 0.3s;
+            /* Touch target fix */
+            padding: 8px 4px;
+            min-width: 44px;
+            min-height: 44px;
+            display: flex;
+            align-items: center;
         }
         
         .footer-section a:hover {
@@ -495,6 +535,66 @@
         .affiliate-id {
             font-size: 0.8rem;
             margin-top: 10px;
+        }
+        
+        /* ===== TOUCH TARGET FIXES FOR MOBILE ===== */
+        @media (max-width: 768px) {
+            .main-nav {
+                gap: 10px;
+                justify-content: center;
+            }
+            
+            .main-nav a {
+                padding: 12px 10px;
+                margin: 2px;
+            }
+            
+            .brand-buttons a,
+            .review-content a {
+                padding: 12px 16px !important;
+                margin: 5px !important;
+                min-width: 44px;
+                min-height: 44px;
+                flex: 1 1 auto;
+            }
+            
+            .dot {
+                width: 20px;
+                height: 20px;
+                border-width: 12px;
+            }
+            
+            .prev, .next {
+                padding: 20px;
+                min-width: 54px;
+                min-height: 54px;
+            }
+            
+            .promo-buttons {
+                flex-direction: column;
+            }
+            
+            .promo-btn {
+                width: 100%;
+                padding: 15px 20px;
+            }
+        }
+        
+        /* Extra small devices */
+        @media (max-width: 480px) {
+            .main-nav a {
+                padding: 10px 8px;
+                font-size: 14px;
+            }
+            
+            .brand-buttons {
+                flex-direction: column;
+            }
+            
+            .brand-buttons a {
+                width: 100%;
+                text-align: center;
+            }
         }
         
         /* ===== RESPONSIVE - EXACTLY AS YOU HAVE IT ===== */
@@ -594,7 +694,7 @@
         </div>
     </section>
 
-    <!-- ===== MAIN CONTENT - ADDED FOR ACCESSIBILITY ===== -->
+    <!-- ===== MAIN CONTENT ===== -->
     <main id="main-content">
         <!-- ===== FEATURED BRANDS - YOUR DESIGN PRESERVED ===== -->
         <section class="brands" id="brands" aria-labelledby="brands-heading">
@@ -664,13 +764,13 @@
                                 <a href="https://amzn.to/4aC23U9" 
                                    target="_blank" 
                                    rel="sponsored nofollow"
-                                   style="background: #FFD700; color: #000; padding: 10px 20px; border-radius: 5px; text-decoration: none; font-weight: bold; display: inline-block;">
+                                   style="background: #FFD700; color: #000; padding: 12px 20px; border-radius: 5px; text-decoration: none; font-weight: bold; display: inline-flex; align-items: center; justify-content: center; min-width: 44px; min-height: 44px;">
                                    🛒 Shop Puma
                                 </a>
                                 <a href="https://amzn.to/4aC23U9" 
                                    target="_blank" 
                                    rel="sponsored nofollow"
-                                   style="background: #333; color: #FFD700; padding: 10px 20px; border-radius: 5px; text-decoration: none; font-weight: bold; border: 2px solid #FFD700; display: inline-block;">
+                                   style="background: #333; color: #FFD700; padding: 12px 20px; border-radius: 5px; text-decoration: none; font-weight: bold; border: 2px solid #FFD700; display: inline-flex; align-items: center; justify-content: center; min-width: 44px; min-height: 44px;">
                                    ⭐ Browse Puma Styles
                                 </a>
                             </div>
@@ -688,13 +788,13 @@
                                 <a href="https://amzn.to/4qL2C4h" 
                                    target="_blank" 
                                    rel="sponsored nofollow"
-                                   style="background: #FFD700; color: #000; padding: 10px 20px; border-radius: 5px; text-decoration: none; font-weight: bold; display: inline-block;">
+                                   style="background: #FFD700; color: #000; padding: 12px 20px; border-radius: 5px; text-decoration: none; font-weight: bold; display: inline-flex; align-items: center; justify-content: center; min-width: 44px; min-height: 44px;">
                                    🛒 Shop Nike
                                 </a>
                                 <a href="https://amzn.to/4qL2C4h" 
                                    target="_blank" 
                                    rel="sponsored nofollow"
-                                   style="background: #333; color: #FFD700; padding: 10px 20px; border-radius: 5px; text-decoration: none; font-weight: bold; border: 2px solid #FFD700; display: inline-block;">
+                                   style="background: #333; color: #FFD700; padding: 12px 20px; border-radius: 5px; text-decoration: none; font-weight: bold; border: 2px solid #FFD700; display: inline-flex; align-items: center; justify-content: center; min-width: 44px; min-height: 44px;">
                                    ⭐ Browse Nike Styles
                                 </a>
                             </div>
@@ -712,13 +812,13 @@
                                 <a href="https://amzn.to/4qBR3w1" 
                                    target="_blank" 
                                    rel="sponsored nofollow"
-                                   style="background: #FFD700; color: #000; padding: 10px 20px; border-radius: 5px; text-decoration: none; font-weight: bold; display: inline-block;">
+                                   style="background: #FFD700; color: #000; padding: 12px 20px; border-radius: 5px; text-decoration: none; font-weight: bold; display: inline-flex; align-items: center; justify-content: center; min-width: 44px; min-height: 44px;">
                                    🛒 Shop Adidas
                                 </a>
                                 <a href="https://amzn.to/4qBR3w1" 
                                    target="_blank" 
                                    rel="sponsored nofollow"
-                                   style="background: #333; color: #FFD700; padding: 10px 20px; border-radius: 5px; text-decoration: none; font-weight: bold; border: 2px solid #FFD700; display: inline-block;">
+                                   style="background: #333; color: #FFD700; padding: 12px 20px; border-radius: 5px; text-decoration: none; font-weight: bold; border: 2px solid #FFD700; display: inline-flex; align-items: center; justify-content: center; min-width: 44px; min-height: 44px;">
                                    ⭐ Browse Adidas Styles
                                 </a>
                             </div>
