@@ -17,18 +17,7 @@
     <!-- AMP Components for images -->
     <script async custom-element="amp-img" src="https://cdn.ampproject.org/v0/amp-img-0.1.js"></script>
     
-    <!-- Structured Data for SEO -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "WebSite",
-        "name": "Sneaker Spotlight",
-        "url": "https://mariaajames280-blip.github.io/sneaker-spotlight/",
-        "description": "Your guide to trending sneakers. Honest reviews and comparisons."
-    }
-    </script>
-    
-    <!-- Custom AMP Styles -->
+    <!-- Custom AMP Styles (NO hover effects with transitions) -->
     <style amp-custom>
         /* Reset */
         * {
@@ -104,6 +93,10 @@
             color: #000;
         }
         
+        .section-header p {
+            color: #666;
+        }
+        
         /* Brand Grid */
         .brand-grid {
             display: grid;
@@ -117,11 +110,6 @@
             border-radius: 12px;
             overflow: hidden;
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            transition: transform 0.3s;
-        }
-        
-        .brand-card:hover {
-            transform: translateY(-5px);
         }
         
         .brand-image {
@@ -146,7 +134,7 @@
             margin-bottom: 15px;
         }
         
-        /* Buttons */
+        /* Buttons - REMOVED ALL HOVER EFFECTS */
         .amp-button {
             display: inline-block;
             background: #FFD700;
@@ -155,20 +143,14 @@
             border-radius: 30px;
             text-decoration: none;
             font-weight: bold;
-            margin-top: 10px;
+            margin: 5px;
             border: none;
-            transition: opacity 0.3s;
-        }
-        
-        .amp-button:hover {
-            opacity: 0.8;
         }
         
         .amp-button.amazon {
             background: #000;
             color: #FFD700;
             border: 2px solid #FFD700;
-            margin-left: 10px;
         }
         
         /* Reviews Grid */
@@ -198,6 +180,11 @@
             margin-bottom: 10px;
         }
         
+        .review-card p {
+            color: #666;
+            margin-bottom: 15px;
+        }
+        
         /* Tools Promo */
         .tools-promo {
             background: linear-gradient(135deg, #000, #1a1a1a);
@@ -225,6 +212,20 @@
             margin: 15px 0;
         }
         
+        /* CTA Big Button */
+        .cta-big {
+            background: #000;
+            color: #FFD700;
+            padding: 16px 45px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.2rem;
+            display: inline-block;
+            border: 2px solid #FFD700;
+            margin: 20px 0;
+        }
+        
         /* Footer */
         .amp-footer {
             background: #000;
@@ -246,11 +247,22 @@
             margin-top: 10px;
         }
         
+        .footer-link {
+            color: #FFD700;
+            text-decoration: none;
+            margin-top: 15px;
+            display: inline-block;
+        }
+        
         /* Responsive */
         @media (max-width: 768px) {
             .amp-header h1 { font-size: 1.8rem; }
             .eid-banner h2 { font-size: 1.5rem; }
             .brand-grid { grid-template-columns: 1fr; }
+            .cta-big { 
+                padding: 14px 30px; 
+                font-size: 1rem;
+            }
         }
     </style>
 </head>
@@ -294,8 +306,8 @@
                         <h3>Puma</h3>
                         <p>Explore Puma's latest releases and classic revivals like the Suede Classic.</p>
                         <div>
-                            <a href="https://amzn.to/4aC23U9" class="amp-button" target="_blank">Shop Puma</a>
-                            <a href="https://amzn.to/4sdX8Qr" class="amp-button amazon" target="_blank">View All</a>
+                            <a href="https://amzn.to/4aC23U9" class="amp-button" target="_blank" rel="nofollow sponsored">Shop Puma</a>
+                            <a href="https://amzn.to/4sdX8Qr" class="amp-button amazon" target="_blank" rel="nofollow sponsored">View All</a>
                         </div>
                     </div>
                 </div>
@@ -314,8 +326,8 @@
                         <h3>Nike</h3>
                         <p>Discover Nike's innovative technology with the iconic Air Max 90.</p>
                         <div>
-                            <a href="https://amzn.to/4qL2C4h" class="amp-button" target="_blank">Shop Nike</a>
-                            <a href="https://amzn.to/4tZraJz" class="amp-button amazon" target="_blank">View All</a>
+                            <a href="https://amzn.to/4qL2C4h" class="amp-button" target="_blank" rel="nofollow sponsored">Shop Nike</a>
+                            <a href="https://amzn.to/4tZraJz" class="amp-button amazon" target="_blank" rel="nofollow sponsored">View All</a>
                         </div>
                     </div>
                 </div>
@@ -334,8 +346,8 @@
                         <h3>Adidas</h3>
                         <p>Shop Adidas' heritage designs and the ultra-comfortable Ultraboost.</p>
                         <div>
-                            <a href="https://amzn.to/4qBR3w1" class="amp-button" target="_blank">Shop Adidas</a>
-                            <a href="https://amzn.to/4aPgLY8" class="amp-button amazon" target="_blank">View All</a>
+                            <a href="https://amzn.to/4qBR3w1" class="amp-button" target="_blank" rel="nofollow sponsored">Shop Adidas</a>
+                            <a href="https://amzn.to/4aPgLY8" class="amp-button amazon" target="_blank" rel="nofollow sponsored">View All</a>
                         </div>
                     </div>
                 </div>
@@ -353,7 +365,7 @@
                     <h3>Puma Suede Classic: Timeless Icon</h3>
                     <div class="stars">★★★★★</div>
                     <p>The shoe that defined hip-hop culture returns. Perfect blend of retro aesthetics and everyday comfort.</p>
-                    <a href="https://amzn.to/4aC23U9" class="amp-button" style="margin-top:15px;">Read Review</a>
+                    <a href="https://amzn.to/4aC23U9" class="amp-button" target="_blank" rel="nofollow sponsored">Read Review</a>
                 </div>
                 
                 <!-- Nike Review -->
@@ -361,7 +373,7 @@
                     <h3>Nike Air Max 90: Legendary Comfort</h3>
                     <div class="stars">★★★★★</div>
                     <p>Thirty years later, the Air Max 90 remains the benchmark for visible Air technology and street style.</p>
-                    <a href="https://amzn.to/4qL2C4h" class="amp-button" style="margin-top:15px;">Read Review</a>
+                    <a href="https://amzn.to/4qL2C4h" class="amp-button" target="_blank" rel="nofollow sponsored">Read Review</a>
                 </div>
                 
                 <!-- Adidas Review -->
@@ -369,7 +381,7 @@
                     <h3>Adidas Ultraboost: The Ultimate Running Shoe</h3>
                     <div class="stars">★★★★★</div>
                     <p>Boost technology revolutionized running. The Ultraboost delivers energy return like no other.</p>
-                    <a href="https://amzn.to/4qBR3w1" class="amp-button" style="margin-top:15px;">Read Review</a>
+                    <a href="https://amzn.to/4qBR3w1" class="amp-button" target="_blank" rel="nofollow sponsored">Read Review</a>
                 </div>
             </div>
         </div>
@@ -381,14 +393,14 @@
                 <p>Check out 100+ Free Online Tools - QR codes, image resizer, JSON formatter, and more!</p>
                 <span class="free-badge">🔥 100% FREE</span>
                 <div style="margin-top:25px;">
-                    <a href="https://onlinewebtool.live/" class="amp-button" style="background:#FFD700; color:#000;">Explore Free Tools</a>
+                    <a href="https://onlinewebtool.live/" class="amp-button" target="_blank" rel="nofollow">Explore Free Tools</a>
                 </div>
             </div>
         </div>
 
         <!-- Main CTA -->
         <div class="container" style="text-align:center; margin:40px 0;">
-            <a href="https://amzn.to/4aTDoKY" style="background:#000; color:#FFD700; padding:16px 45px; border-radius:50px; text-decoration:none; font-weight:bold; font-size:1.2rem; display:inline-block; border:2px solid #FFD700;">👟 Shop Full Eid Collection</a>
+            <a href="https://amzn.to/4aTDoKY" class="cta-big" target="_blank" rel="nofollow sponsored">👟 Shop Full Eid Collection</a>
         </div>
     </main>
 
@@ -398,7 +410,7 @@
             <div class="footer-bottom">
                 <p>© 2026 Sneaker-Spotlight. All rights reserved. | 🌙 Eid Mubarak!</p>
                 <p class="affiliate">As an Amazon Associate (ID: maria555-20), I earn from qualifying purchases.</p>
-                <p style="margin-top:15px;"><a href="https://mariaajames280-blip.github.io/sneaker-spotlight/" style="color:#FFD700;">View Full Site</a></p>
+                <p style="margin-top:15px;"><a href="https://mariaajames280-blip.github.io/sneaker-spotlight/" class="footer-link">View Full Site</a></p>
             </div>
         </div>
     </footer>
