@@ -42,6 +42,23 @@
             padding: 0 20px;
         }
         
+        /* Skip to content link for accessibility */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: #FFD700;
+            color: #000;
+            padding: 8px;
+            z-index: 1000;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        
+        .skip-link:focus {
+            top: 0;
+        }
+        
         /* ===== HEADER - EXACTLY AS YOU HAVE IT ===== */
         .site-header {
             background: #000;
@@ -499,11 +516,14 @@
     </style>
 </head>
 <body>
+    <!-- Skip to content link for accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
     <!-- ===== HEADER - YOUR DESIGN PRESERVED ===== -->
     <header class="site-header">
         <div class="container">
             <a href="#home" class="logo">Sneaker-<span>Spotlight</span></a>
-            <nav class="main-nav">
+            <nav class="main-nav" aria-label="Main navigation">
                 <a href="index.html">Home</a>
                 <a href="brands.html">Brands</a>
                 <a href="comparison.html">Compare</a>
@@ -520,10 +540,10 @@
     </header>
 
     <!-- ===== HERO SLIDER - YOUR DESIGN PRESERVED ===== -->
-    <section class="hero" id="home">
+    <section class="hero" id="home" aria-label="Featured sneakers slideshow">
         <div class="slideshow-container">
             <!-- Slide 1 - Puma -->
-            <div class="mySlides active">
+            <div class="mySlides active" role="group" aria-label="Slide 1 of 3: Puma Suede Classic">
                 <a href="https://amzn.to/4aC23U9" target="_blank" rel="sponsored nofollow" class="slide-link">
                     <img src="https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400&q=70" alt="Puma Suede Classic Sneakers" loading="lazy">
                     <div class="slide-text">
@@ -536,7 +556,7 @@
             </div>
             
             <!-- Slide 2 - Nike -->
-            <div class="mySlides">
+            <div class="mySlides" role="group" aria-label="Slide 2 of 3: Nike Air Max 90">
                 <a href="https://amzn.to/4qL2C4h" target="_blank" rel="sponsored nofollow" class="slide-link">
                     <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400&q=70" alt="Nike Air Max 90" loading="lazy">
                     <div class="slide-text">
@@ -549,7 +569,7 @@
             </div>
             
             <!-- Slide 3 - Adidas -->
-            <div class="mySlides">
+            <div class="mySlides" role="group" aria-label="Slide 3 of 3: Adidas Ultraboost">
                 <a href="https://amzn.to/4qBR3w1" target="_blank" rel="sponsored nofollow" class="slide-link">
                     <img src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400&q=70" alt="Adidas Ultraboost" loading="lazy">
                     <div class="slide-text">
@@ -567,174 +587,177 @@
         </div>
         
         <!-- Dots -->
-        <div class="dots-container">
-            <span class="dot active" aria-label="Slide 1"></span>
-            <span class="dot" aria-label="Slide 2"></span>
-            <span class="dot" aria-label="Slide 3"></span>
+        <div class="dots-container" role="tablist" aria-label="Slideshow navigation">
+            <span class="dot active" role="tab" aria-label="Go to slide 1" aria-selected="true" tabindex="0"></span>
+            <span class="dot" role="tab" aria-label="Go to slide 2" aria-selected="false" tabindex="0"></span>
+            <span class="dot" role="tab" aria-label="Go to slide 3" aria-selected="false" tabindex="0"></span>
         </div>
     </section>
 
-    <!-- ===== FEATURED BRANDS - YOUR DESIGN PRESERVED ===== -->
-    <section class="brands" id="brands">
-        <div class="container">
-            <h2>Featured Brands</h2>
-            <div class="brand-grid">
-                <!-- Puma Card -->
-                <div class="brand-card">
-                    <img src="https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=225&q=70" alt="Puma" loading="lazy">
-                    <h3>Puma</h3>
-                    <p>Explore Puma's latest releases and classic revivals like the Suede Classic.</p>
-                    <div class="brand-buttons">
-                        <a href="#reviews" class="cta-button small">View Reviews</a>
-                        <a href="https://amzn.to/4aC23U9" target="_blank" rel="sponsored nofollow" class="cta-button small amazon">Shop Puma on Amazon</a>
-                    </div>
-                </div>
-                
-                <!-- Nike Card -->
-                <div class="brand-card">
-                    <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=225&q=70" alt="Nike" loading="lazy">
-                    <h3>Nike</h3>
-                    <p>Discover Nike's innovative technology with the iconic Air Max 90.</p>
-                    <div class="brand-buttons">
-                        <a href="#reviews" class="cta-button small">View Reviews</a>
-                        <a href="https://amzn.to/4qL2C4h" target="_blank" rel="sponsored nofollow" class="cta-button small amazon">Shop Nike on Amazon</a>
-                    </div>
-                </div>
-                
-                <!-- Adidas Card -->
-                <div class="brand-card">
-                    <img src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=225&q=70" alt="Adidas" loading="lazy">
-                    <h3>Adidas</h3>
-                    <p>Shop Adidas' heritage designs and the ultra-comfortable Ultraboost.</p>
-                    <div class="brand-buttons">
-                        <a href="#reviews" class="cta-button small">View Reviews</a>
-                        <a href="https://amzn.to/4qBR3w1" target="_blank" rel="sponsored nofollow" class="cta-button small amazon">Shop Adidas on Amazon</a>
-                    </div>
-                </div>
-                
-                <!-- New Balance Card -->
-                <div class="brand-card">
-                    <img src="https://images.unsplash.com/photo-1543508282-6319a3e2621f?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=225&q=70" alt="New Balance" loading="lazy">
-                    <h3>New Balance</h3>
-                    <p>Experience New Balance's premium craftsmanship with the 574 Classic.</p>
-                    <div class="brand-buttons">
-                        <a href="#reviews" class="cta-button small">View Reviews</a>
-                        <a href="https://amzn.to/3ML6yUF" target="_blank" rel="sponsored nofollow" class="cta-button small amazon">Shop New Balance on Amazon</a>
-                    </div>
+    <!-- ===== MAIN CONTENT - ADDED FOR ACCESSIBILITY ===== -->
+    <main id="main-content">
+        <!-- ===== FEATURED BRANDS - YOUR DESIGN PRESERVED ===== -->
+        <section class="brands" id="brands" aria-labelledby="brands-heading">
+            <div class="container">
+                <h2 id="brands-heading">Featured Brands</h2>
+                <div class="brand-grid">
+                    <!-- Puma Card -->
+                    <article class="brand-card" aria-label="Puma brand information">
+                        <img src="https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=225&q=70" alt="Puma" loading="lazy">
+                        <h3>Puma</h3>
+                        <p>Explore Puma's latest releases and classic revivals like the Suede Classic.</p>
+                        <div class="brand-buttons">
+                            <a href="#reviews" class="cta-button small">View Reviews</a>
+                            <a href="https://amzn.to/4aC23U9" target="_blank" rel="sponsored nofollow" class="cta-button small amazon">Shop Puma on Amazon</a>
+                        </div>
+                    </article>
+                    
+                    <!-- Nike Card -->
+                    <article class="brand-card" aria-label="Nike brand information">
+                        <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=225&q=70" alt="Nike" loading="lazy">
+                        <h3>Nike</h3>
+                        <p>Discover Nike's innovative technology with the iconic Air Max 90.</p>
+                        <div class="brand-buttons">
+                            <a href="#reviews" class="cta-button small">View Reviews</a>
+                            <a href="https://amzn.to/4qL2C4h" target="_blank" rel="sponsored nofollow" class="cta-button small amazon">Shop Nike on Amazon</a>
+                        </div>
+                    </article>
+                    
+                    <!-- Adidas Card -->
+                    <article class="brand-card" aria-label="Adidas brand information">
+                        <img src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=225&q=70" alt="Adidas" loading="lazy">
+                        <h3>Adidas</h3>
+                        <p>Shop Adidas' heritage designs and the ultra-comfortable Ultraboost.</p>
+                        <div class="brand-buttons">
+                            <a href="#reviews" class="cta-button small">View Reviews</a>
+                            <a href="https://amzn.to/4qBR3w1" target="_blank" rel="sponsored nofollow" class="cta-button small amazon">Shop Adidas on Amazon</a>
+                        </div>
+                    </article>
+                    
+                    <!-- New Balance Card -->
+                    <article class="brand-card" aria-label="New Balance brand information">
+                        <img src="https://images.unsplash.com/photo-1543508282-6319a3e2621f?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=225&q=70" alt="New Balance" loading="lazy">
+                        <h3>New Balance</h3>
+                        <p>Experience New Balance's premium craftsmanship with the 574 Classic.</p>
+                        <div class="brand-buttons">
+                            <a href="#reviews" class="cta-button small">View Reviews</a>
+                            <a href="https://amzn.to/3ML6yUF" target="_blank" rel="sponsored nofollow" class="cta-button small amazon">Shop New Balance on Amazon</a>
+                        </div>
+                    </article>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- ===== LATEST REVIEWS - YOUR DESIGN PRESERVED ===== -->
-    <section class="reviews" id="reviews">
-        <div class="container">
-            <h2>Latest Reviews</h2>
-            <div class="review-grid">
-                <!-- Puma Suede Classic Review -->
-                <article class="review-card">
-                    <img src="https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=225&q=70" alt="Puma Suede Classic" loading="lazy">
-                    <div class="review-content">
-                        <h3>Puma Suede Classic: Timeless Icon</h3>
-                        <p>The shoe that defined hip-hop culture returns. Perfect blend of retro aesthetics and everyday comfort.</p>
-                        
-                        <div style="display: flex; gap: 10px; margin-top: 15px; flex-wrap: wrap;">
-                            <a href="https://amzn.to/4aC23U9" 
-                               target="_blank" 
-                               rel="sponsored nofollow"
-                               style="background: #FFD700; color: #000; padding: 10px 20px; border-radius: 5px; text-decoration: none; font-weight: bold; display: inline-block;">
-                               🛒 Shop Puma
-                            </a>
-                            <a href="https://amzn.to/4aC23U9" 
-                               target="_blank" 
-                               rel="sponsored nofollow"
-                               style="background: #333; color: #FFD700; padding: 10px 20px; border-radius: 5px; text-decoration: none; font-weight: bold; border: 2px solid #FFD700; display: inline-block;">
-                               ⭐ Browse Puma Styles
-                            </a>
+        <!-- ===== LATEST REVIEWS - YOUR DESIGN PRESERVED ===== -->
+        <section class="reviews" id="reviews" aria-labelledby="reviews-heading">
+            <div class="container">
+                <h2 id="reviews-heading">Latest Reviews</h2>
+                <div class="review-grid">
+                    <!-- Puma Suede Classic Review -->
+                    <article class="review-card" aria-label="Puma Suede Classic review">
+                        <img src="https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=225&q=70" alt="Puma Suede Classic" loading="lazy">
+                        <div class="review-content">
+                            <h3>Puma Suede Classic: Timeless Icon</h3>
+                            <p>The shoe that defined hip-hop culture returns. Perfect blend of retro aesthetics and everyday comfort.</p>
+                            
+                            <div style="display: flex; gap: 10px; margin-top: 15px; flex-wrap: wrap;">
+                                <a href="https://amzn.to/4aC23U9" 
+                                   target="_blank" 
+                                   rel="sponsored nofollow"
+                                   style="background: #FFD700; color: #000; padding: 10px 20px; border-radius: 5px; text-decoration: none; font-weight: bold; display: inline-block;">
+                                   🛒 Shop Puma
+                                </a>
+                                <a href="https://amzn.to/4aC23U9" 
+                                   target="_blank" 
+                                   rel="sponsored nofollow"
+                                   style="background: #333; color: #FFD700; padding: 10px 20px; border-radius: 5px; text-decoration: none; font-weight: bold; border: 2px solid #FFD700; display: inline-block;">
+                                   ⭐ Browse Puma Styles
+                                </a>
+                            </div>
                         </div>
-                    </div>
-                </article>
-                
-                <!-- Nike Air Max 90 Review -->
-                <article class="review-card">
-                    <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=225&q=70" alt="Nike Air Max 90" loading="lazy">
-                    <div class="review-content">
-                        <h3>Nike Air Max 90: Legendary Comfort</h3>
-                        <p>Thirty years later, the Air Max 90 remains the benchmark for visible Air technology and street style.</p>
-                        
-                        <div style="display: flex; gap: 10px; margin-top: 15px; flex-wrap: wrap;">
-                            <a href="https://amzn.to/4qL2C4h" 
-                               target="_blank" 
-                               rel="sponsored nofollow"
-                               style="background: #FFD700; color: #000; padding: 10px 20px; border-radius: 5px; text-decoration: none; font-weight: bold; display: inline-block;">
-                               🛒 Shop Nike
-                            </a>
-                            <a href="https://amzn.to/4qL2C4h" 
-                               target="_blank" 
-                               rel="sponsored nofollow"
-                               style="background: #333; color: #FFD700; padding: 10px 20px; border-radius: 5px; text-decoration: none; font-weight: bold; border: 2px solid #FFD700; display: inline-block;">
-                               ⭐ Browse Nike Styles
-                            </a>
+                    </article>
+                    
+                    <!-- Nike Air Max 90 Review -->
+                    <article class="review-card" aria-label="Nike Air Max 90 review">
+                        <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=225&q=70" alt="Nike Air Max 90" loading="lazy">
+                        <div class="review-content">
+                            <h3>Nike Air Max 90: Legendary Comfort</h3>
+                            <p>Thirty years later, the Air Max 90 remains the benchmark for visible Air technology and street style.</p>
+                            
+                            <div style="display: flex; gap: 10px; margin-top: 15px; flex-wrap: wrap;">
+                                <a href="https://amzn.to/4qL2C4h" 
+                                   target="_blank" 
+                                   rel="sponsored nofollow"
+                                   style="background: #FFD700; color: #000; padding: 10px 20px; border-radius: 5px; text-decoration: none; font-weight: bold; display: inline-block;">
+                                   🛒 Shop Nike
+                                </a>
+                                <a href="https://amzn.to/4qL2C4h" 
+                                   target="_blank" 
+                                   rel="sponsored nofollow"
+                                   style="background: #333; color: #FFD700; padding: 10px 20px; border-radius: 5px; text-decoration: none; font-weight: bold; border: 2px solid #FFD700; display: inline-block;">
+                                   ⭐ Browse Nike Styles
+                                </a>
+                            </div>
                         </div>
-                    </div>
-                </article>
-                
-                <!-- Adidas Ultraboost Review -->
-                <article class="review-card">
-                    <img src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=225&q=70" alt="Adidas Ultraboost" loading="lazy">
-                    <div class="review-content">
-                        <h3>Adidas Ultraboost: The Ultimate Running Shoe</h3>
-                        <p>Boost technology revolutionized running. The Ultraboost delivers energy return like no other.</p>
-                        
-                        <div style="display: flex; gap: 10px; margin-top: 15px; flex-wrap: wrap;">
-                            <a href="https://amzn.to/4qBR3w1" 
-                               target="_blank" 
-                               rel="sponsored nofollow"
-                               style="background: #FFD700; color: #000; padding: 10px 20px; border-radius: 5px; text-decoration: none; font-weight: bold; display: inline-block;">
-                               🛒 Shop Adidas
-                            </a>
-                            <a href="https://amzn.to/4qBR3w1" 
-                               target="_blank" 
-                               rel="sponsored nofollow"
-                               style="background: #333; color: #FFD700; padding: 10px 20px; border-radius: 5px; text-decoration: none; font-weight: bold; border: 2px solid #FFD700; display: inline-block;">
-                               ⭐ Browse Adidas Styles
-                            </a>
+                    </article>
+                    
+                    <!-- Adidas Ultraboost Review -->
+                    <article class="review-card" aria-label="Adidas Ultraboost review">
+                        <img src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=225&q=70" alt="Adidas Ultraboost" loading="lazy">
+                        <div class="review-content">
+                            <h3>Adidas Ultraboost: The Ultimate Running Shoe</h3>
+                            <p>Boost technology revolutionized running. The Ultraboost delivers energy return like no other.</p>
+                            
+                            <div style="display: flex; gap: 10px; margin-top: 15px; flex-wrap: wrap;">
+                                <a href="https://amzn.to/4qBR3w1" 
+                                   target="_blank" 
+                                   rel="sponsored nofollow"
+                                   style="background: #FFD700; color: #000; padding: 10px 20px; border-radius: 5px; text-decoration: none; font-weight: bold; display: inline-block;">
+                                   🛒 Shop Adidas
+                                </a>
+                                <a href="https://amzn.to/4qBR3w1" 
+                                   target="_blank" 
+                                   rel="sponsored nofollow"
+                                   style="background: #333; color: #FFD700; padding: 10px 20px; border-radius: 5px; text-decoration: none; font-weight: bold; border: 2px solid #FFD700; display: inline-block;">
+                                   ⭐ Browse Adidas Styles
+                                </a>
+                            </div>
                         </div>
-                    </div>
-                </article>
-            </div>
-        </div>
-    </section>
-    
-    <!-- ===== CROSS PROMOTION - YOUR DESIGN PRESERVED ===== -->
-    <section class="cross-promo">
-        <div class="container">
-            <div class="promo-flex">
-                <div class="promo-text">
-                    <h2>🛠️ Need Free Tools?</h2>
-                    <p>Check out <span class="promo-highlight">100+ Free Online Tools</span> - QR codes, image resizer, JSON formatter, and more!</p>
-                    <div class="promo-buttons">
-                        <a href="https://onlinewebtool.live/" 
-                           target="_blank"
-                           class="promo-btn primary">
-                           🔧 Explore 100+ Free Tools →
-                        </a>
-                        <a href="https://onlinewebtool.live/qr-generator.html" 
-                           target="_blank"
-                           class="promo-btn secondary">
-                           📱 Try QR Code Generator
-                        </a>
-                    </div>
-                </div>
-                <div class="promo-box">
-                    <div class="promo-card">
-                        <div class="promo-icon">🛠️</div>
-                        <div class="promo-badge">FREE🔥</div>
-                    </div>
+                    </article>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+        
+        <!-- ===== CROSS PROMOTION - YOUR DESIGN PRESERVED ===== -->
+        <section class="cross-promo" aria-labelledby="promo-heading">
+            <div class="container">
+                <div class="promo-flex">
+                    <div class="promo-text">
+                        <h2 id="promo-heading">🛠️ Need Free Tools?</h2>
+                        <p>Check out <span class="promo-highlight">100+ Free Online Tools</span> - QR codes, image resizer, JSON formatter, and more!</p>
+                        <div class="promo-buttons">
+                            <a href="https://onlinewebtool.live/" 
+                               target="_blank"
+                               class="promo-btn primary">
+                               🔧 Explore 100+ Free Tools →
+                            </a>
+                            <a href="https://onlinewebtool.live/qr-generator.html" 
+                               target="_blank"
+                               class="promo-btn secondary">
+                               📱 Try QR Code Generator
+                            </a>
+                        </div>
+                    </div>
+                    <div class="promo-box">
+                        <div class="promo-card">
+                            <div class="promo-icon" aria-hidden="true">🛠️</div>
+                            <div class="promo-badge">FREE🔥</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
 
     <!-- ===== FOOTER - YOUR DESIGN PRESERVED ===== -->
     <footer class="site-footer">
@@ -793,6 +816,11 @@
                 
                 slides[slideIndex].classList.add('active');
                 dots[slideIndex].classList.add('active');
+                
+                // Update ARIA attributes for accessibility
+                dots.forEach((dot, index) => {
+                    dot.setAttribute('aria-selected', index === slideIndex ? 'true' : 'false');
+                });
             }
             
             function nextSlide() {
@@ -815,6 +843,15 @@
                 dot.addEventListener('click', () => {
                     slideIndex = index;
                     showSlide(slideIndex);
+                });
+                
+                // Allow keyboard navigation
+                dot.addEventListener('keydown', (e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        slideIndex = index;
+                        showSlide(slideIndex);
+                    }
                 });
             });
             
