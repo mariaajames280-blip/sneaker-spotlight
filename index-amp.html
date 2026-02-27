@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html ⚡ lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Sneaker Spotlight - AMP | Fast Sneaker Reviews & Eid 2025</title>
+    <link rel="canonical" href="https://mariaajames280-blip.github.io/sneaker-spotlight/">
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+    <meta name="description" content="AMP version of Sneaker Spotlight. Fast loading reviews of Nike, Adidas, Puma for Eid 2025.">
+    
+    <!-- AMP Boilerplate (required) -->
+    <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style>
+    <noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
+    
+    <!-- AMP JavaScript (required) -->
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
+    
+    <!-- AMP Components for images -->
+    <script async custom-element="amp-img" src="https://cdn.ampproject.org/v0/amp-img-0.1.js"></script>
+    
+    <!-- Structured Data for SEO -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Sneaker Spotlight",
+        "url": "https://mariaajames280-blip.github.io/sneaker-spotlight/",
+        "description": "Your guide to trending sneakers. Honest reviews and comparisons."
+    }
+    </script>
+    
+    <!-- Custom AMP Styles -->
+    <style amp-custom>
+        /* Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        .amp-header {
+            background: #000;
+            color: #FFD700;
+            padding: 40px 0;
+            text-align: center;
+        }
+        
+        .amp-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .amp-header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        /* Eid Banner */
+        .eid-banner {
+            background: linear-gradient(135deg, #c31432, #240b36);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            margin: 30px 0;
+            border-radius: 12px;
+        }
+        
+        .eid-banner h2 {
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+        
+        .eid-badge {
+            background: #FFD700;
+            color: #000;
+            padding: 8px 24px;
+            border-radius: 50px;
+            display: inline-block;
+            font-weight: bold;
+            margin-top: 15px;
+        }
+        
+        /* Section Headers */
+        .section-header {
+            text-align: center;
+            margin: 40px 0 30px;
+        }
+        
+        .section-header h2 {
+            font-size: 2rem;
+            color: #000;
+        }
+        
+        /* Brand Grid */
+        .brand-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+        
+        .brand-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        
+        .brand-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .brand-image {
+            background: #f5f5f5;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+        }
+        
+        .brand-content {
+            padding: 20px;
+        }
+        
+        .brand-content h3 {
+            font-size: 1.5rem;
+            color: #000;
+            margin-bottom: 10px;
+        }
+        
+        .brand-content p {
+            color: #666;
+            margin-bottom: 15px;
+        }
+        
+        /* Buttons */
+        .amp-button {
+            display: inline-block;
+            background: #FFD700;
+            color: #000;
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 10px;
+            border: none;
+            transition: opacity 0.3s;
+        }
+        
+        .amp-button:hover {
+            opacity: 0.8;
+        }
+        
+        .amp-button.amazon {
+            background: #000;
+            color: #FFD700;
+            border: 2px solid #FFD700;
+            margin-left: 10px;
+        }
+        
+        /* Reviews Grid */
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+        
+        .review-card {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .review-card h3 {
+            color: #000;
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+        }
+        
+        .stars {
+            color: #FFD700;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+        
+        /* Tools Promo */
+        .tools-promo {
+            background: linear-gradient(135deg, #000, #1a1a1a);
+            color: white;
+            padding: 50px 0;
+            margin: 40px 0;
+            border-top: 3px solid #FFD700;
+            border-bottom: 3px solid #FFD700;
+            text-align: center;
+        }
+        
+        .tools-promo h3 {
+            color: #FFD700;
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+        
+        .free-badge {
+            background: #FFD700;
+            color: #000;
+            padding: 6px 20px;
+            border-radius: 30px;
+            display: inline-block;
+            font-weight: bold;
+            margin: 15px 0;
+        }
+        
+        /* Footer */
+        .amp-footer {
+            background: #000;
+            color: white;
+            padding: 40px 0 20px;
+            margin-top: 60px;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #333;
+            color: #999;
+        }
+        
+        .affiliate {
+            font-size: 0.8rem;
+            color: #666;
+            margin-top: 10px;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .amp-header h1 { font-size: 1.8rem; }
+            .eid-banner h2 { font-size: 1.5rem; }
+            .brand-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="amp-header">
+        <div class="container">
+            <h1>👟 Sneaker Spotlight</h1>
+            <p>Fast AMP Version - Eid 2025 Collection</p>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <div class="container">
+            <!-- Eid Banner -->
+            <div class="eid-banner">
+                <h2>🌙 Eid Mubarak! Special Collection</h2>
+                <p>Shop the best sneakers for Eid celebrations - lightning fast loading</p>
+                <span class="eid-badge">🔥 Limited Time Eid Offers</span>
+            </div>
+
+            <!-- Featured Brands Section -->
+            <div class="section-header">
+                <h2>Featured Brands</h2>
+                <p>Top sneaker picks for Eid 2025</p>
+            </div>
+            
+            <div class="brand-grid">
+                <!-- Puma Card -->
+                <div class="brand-card">
+                    <div class="brand-image">
+                        <amp-img src="https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=200&h=150&fit=crop" 
+                                 alt="Puma Suede Classic" 
+                                 width="200" 
+                                 height="150" 
+                                 layout="responsive">
+                        </amp-img>
+                    </div>
+                    <div class="brand-content">
+                        <h3>Puma</h3>
+                        <p>Explore Puma's latest releases and classic revivals like the Suede Classic.</p>
+                        <div>
+                            <a href="https://amzn.to/4aC23U9" class="amp-button" target="_blank">Shop Puma</a>
+                            <a href="https://amzn.to/4sdX8Qr" class="amp-button amazon" target="_blank">View All</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Nike Card -->
+                <div class="brand-card">
+                    <div class="brand-image">
+                        <amp-img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?w=200&h=150&fit=crop" 
+                                 alt="Nike Air Max 90" 
+                                 width="200" 
+                                 height="150" 
+                                 layout="responsive">
+                        </amp-img>
+                    </div>
+                    <div class="brand-content">
+                        <h3>Nike</h3>
+                        <p>Discover Nike's innovative technology with the iconic Air Max 90.</p>
+                        <div>
+                            <a href="https://amzn.to/4qL2C4h" class="amp-button" target="_blank">Shop Nike</a>
+                            <a href="https://amzn.to/4tZraJz" class="amp-button amazon" target="_blank">View All</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Adidas Card -->
+                <div class="brand-card">
+                    <div class="brand-image">
+                        <amp-img src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?w=200&h=150&fit=crop" 
+                                 alt="Adidas Ultraboost" 
+                                 width="200" 
+                                 height="150" 
+                                 layout="responsive">
+                        </amp-img>
+                    </div>
+                    <div class="brand-content">
+                        <h3>Adidas</h3>
+                        <p>Shop Adidas' heritage designs and the ultra-comfortable Ultraboost.</p>
+                        <div>
+                            <a href="https://amzn.to/4qBR3w1" class="amp-button" target="_blank">Shop Adidas</a>
+                            <a href="https://amzn.to/4aPgLY8" class="amp-button amazon" target="_blank">View All</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Reviews Section -->
+            <div class="section-header">
+                <h2>Latest Reviews</h2>
+                <p>Expert reviews of top sneakers</p>
+            </div>
+            
+            <div class="reviews-grid">
+                <!-- Puma Review -->
+                <div class="review-card">
+                    <h3>Puma Suede Classic: Timeless Icon</h3>
+                    <div class="stars">★★★★★</div>
+                    <p>The shoe that defined hip-hop culture returns. Perfect blend of retro aesthetics and everyday comfort.</p>
+                    <a href="https://amzn.to/4aC23U9" class="amp-button" style="margin-top:15px;">Read Review</a>
+                </div>
+                
+                <!-- Nike Review -->
+                <div class="review-card">
+                    <h3>Nike Air Max 90: Legendary Comfort</h3>
+                    <div class="stars">★★★★★</div>
+                    <p>Thirty years later, the Air Max 90 remains the benchmark for visible Air technology and street style.</p>
+                    <a href="https://amzn.to/4qL2C4h" class="amp-button" style="margin-top:15px;">Read Review</a>
+                </div>
+                
+                <!-- Adidas Review -->
+                <div class="review-card">
+                    <h3>Adidas Ultraboost: The Ultimate Running Shoe</h3>
+                    <div class="stars">★★★★★</div>
+                    <p>Boost technology revolutionized running. The Ultraboost delivers energy return like no other.</p>
+                    <a href="https://amzn.to/4qBR3w1" class="amp-button" style="margin-top:15px;">Read Review</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tools Promo Section -->
+        <div class="tools-promo">
+            <div class="container">
+                <h3>🛠️ Need Free Tools?</h3>
+                <p>Check out 100+ Free Online Tools - QR codes, image resizer, JSON formatter, and more!</p>
+                <span class="free-badge">🔥 100% FREE</span>
+                <div style="margin-top:25px;">
+                    <a href="https://onlinewebtool.live/" class="amp-button" style="background:#FFD700; color:#000;">Explore Free Tools</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main CTA -->
+        <div class="container" style="text-align:center; margin:40px 0;">
+            <a href="https://amzn.to/4aTDoKY" style="background:#000; color:#FFD700; padding:16px 45px; border-radius:50px; text-decoration:none; font-weight:bold; font-size:1.2rem; display:inline-block; border:2px solid #FFD700;">👟 Shop Full Eid Collection</a>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="amp-footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>© 2026 Sneaker-Spotlight. All rights reserved. | 🌙 Eid Mubarak!</p>
+                <p class="affiliate">As an Amazon Associate (ID: maria555-20), I earn from qualifying purchases.</p>
+                <p style="margin-top:15px;"><a href="https://mariaajames280-blip.github.io/sneaker-spotlight/" style="color:#FFD700;">View Full Site</a></p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
